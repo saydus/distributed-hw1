@@ -1,0 +1,31 @@
+2023-02-16 17:38:42,002 - root - INFO - Main - acquire a child logger and then log messages in the child
+2023-02-16 17:38:42,002 - PublisherAppln - DEBUG - Main: parse command line arguments
+2023-02-16 17:38:42,008 - PublisherAppln - DEBUG - Main: resetting log level to 20
+2023-02-16 17:38:42,008 - PublisherAppln - INFO - PublisherAppln::configure
+2023-02-16 17:38:42,008 - PublisherAppln - INFO - PublisherMW::configure
+2023-02-16 17:38:42,009 - PublisherAppln - INFO - PublisherMW::configure completed
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - PublisherAppln::configure - configuration complete
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - PublisherAppln::driver
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - **********************************
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - PublisherAppln::dump
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - ------------------------------
+2023-02-16 17:38:42,010 - PublisherAppln - INFO -      Name: pub1
+2023-02-16 17:38:42,010 - PublisherAppln - INFO -      Lookup: Centralized
+2023-02-16 17:38:42,010 - PublisherAppln - INFO -      Dissemination: Direct
+2023-02-16 17:38:42,010 - PublisherAppln - INFO -      Num Topics: 9
+2023-02-16 17:38:42,010 - PublisherAppln - INFO -      TopicList: ['pressure', 'sound', 'weather', 'light', 'temperature', 'location', 'airquality', 'humidity', 'altitude']
+2023-02-16 17:38:42,010 - PublisherAppln - INFO -      Iterations: 1000
+2023-02-16 17:38:42,010 - PublisherAppln - INFO -      Frequency: 1
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - **********************************
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - PublisherMW::event_loop - run the event loop
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - PublisherAppln::invoke_operation
+2023-02-16 17:38:42,010 - PublisherAppln - INFO - PublisherMW::register
+2023-02-16 17:38:42,011 - PublisherAppln - INFO - PublisherMW::register - sent register message and now now wait for reply
+2023-02-16 17:38:42,012 - PublisherAppln - INFO - PublisherMW::handle_reply
+2023-02-16 17:38:42,012 - PublisherAppln - INFO - PublisherAppln::register_response
+2023-02-16 17:38:42,013 - PublisherAppln - INFO - PublisherAppln::invoke_operation
+2023-02-16 17:38:42,013 - PublisherAppln - INFO - PublisherMW::is_ready
+2023-02-16 17:38:42,013 - PublisherAppln - INFO - PublisherMW::is_ready - request sent and now wait for reply
+2023-02-16 17:38:42,014 - PublisherAppln - INFO - PublisherMW::handle_reply
+2023-02-16 17:38:42,014 - PublisherAppln - INFO - PublisherAppln::isready_response
+2023-02-16 17:38:42,014 - PublisherAppln - INFO - PublisherAppln::invoke_operation

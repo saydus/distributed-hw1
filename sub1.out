@@ -1,0 +1,381 @@
+2023-02-16 17:38:41,999 - root - INFO - Main - acquire a child logger and then log messages in the child
+2023-02-16 17:38:41,999 - SubscriberAppln - DEBUG - Main: parse command line arguments
+2023-02-16 17:38:42,005 - SubscriberAppln - DEBUG - Main: resetting log level to 10
+2023-02-16 17:38:42,005 - SubscriberAppln - DEBUG - Main: effective log level is 10
+2023-02-16 17:38:42,005 - SubscriberAppln - DEBUG - Main: obtain the subscriber appln object
+2023-02-16 17:38:42,005 - SubscriberAppln - DEBUG - Main: configure the subscriber appln object
+2023-02-16 17:38:42,006 - SubscriberAppln - INFO - SubscriberAppln::configure
+2023-02-16 17:38:42,006 - SubscriberAppln - DEBUG - SubscriberAppln::configure - parsing config.ini
+2023-02-16 17:38:42,006 - SubscriberAppln - DEBUG - SubscriberAppln::configure - selecting our topic list
+2023-02-16 17:38:42,006 - SubscriberAppln - DEBUG - SubscriberAppln::configure - initialize the middleware object
+2023-02-16 17:38:42,006 - SubscriberAppln - INFO - SubscriberMW::configure
+2023-02-16 17:38:42,006 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain ZMQ context
+2023-02-16 17:38:42,006 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain the poller
+2023-02-16 17:38:42,007 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain REQ and PUB sockets
+2023-02-16 17:38:42,007 - SubscriberAppln - DEBUG - SubscriberMW::configure - register the REQ socket for incoming replies
+2023-02-16 17:38:42,007 - SubscriberAppln - DEBUG - SubscriberMW::configure - connect to Discovery service
+2023-02-16 17:38:42,007 - SubscriberAppln - DEBUG - SubscriberMW::configure - bind to the pub socket
+2023-02-16 17:38:42,007 - SubscriberAppln - INFO - SubscriberMW::configure completed
+2023-02-16 17:38:42,007 - SubscriberAppln - INFO - SubscriberAppln::configure - configuration complete
+2023-02-16 17:38:42,007 - SubscriberAppln - DEBUG - Main: invoke the subscriber appln driver
+2023-02-16 17:38:42,007 - SubscriberAppln - INFO - SubscriberAppln::driver
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO - **********************************
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO - SubscriberAppln::dump
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO - ------------------------------
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO -      Name: sub1
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO -      Lookup: Centralized
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO -      Dissemination: Direct
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO -      Num Topics: 5
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO -      TopicList: ['altitude', 'humidity', 'airquality', 'temperature', 'sound']
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO - **********************************
+2023-02-16 17:38:42,008 - SubscriberAppln - DEBUG - SubscriberAppln::driver - upcall handle
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO - SublisherMW::event_loop - run the event loop
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-02-16 17:38:42,008 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - register with the discovery service
+2023-02-16 17:38:42,008 - SubscriberAppln - INFO - SubscriberMW::register
+2023-02-16 17:38:42,008 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the Registrant Info
+2023-02-16 17:38:42,008 - SubscriberAppln - DEBUG - PublisherMW::register - done populating the Registrant Info
+2023-02-16 17:38:42,008 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the nested register req
+2023-02-16 17:38:42,008 - SubscriberAppln - DEBUG - SubscriberMW::register - done populating nested RegisterReq
+2023-02-16 17:38:42,009 - SubscriberAppln - DEBUG - SubscriberMW::register - build the outer DiscoveryReq message
+2023-02-16 17:38:42,009 - SubscriberAppln - DEBUG - SubscriberMW::register - done building the outer message
+2023-02-16 17:38:42,009 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x01\x12L\x08\x02\x12\x14\n\x04sub1\x12\tlocalhost\x18\xd4+\x1a\x08altitude\x1a\x08humidity\x1a\nairquality\x1a\x0btemperature\x1a\x05sound'
+2023-02-16 17:38:42,009 - SubscriberAppln - DEBUG - SubscriberMW::register - send stringified buffer to Discovery service
+2023-02-16 17:38:42,009 - SubscriberAppln - INFO - SubscriberMW::register - sent register message and now now wait for reply
+2023-02-16 17:38:42,010 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-02-16 17:38:42,010 - SubscriberAppln - INFO - SubcriberAppln::register_response
+2023-02-16 17:38:42,010 - SubscriberAppln - DEBUG - PublisherAppln::register_response - registration is a success
+2023-02-16 17:38:42,011 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-02-16 17:38:42,011 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if are ready to go
+2023-02-16 17:38:42,011 - SubscriberAppln - INFO - SubscriberMW::is_ready
+2023-02-16 17:38:42,011 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
+2023-02-16 17:38:42,011 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
+2023-02-16 17:38:42,011 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
+2023-02-16 17:38:42,011 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
+2023-02-16 17:38:42,011 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x00'
+2023-02-16 17:38:42,011 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
+2023-02-16 17:38:42,011 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
+2023-02-16 17:38:42,013 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-02-16 17:38:42,013 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = status: true
+
+2023-02-16 17:38:42,013 - SubscriberAppln - INFO - SubscriberAppln::isready_response
+2023-02-16 17:38:42,013 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-02-16 17:38:42,013 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - start looking up
+2023-02-16 17:38:42,013 - SubscriberAppln - INFO - SubscriberMW::lookup
+2023-02-16 17:38:42,013 - SubscriberAppln - DEBUG - SubscriberMW::lookup - built the message
+2023-02-16 17:38:42,013 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x03"4\x12\x08altitude\x12\x08humidity\x12\nairquality\x12\x0btemperature\x12\x05sound'
+2023-02-16 17:38:42,013 - SubscriberAppln - INFO - SubscriberMW::lookup - sent lookup message and now now wait for reply
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - response = publist: "localhost:5570"
+, topiclist: ['altitude', 'humidity', 'airquality', 'temperature', 'sound']
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = altitude
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = humidity
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = airquality
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = temperature
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = sound
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup after topiclist subscription - publist = ['localhost:5570'], type=<class 'google._upb._message.RepeatedScalarContainer'>
+2023-02-16 17:38:42,015 - SubscriberAppln - INFO - SubscriberMW::handle_reply - registrant_info 
+2023-02-16 17:38:42,016 - SubscriberAppln - INFO - SubscriberAppln::islookup_response
+2023-02-16 17:38:43,019 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:43,019 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:43,019 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:89
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:44
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:43,020 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:47.00030123069231
+2023-02-16 17:38:43,021 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:43,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:43,021 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:13394
+2023-02-16 17:38:44,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:44,020 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:44,020 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:43
+2023-02-16 17:38:44,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:44,020 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:44,020 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-1
+2023-02-16 17:38:44,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:smog
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:35.213833702225
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:44,021 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:23814
+2023-02-16 17:38:45,021 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:45,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:45,021 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:36
+2023-02-16 17:38:45,021 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:45,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-45
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:38.29080407404895
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:45,022 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:45,023 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:2513
+2023-02-16 17:38:46,022 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:46,022 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:46,022 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:63
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-57
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:poor
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:16.46730214687796
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:46,023 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:46,024 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:14445
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:70
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:2
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:47,025 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:47,026 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:poor
+2023-02-16 17:38:47,026 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:47,026 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:47,026 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:72.49665455137085
+2023-02-16 17:38:47,026 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:47,026 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:47,026 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:33467
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:75
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:62
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:48,029 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:smog
+2023-02-16 17:38:48,030 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:48,030 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:48,030 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:15.776843299779976
+2023-02-16 17:38:48,030 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:48,030 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:48,030 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:16060
+2023-02-16 17:38:49,030 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:49,030 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:49,030 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:56
+2023-02-16 17:38:49,030 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:49,030 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:49,030 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-62
+2023-02-16 17:38:49,030 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:smog
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:50.39806404434014
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:49,031 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:15781
+2023-02-16 17:38:50,032 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:50,032 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:50,032 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:37
+2023-02-16 17:38:50,032 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:50,032 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:50,032 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-88
+2023-02-16 17:38:50,033 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:50,033 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:50,033 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:smog
+2023-02-16 17:38:50,033 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:50,033 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:50,033 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:98.94973903628866
+2023-02-16 17:38:50,033 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:50,034 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:50,034 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:15986
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:40
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:89
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:51,032 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:51,033 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:51,033 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:50.15490251747883
+2023-02-16 17:38:51,033 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:51,033 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:51,033 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:3592
+2023-02-16 17:38:52,033 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:52,033 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:52,033 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:63
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-9
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:31.240656591204555
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:52,034 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:4518
+2023-02-16 17:38:53,034 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:31
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-40
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:poor
+2023-02-16 17:38:53,035 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:53,036 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:53,036 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:80.78293982865837
+2023-02-16 17:38:53,036 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:53,036 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:53,036 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:32011
+2023-02-16 17:38:54,040 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:54,040 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:54,040 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:62
+2023-02-16 17:38:54,040 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-12
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:smog
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:16.30091809222675
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:54,041 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:35020
+2023-02-16 17:38:55,044 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:55,044 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:55,045 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:76
+2023-02-16 17:38:55,045 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:55,045 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:55,045 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:95
+2023-02-16 17:38:55,045 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:55,045 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:55,046 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:55,046 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:55,046 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:55,046 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:95.30577169920501
+2023-02-16 17:38:55,046 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:55,046 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:55,046 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:4430
+2023-02-16 17:38:56,047 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:93
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-11
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:smog
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:56,048 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:76.66330781285207
+2023-02-16 17:38:56,049 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:56,049 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:56,049 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:8494
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:73
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:5
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:57,052 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:58.27891160803951
+2023-02-16 17:38:57,053 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:57,053 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:57,053 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:29388
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:73
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:61
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:58,054 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:58,055 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:58,055 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:58,055 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:40.31052661666085
+2023-02-16 17:38:58,055 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:58,055 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:58,055 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:18942
+2023-02-16 17:38:59,054 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:59,054 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:59,054 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:85
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-68
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:64.93347056915263
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:38:59,055 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:33917
+2023-02-16 17:39:00,056 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:00,056 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:40
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-34
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:poor
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:86.36935046307954
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:00,057 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:15904
+2023-02-16 17:39:01,057 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:01,057 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:01,057 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:75
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:-5
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:47.462681846020544
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:01,058 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:24450
+2023-02-16 17:39:02,062 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:87
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:37
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:02,063 - SubscriberAppln - INFO - SubscriberAppln: Received a message airquality:good
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberAppln: Received a message humidity:77.47905368727385
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:22105
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - SubscriberMW::event_loop - out of the event loop
+2023-02-16 17:39:02,064 - SubscriberAppln - INFO - PublisherAppln::driver completed
