@@ -10,4 +10,8 @@
 // Let us use the Version 3 syntax
 syntax = "proto3";
 
-message TopicMessage { string topicWithMessage = 1; }
+message TopicMessage {
+  string topic = 1;
+  string message = 2;
+  float timestamp = 3;
+}

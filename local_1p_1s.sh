@@ -9,4 +9,5 @@ rm -fr *.out  # remove any existing out files
 # all kinds of experimental scenarios.
 python3 DiscoveryAppln.py -P 1 -S 1 > discovery.out 2>&1 &
 python3 PublisherAppln.py -T 9 -n pub1 -p 5570 > pub1.out 2>&1 &
-python3 SubscriberAppln.py -T 5 -n sub1 > sub1.out 2>&1 
+python3 SubscriberAppln.py -T 5 -n sub1 > sub1.out 2>&1 &
+python3 BrokerAppln.py -n broker1 > broker1.out 2>&1

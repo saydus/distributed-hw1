@@ -93,8 +93,10 @@ class BrokerMW():
             buf = self.req.recv()
             self.logger.info("BrokerMW: handle_request: received request")
 
-            request = discovery_pb2.DiscoveryReq()
+            request = discovery_pb2.DiscoveryResp()
+
             request.ParseFromString(buf)
+            self.logger.info("BrokerMW: handle_request: parsing request")
 
             if request.msg_type == discovery_pb2.TYPE_REGISTER:
                 return self.upcall_obj.handle_register(request.register_resp)
@@ -128,7 +130,7 @@ class BrokerMW():
         try:
             self.logger.info("BrokerMW: handle_sub")
             msg = self.sub.recv().decode("utf-8")
-            self.pub.send(msg)
+            self.pub.send_string(msg)
             self.logger.info("BrokerMW: handle_sub: forwarded msg")
             return self.timeout
 
