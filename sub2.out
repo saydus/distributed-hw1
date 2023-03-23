@@ -1,0 +1,120 @@
+2023-04-30 21:46:46,531 - root - INFO - Main - acquire a child logger and then log messages in the child
+2023-04-30 21:46:46,550 - SubscriberAppln - DEBUG - Main: parse command line arguments
+2023-04-30 21:46:46,603 - SubscriberAppln - DEBUG - Main: resetting log level to 10
+2023-04-30 21:46:46,616 - SubscriberAppln - DEBUG - Main: effective log level is 10
+2023-04-30 21:46:46,619 - SubscriberAppln - DEBUG - Main: obtain the subscriber appln object
+2023-04-30 21:46:46,620 - SubscriberAppln - DEBUG - Main: configure the subscriber appln object
+2023-04-30 21:46:46,621 - SubscriberAppln - INFO - SubscriberAppln::configure
+2023-04-30 21:46:46,621 - SubscriberAppln - DEBUG - SubscriberAppln::configure - parsing config.ini
+2023-04-30 21:46:46,625 - SubscriberAppln - DEBUG - SubscriberAppln::configure - selecting our topic list
+2023-04-30 21:46:46,626 - SubscriberAppln - DEBUG - SubscriberAppln::configure - initialize the middleware object
+2023-04-30 21:46:46,627 - SubscriberAppln - INFO - SubscriberMW::configure
+2023-04-30 21:46:46,627 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain ZMQ context
+2023-04-30 21:46:46,628 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain the poller
+2023-04-30 21:46:46,628 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain REQ and PUB sockets
+2023-04-30 21:46:46,629 - SubscriberAppln - DEBUG - SubscriberMW::configure - register the REQ socket for incoming replies
+2023-04-30 21:46:46,629 - SubscriberAppln - DEBUG - SubscriberMW::configure - connect to Discovery service
+2023-04-30 21:46:46,632 - SubscriberAppln - DEBUG - SubscriberMW::configure - connect to the discovery service, connect_str = tcp://10.0.0.11:5555
+2023-04-30 21:46:46,632 - SubscriberAppln - DEBUG - SubscriberMW::configure - bind to the pub socket
+2023-04-30 21:46:46,633 - SubscriberAppln - INFO - SubscriberMW::configure completed
+2023-04-30 21:46:46,634 - SubscriberAppln - INFO - SubscriberAppln::configure - configuration complete
+2023-04-30 21:46:46,635 - SubscriberAppln - DEBUG - Main: invoke the subscriber appln driver
+2023-04-30 21:46:46,636 - SubscriberAppln - INFO - SubscriberAppln::driver
+2023-04-30 21:46:46,637 - SubscriberAppln - INFO - **********************************
+2023-04-30 21:46:46,637 - SubscriberAppln - INFO - SubscriberAppln::dump
+2023-04-30 21:46:46,637 - SubscriberAppln - INFO - ------------------------------
+2023-04-30 21:46:46,638 - SubscriberAppln - INFO -      Name: sub2
+2023-04-30 21:46:46,638 - SubscriberAppln - INFO -      Lookup: DHT
+2023-04-30 21:46:46,638 - SubscriberAppln - INFO -      Dissemination: Broker
+2023-04-30 21:46:46,639 - SubscriberAppln - INFO -      Num Topics: 9
+2023-04-30 21:46:46,639 - SubscriberAppln - INFO -      TopicList: ['light', 'sound', 'pressure', 'altitude', 'temperature', 'airquality', 'humidity', 'location', 'weather']
+2023-04-30 21:46:46,640 - SubscriberAppln - INFO - **********************************
+2023-04-30 21:46:46,641 - SubscriberAppln - DEBUG - SubscriberAppln::driver - upcall handle
+2023-04-30 21:46:46,642 - SubscriberAppln - INFO - SublisherMW::event_loop - run the event loop
+2023-04-30 21:46:46,642 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-30 21:46:46,642 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - register with the discovery service ['light', 'sound', 'pressure', 'altitude', 'temperature', 'airquality', 'humidity', 'location', 'weather']
+2023-04-30 21:46:46,643 - SubscriberAppln - INFO - SubscriberMW::register
+2023-04-30 21:46:46,644 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the Registrant Info
+2023-04-30 21:46:46,644 - SubscriberAppln - DEBUG - PublisherMW::register - done populating the Registrant Info
+2023-04-30 21:46:46,645 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the nested register req
+2023-04-30 21:46:46,645 - SubscriberAppln - DEBUG - SubscriberMW::register - done populating nested RegisterReq
+2023-04-30 21:46:46,646 - SubscriberAppln - DEBUG - SubscriberMW::register - build the outer DiscoveryReq message
+2023-04-30 21:46:46,647 - SubscriberAppln - DEBUG - SubscriberMW::register - done building the outer message
+2023-04-30 21:46:46,648 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x01\x12p\x08\x02\x12\x14\n\x04sub2\x12\tlocalhost\x18\xd4+\x1a\x05light\x1a\x05sound\x1a\x08pressure\x1a\x08altitude\x1a\x0btemperature\x1a\nairquality\x1a\x08humidity\x1a\x08location\x1a\x07weather2\x121682909206.6474347'
+2023-04-30 21:46:46,650 - SubscriberAppln - DEBUG - SubscriberMW::register - send stringified buffer to Discovery service
+2023-04-30 21:46:46,650 - SubscriberAppln - INFO - SubscriberMW::register - sent register message and now now wait for reply
+2023-04-30 21:46:47,590 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-30 21:46:47,591 - SubscriberAppln - INFO - SubcriberAppln::register_response
+2023-04-30 21:46:47,592 - SubscriberAppln - DEBUG - PublisherAppln::register_response - registration is a success
+2023-04-30 21:46:47,592 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-30 21:46:47,593 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if we are ready to go
+2023-04-30 21:46:47,593 - SubscriberAppln - INFO - SubscriberMW::is_ready
+2023-04-30 21:46:47,594 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
+2023-04-30 21:46:47,595 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
+2023-04-30 21:46:47,595 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
+2023-04-30 21:46:47,595 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
+2023-04-30 21:46:47,596 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x002\x121682909207.5927017'
+2023-04-30 21:46:47,598 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
+2023-04-30 21:46:47,601 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
+2023-04-30 21:46:47,703 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-30 21:46:47,705 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = 
+2023-04-30 21:46:47,706 - SubscriberAppln - INFO - SubscriberAppln::isready_response
+2023-04-30 21:46:47,711 - SubscriberAppln - DEBUG - SubscriberAppln::driver - Not ready yet; check again
+2023-04-30 21:46:47,711 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-30 21:46:47,711 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if we are ready to go
+2023-04-30 21:46:47,711 - SubscriberAppln - INFO - SubscriberMW::is_ready
+2023-04-30 21:46:47,712 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
+2023-04-30 21:46:47,714 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
+2023-04-30 21:46:47,716 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
+2023-04-30 21:46:47,722 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
+2023-04-30 21:46:47,724 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x002\x121682909207.5927017'
+2023-04-30 21:46:47,730 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
+2023-04-30 21:46:47,737 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
+2023-04-30 21:46:47,821 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-30 21:46:47,823 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = 
+2023-04-30 21:46:47,830 - SubscriberAppln - INFO - SubscriberAppln::isready_response
+2023-04-30 21:46:47,830 - SubscriberAppln - DEBUG - SubscriberAppln::driver - Not ready yet; check again
+2023-04-30 21:46:47,832 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-30 21:46:47,832 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if we are ready to go
+2023-04-30 21:46:47,832 - SubscriberAppln - INFO - SubscriberMW::is_ready
+2023-04-30 21:46:47,833 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
+2023-04-30 21:46:47,844 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
+2023-04-30 21:46:47,848 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
+2023-04-30 21:46:47,851 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
+2023-04-30 21:46:47,858 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x002\x121682909207.5927017'
+2023-04-30 21:46:47,868 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
+2023-04-30 21:46:47,874 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
+2023-04-30 21:46:47,993 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-30 21:46:47,994 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = status: true
+
+2023-04-30 21:46:47,995 - SubscriberAppln - INFO - SubscriberAppln::isready_response
+2023-04-30 21:46:47,995 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-30 21:46:47,995 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - start looking up
+2023-04-30 21:46:47,995 - SubscriberAppln - INFO - SubscriberMW::lookup
+2023-04-30 21:46:47,996 - SubscriberAppln - DEBUG - SubscriberMW::lookup - built the message
+2023-04-30 21:46:48,002 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x03"X\n\x05light\n\x05sound\n\x08pressure\n\x08altitude\n\x0btemperature\n\nairquality\n\x08humidity\n\x08location\n\x07weather2\x121682909208.0023737'
+2023-04-30 21:46:48,009 - SubscriberAppln - INFO - SubscriberMW::lookup - sent lookup message and now now wait for reply
+2023-04-30 21:46:48,081 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-30 21:46:48,083 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - response = publist: "localhost:5599"
+, topiclist: ['light', 'sound', 'pressure', 'altitude', 'temperature', 'airquality', 'humidity', 'location', 'weather']
+2023-04-30 21:46:48,083 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = light
+2023-04-30 21:46:48,083 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = sound
+2023-04-30 21:46:48,084 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = pressure
+2023-04-30 21:46:48,084 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = altitude
+2023-04-30 21:46:48,084 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = temperature
+2023-04-30 21:46:48,088 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = airquality
+2023-04-30 21:46:48,088 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = humidity
+2023-04-30 21:46:48,088 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = location
+2023-04-30 21:46:48,088 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = weather
+2023-04-30 21:46:48,088 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup after topiclist subscription - publist = ['localhost:5599'], type=<class 'google._upb._message.RepeatedScalarContainer'>
+2023-04-30 21:46:48,091 - SubscriberAppln - INFO - SubscriberMW::handle_reply - registrant_info 
+2023-04-30 21:46:48,092 - SubscriberAppln - INFO - SubscriberAppln::islookup_response
+2023-04-30 21:46:48,093 - SubscriberAppln - INFO - **********************************
+2023-04-30 21:46:48,093 - SubscriberAppln - INFO - SubscriberAppln::dump_stats
+2023-04-30 21:46:48,093 - SubscriberAppln - INFO - ------------------------------
+2023-04-30 21:46:48,094 - SubscriberAppln - INFO -      Name: sub2
+2023-04-30 21:46:48,094 - SubscriberAppln - INFO -      Lookup: DHT
+2023-04-30 21:46:48,094 - SubscriberAppln - INFO -      ('register', 'sub2', 'DHT', 2, 2, 0.9452807903289795)
+2023-04-30 21:46:48,094 - SubscriberAppln - INFO -      ('isready', 'sub2', 'DHT', 2, 2, 0.40247225761413574)
+2023-04-30 21:46:48,099 - SubscriberAppln - INFO -      ('lookup', 'sub2', 'DHT', 2, 2, 0.09091639518737793)
+2023-04-30 21:46:48,100 - SubscriberAppln - INFO - **********************************

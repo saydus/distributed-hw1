@@ -76,25 +76,70 @@ class DiscoveryAppln():
         self.topic_to_publishers = {}
         self.broker_to_ip_port = {}
 
+        self.name = None
+
     def configure(self, args):
         try:
             self.logger.info("DiscoveryAppln: configure")
             self.num_publishers = args.publishers
             self.num_subscribers = args.subscribers
+            self.name = args.name
 
             config = configparser.ConfigParser()
             config.read(args.config)
             self.lookup = config['Discovery']['Strategy']
             self.dissemination = config['Dissemination']['Strategy']
 
-            self.mw_obj = DiscoveryMW(self.logger)
-            self.mw_obj.configure()
+            self.mw_obj = DiscoveryMW(self.logger, self.lookup)
+            self.mw_obj.set_upcall_handle(self)
+            self.mw_obj.configure(args)
 
             self.logger.info("DiscoveryAppln: configure: completed")
         except Exception as e:
             raise e
 
-    def handle_isready(self):
+    def handle_isready_dht(self, isready_data, frames, sent_timestamp):
+        dht_data = isready_data.dht_is_ready
+        visited_nodes_collection = set(dht_data.visited_nodes)
+        registered_pubs_collection = set(dht_data.pubs)
+        registered_subs_collection = set(dht_data.subs)
+        registered_brokers_collection = set(dht_data.brokers)
+
+        if self.name in visited_nodes_collection:
+            # Full circle completed
+            subscribersReady = (self.num_subscribers ==
+                                len(registered_subs_collection))
+            publishersReady = (self.num_publishers ==
+                               len(registered_pubs_collection))
+
+            brokersReady = (self.dissemination != 'Broker' or (
+                self.dissemination == 'Broker' and len(registered_brokers_collection) != 0))
+
+            self.logger.debug("brokersReady = %s", str(brokersReady))
+
+            systemReady = subscribersReady and publishersReady and brokersReady
+
+            self.mw_obj.send_isready(systemReady, frames, sent_timestamp)
+            self.logger.debug(
+                f"IS_READY, visited nodes: {str(visited_nodes_collection)} ")
+
+            return None
+
+        else:
+            visited_nodes_collection.add(self.name)
+            registered_pubs_collection.update(self.publishers)
+            registered_subs_collection.update(self.subscribers)
+            registered_brokers_collection.update(self.brokers)
+            # Forward the is_ready request to the subsequent node in dht ring
+            self.mw_obj.send_isready_request_to_next_node(
+                visited_nodes_collection, registered_pubs_collection, registered_subs_collection, registered_brokers_collection, frames, sent_timestamp)
+
+            return None
+
+    def handle_isready(self, isready_body, frames, timestamp):
+        if self.lookup == 'DHT':
+            return self.handle_isready_dht(isready_body, frames, timestamp)
+
         isSubscribersReady = len(self.subscribers) == self.num_subscribers
         isPublishersReady = len(self.publishers) == self.num_publishers
         isBrokersReady = (len(self.brokers) != 0 if self.dissemination ==
@@ -104,10 +149,10 @@ class DiscoveryAppln():
             isSubscribersReady, isPublishersReady, isBrokersReady))
 
         self.mw_obj.send_isready(
-            isSubscribersReady and isPublishersReady and isBrokersReady)
+            isSubscribersReady and isPublishersReady and isBrokersReady, frames, timestamp)
         return None
 
-    def handle_register(self, register_req):
+    def handle_register(self, register_req, frames, timestamp):
         try:
             self.logger.info("DiscoveryAppln: handle_register")
             ip_addr = register_req.info.addr
@@ -122,7 +167,7 @@ class DiscoveryAppln():
                     self.logger.info(
                         "DiscoveryAppln: handle_register: publisher: duplicate registration")
                     self.mw_obj.send_register_resp(
-                        False, "Duplicate registration")
+                        False, "Duplicate registration", frames, timestamp)
                 else:
                     self.publishers.add(id)
                     topiclist = register_req.topiclist
@@ -134,7 +179,7 @@ class DiscoveryAppln():
 
                     self.logger.info("DiscoveryAppln: handle_register: publisher: topic_to_publishers: {}".format(
                         self.topic_to_publishers))
-                    self.mw_obj.send_register_resp(True)
+                    self.mw_obj.send_register_resp(True, "", frames, timestamp)
 
             elif register_req.role == discovery_pb2.ROLE_SUBSCRIBER:
                 self.logger.info("DiscoveryAppln: handle_register: subscriber")
@@ -143,10 +188,10 @@ class DiscoveryAppln():
                     self.logger.info(
                         "DiscoveryAppln: handle_register: subscriber: duplicate registration")
                     self.mw_obj.send_register_resp(
-                        False, "Duplicate registration")
+                        False, "Duplicate registration", frames, timestamp)
                 else:
                     self.subscribers.add(id)
-                    self.mw_obj.send_register_resp(True)
+                    self.mw_obj.send_register_resp(True, "", frames, timestamp)
 
             elif register_req.role == discovery_pb2.ROLE_BOTH:
                 self.logger.info("DiscoveryAppln: handle_register: broker")
@@ -155,27 +200,28 @@ class DiscoveryAppln():
                     self.logger.info(
                         "DiscoveryAppln: handle_register: broker: duplicate registration")
                     self.mw_obj.send_register_resp(
-                        False, "Duplicate registration")
+                        False, "Duplicate registration", frames, timestamp)
                 else:
                     self.brokers.add(id)
                     self.broker_to_ip_port[id] = addr
-                    self.mw_obj.send_register_resp(True)
+                    self.mw_obj.send_register_resp(True, "", frames, timestamp)
 
             return None
 
         except Exception as e:
             raise e
 
-    def handle_lookup_topic(self, lookup_req):
+    def handle_lookup_topic(self, lookup_req, frames, timestamp):
         self.logger.info("DiscoveryAppln: handle_lookup_topic")
         try:
             sockets = []
 
             if (self.dissemination == 'Broker'):
-                # send a broker
-                broker = next(iter(self.brokers), None)
-                ip = self.broker_to_ip_port[broker]
-                sockets.append(ip)
+                if len(self.brokers) != 0:
+                    # send a broker
+                    broker = next(iter(self.brokers), None)
+                    ip = self.broker_to_ip_port[broker]
+                    sockets.append(ip)
             else:
                 # return ips of publishers
                 for topic in lookup_req.topiclist:
@@ -186,27 +232,69 @@ class DiscoveryAppln():
                             sockets.append(
                                 self.publisher_to_ip_port[publisher])
                 self.logger.info(
-                    "DiscoveryAppln: handle_lookup_topic: sockets: {}".format(sockets))
+                    "DiscoveryAppln: handle_lookup_topic: sockets: {}, lookupreq: {}".format(sockets, lookup_req))
 
-            self.mw_obj.send_lookup_resp(sockets)
-            return None
+            if (self.lookup != "DHT"):
+                self.mw_obj.send_lookup(sockets, frames, timestamp)
+                return None
+
+            self.logger.info(
+                "DiscoveryAppln: handle_lookup_topic: now send the request to other node")
+
+            visited_nodes = set(lookup_req.visited_nodes)
+            added_sockets = set(lookup_req.sockets_for_connection)
+            added_sockets.update(sockets)
+
+            self.logger.info(
+                "DiscoveryAppln: handle_lookup_topic: updated sockets")
+
+            if self.name in visited_nodes:
+                self.logger.info(
+                    "DiscoveryAppln: handle_lookup_topic: send response")
+                self.mw_obj.send_lookup_resp(added_sockets, frames, timestamp)
+                return None
+
+            else:
+                self.logger.info(
+                    "DiscoveryAppln: handle_lookup_topic: send to next node")
+                self.logger.info(
+                    "DiscoveryAppln: handle_lookup_topic: send to next node, topiclist: {}".format(lookup_req.topiclist))
+
+                visited_nodes.add(self.name)
+                self.mw_obj.send_lookup_request_to_next_node(lookup_req.topiclist, False,
+                                                             visited_nodes, added_sockets, frames, timestamp)
+                return None
+
         except Exception as e:
             raise e
 
-    def handle_lookup_all_publishers(self, lookup_req):
+    def handle_lookup_all_publishers(self, lookup_req, frames, timestamp):
         sockets = []
         for publisher in self.publishers:
             sockets.append(self.publisher_to_ip_port[publisher])
 
-        self.mw_obj.send_lookup_all_resp(sockets)
-        return None
+        if self.lookup != "DHT":
+            self.mw_obj.send_lookup_all_resp(sockets, frames, timestamp)
+            return None
+
+        visited_nodes = set(lookup_req.visited_nodes)
+        added_sockets = set(lookup_req.sockets_for_connection)
+        added_sockets.update(sockets)
+
+        if self.name in visited_nodes:
+            self.mw_obj.send_lookup_resp(added_sockets, frames, timestamp)
+            return None
+
+        else:
+            visited_nodes.add(self.name)
+            self.mw_obj.send_lookup_request_to_next_node(lookup_req.topiclist, True,
+                                                         visited_nodes, added_sockets, frames, timestamp)
+            return None
 
     def driver(self):
         try:
             self.logger.info("DiscoverAppln::driver")
             self.dump()
-
-            self.mw_obj.set_upcall_handle(self)
 
             self.state = self.State.WAIT
             self.mw_obj.event_loop(timeout=None)
@@ -261,6 +349,15 @@ def parseCmdLineArgs():
 
     parser.add_argument("-l", "--loglevel", type=int, default=logging.DEBUG, choices=[
                         logging.DEBUG, logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL], help="logging level, choices 10,20,30,40,50: default 20=logging.INFO")
+
+    parser.add_argument("-j", "--json_path_dht", type=str,
+                        default='dht.json', help="DHT nodes in the ring.")
+
+    parser.add_argument("-n", "--name", type=str,
+                        default='discovery', help="Discovery node")
+
+    parser.add_argument("-p", "--port", type=int, default=8888,
+                        help="Port used by this discovery node")
 
     return parser.parse_args()
 

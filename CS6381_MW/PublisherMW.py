@@ -34,6 +34,9 @@ import zmq  # ZMQ sockets
 from CS6381_MW import discovery_pb2
 # from CS6381_MW import topic_pb2  # you will need this eventually
 
+import json
+import random
+
 # import any other packages you need.
 
 ##################################
@@ -46,7 +49,7 @@ class PublisherMW ():
     ########################################
     # constructor
     ########################################
-    def __init__(self, logger):
+    def __init__(self, logger, lookup):
         self.logger = logger  # internal logger for print statements
         self.req = None  # will be a ZMQ REQ socket to talk to Discovery service
         self.pub = None  # will be a ZMQ PUB socket for dissemination
@@ -55,6 +58,10 @@ class PublisherMW ():
         self.port = None  # port num where we are going to publish our topics
         self.upcall_obj = None  # handle to appln obj to handle appln-specific data
         self.handle_events = True  # in general we keep going thru the event loop
+
+        self.json_path = None
+        self.dht_num = None
+        self.lookup = lookup
 
     ########################################
     # configure/initialize
@@ -100,8 +107,6 @@ class PublisherMW ():
                 "PublisherMW::configure - connect to Discovery service")
             # For our assignments we will use TCP. The connect string is made up of
             # tcp:// followed by IP addr:port number.
-            connect_str = "tcp://" + args.discovery
-            self.req.connect(connect_str)
 
             # Since we are the publisher, the best practice as suggested in ZMQ is for us to
             # "bind" the PUB socket
@@ -112,6 +117,24 @@ class PublisherMW ():
             # Since port is an integer, we convert it to string to make it part of the URL
             bind_string = "tcp://*:" + str(self.port)
             self.pub.bind(bind_string)
+
+            self.json_path = args.json_path_dht
+
+            connect_str = None
+            if self.lookup == "DHT":
+                with open(self.json_path) as json_file:
+                    dht_file = json.load(json_file)
+                    self.dht_num = len(dht_file["dht"])
+                    random_node = dht_file["dht"][random.randint(
+                        0, self.dht_num - 1)]
+                    connect_str = "tcp://" + \
+                        random_node["IP"] + ":" + str(random_node["port"])
+            else:
+                connect_str = "tcp://" + args.discovery
+
+            self.logger.debug(
+                f"PublisherMW::configure - connect to the discovery service, connect_str = {connect_str}")
+            self.req.connect(connect_str)
 
             self.logger.info("PublisherMW::configure completed")
 
@@ -187,11 +210,11 @@ class PublisherMW ():
             if (disc_resp.msg_type == discovery_pb2.TYPE_REGISTER):
                 # let the appln level object decide what to do
                 timeout = self.upcall_obj.register_response(
-                    disc_resp.register_resp)
+                    disc_resp.register_resp, disc_resp.timestamp)
             elif (disc_resp.msg_type == discovery_pb2.TYPE_ISREADY):
                 # this is a response to is ready request
                 timeout = self.upcall_obj.isready_response(
-                    disc_resp.isready_resp)
+                    disc_resp.isready_resp, disc_resp.timestamp)
 
             else:  # anything else is unrecognizable by this object
                 # raise an exception here
@@ -256,6 +279,7 @@ class PublisherMW ():
             # It was observed that we cannot directly assign the nested field here.
             # A way around is to use the CopyFrom method as shown
             disc_req.register_req.CopyFrom(register_req)
+            disc_req.timestamp = str(time.time())  # set the timestamp
             self.logger.debug(
                 "PublisherMW::register - done building the outer message")
 
@@ -286,7 +310,7 @@ class PublisherMW ():
     # No return value from this as it is handled in the invoke_operation
     # method of the application object.
     ########################################
-    def is_ready(self):
+    def is_ready(self, timestamp):
         ''' register the appln with the discovery service '''
 
         try:
@@ -299,28 +323,38 @@ class PublisherMW ():
             # The following code shows serialization using the protobuf generated code.
 
             # first build a IsReady message
-            self.logger.debug(
+            self.logger.info(
                 "PublisherMW::is_ready - populate the nested IsReady msg")
             isready_req = discovery_pb2.IsReadyReq()  # allocate
             # actually, there is nothing inside that msg declaration.
-            self.logger.debug(
+            self.logger.info(
                 "PublisherMW::is_ready - done populating nested IsReady msg")
 
             # Build the outer layer Discovery Message
-            self.logger.debug(
+            self.logger.info(
                 "PublisherMW::is_ready - build the outer DiscoveryReq message")
             disc_req = discovery_pb2.DiscoveryReq()
+
             disc_req.msg_type = discovery_pb2.TYPE_ISREADY
+
+            self.logger.info(
+                "PublisherMW::is_ready - msg_type set to isready")
+
             # It was observed that we cannot directly assign the nested field here.
             # A way around is to use the CopyFrom method as shown
             disc_req.isready_req.CopyFrom(isready_req)
-            self.logger.debug(
+
+            self.logger.info(
+                "PublisherMW::is_ready - CopyFrom done, timestamp type = {} ".format(type(timestamp)))
+
+            disc_req.timestamp = str(timestamp)  # set the timestamp
+            self.logger.info(
                 "PublisherMW::is_ready - done building the outer message")
 
             # now let us stringify the buffer and print it. This is actually a sequence of bytes and not
             # a real string
             buf2send = disc_req.SerializeToString()
-            self.logger.debug(
+            self.logger.info(
                 "Stringified serialized buf = {}".format(buf2send))
 
             # now send this to our discovery service

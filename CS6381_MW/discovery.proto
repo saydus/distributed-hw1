@@ -34,7 +34,7 @@ enum MsgTypes {
   TYPE_ISREADY = 2;             // needed by publisher to know if it can proceed
   TYPE_LOOKUP_PUB_BY_TOPIC = 3; // needed by a subscriber
   TYPE_LOOKUP_ALL_PUBS = 4;     // probably needed by broker
-                                // anything more
+  TYPE_DHT_MESSAGE = 5;
 }
 
 // use to encode the details of the publisher or subscriber
@@ -62,12 +62,17 @@ message RegisterResp {
   optional string reason = 2; // reason for failure
 }
 
+message DhtIsReady {
+  repeated string visited_nodes = 1;
+  repeated string subs = 2;
+  repeated string pubs = 3;
+  repeated string brokers = 4;
+}
+
 // define a message type that publishers might send to a discovery service
 // to see if the system is all ready and if they can proceed to publish their
 // topics. Accordingly, there will be a req and resp message types.
-message IsReadyReq {
-  // we really don't need to send any field
-}
+message IsReadyReq { optional DhtIsReady dht_is_ready = 1; }
 
 // Response to the IsReady request
 message IsReadyResp {
@@ -85,7 +90,9 @@ message IsReadyResp {
 // types
 message LookupPubByTopicReq {
   // list of topics
-  repeated string topiclist = 2;
+  repeated string topiclist = 1;
+  repeated string sockets_for_connection = 2;
+  repeated string visited_nodes = 3;
 }
 
 // TO-DO
@@ -111,6 +118,8 @@ message DiscoveryReq {
     LookupPubByTopicReq lookup_req = 4;
     // add more
   }
+  optional bool read_or_write = 5;
+  optional string timestamp = 6;
 }
 
 // Response to discovery req will be similar oneof of the responses.
@@ -122,4 +131,5 @@ message DiscoveryResp {
     LookupPubByTopicResp lookup_resp = 4;
     // add more
   }
+  optional string timestamp = 5;
 }

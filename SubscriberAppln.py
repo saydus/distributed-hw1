@@ -74,6 +74,11 @@ class SubscriberAppln():
         self.logger = logger
         self.meesages_received = 0
 
+        self.registered_time = ""
+        self.message_stats = []
+        self.publishers_count = None
+        self.subscribers_count = None
+
     ########################################
     # configure/initialize
     ########################################
@@ -108,11 +113,18 @@ class SubscriberAppln():
             # let topic selector give us the desired num of topics
             self.topiclist = ts.interest(self.num_topics)
 
+            self.publishers_count = args.publishers
+            self.subscribers_count = args.subscribers
+
             # Now setup up our underlying middleware object to which we delegate
             # everything
             self.logger.debug(
                 "SubscriberAppln::configure - initialize the middleware object")
-            self.mw_obj = SubscriberMW(self.logger, self.topiclist)
+            self.mw_obj = SubscriberMW(
+                self.logger, self.topiclist, self.lookup)
+
+            self.mw_obj.set_upcall_handle(self)
+
             # pass remainder of the args to the m/w object
             self.mw_obj.configure(args)
 
@@ -144,7 +156,7 @@ class SubscriberAppln():
     # Also a part of upcall handled by application logic
     ########################################
 
-    def isready_response(self, isready_resp):
+    def isready_response(self, isready_resp, timestamp):
         ''' handle isready response '''
 
         try:
@@ -158,12 +170,19 @@ class SubscriberAppln():
                 self.logger.debug(
                     "SubscriberAppln::driver - Not ready yet; check again")
                 # sleep between calls so that we don't make excessive calls
-                time.sleep(10)
+                # time.sleep(10)
 
             else:
                 # we got the go ahead
                 # set the state to LOOKUP
                 self.state = self.State.LOOKUP
+                self.message_stats.append(
+                    (
+                        "isready", self.name, self.lookup, self.publishers_count, self.subscribers_count, time.time() -
+                        float(
+                            timestamp)
+                    )
+                )
 
             # return timeout of 0 so event loop calls us back in the invoke_operation
             # method, where we take action based on what state we are in.
@@ -172,11 +191,30 @@ class SubscriberAppln():
         except Exception as e:
             raise e
 
-    def lookup_response(self):
+    def dump_stats(self):
+        self.logger.info("**********************************")
+        self.logger.info("SubscriberAppln::dump_stats")
+        self.logger.info("------------------------------")
+        self.logger.info("     Name: {}".format(self.name))
+        self.logger.info("     Lookup: {}".format(self.lookup))
+        for message in self.message_stats:
+            self.logger.info("     {}".format(message))
+        self.logger.info("**********************************")
+
+    def lookup_response(self, timestamp):
         try:
             self.logger.info("SubscriberAppln::islookup_response")
             # set the state to listen
             self.state = self.State.LISTEN
+
+            self.message_stats.append(
+                (
+                    "lookup", self.name, self.lookup, self.publishers_count, self.subscribers_count, time.time() -
+                    float(
+                        timestamp)
+                )
+            )
+            self.dump_stats()
 
             # return timeout of 0 so event loop calls us back in the invoke_operation
             # method, where we take action based on what state we are in.
@@ -236,8 +274,9 @@ class SubscriberAppln():
                 # and the upcall until we receive the go ahead from the discovery service.
 
                 self.logger.debug(
-                    "SubscriberAppln::invoke_operation - check if are ready to go")
-                self.mw_obj.is_ready()  # send the is_ready? request
+                    "SubscriberAppln::invoke_operation - check if we are ready to go")
+                # send the is_ready? request
+                self.mw_obj.is_ready(self.registered_time)
 
                 # Remember that we were invoked by the event loop as part of the upcall.
                 # So we are going to return back to it for its next iteration. Because
@@ -249,7 +288,7 @@ class SubscriberAppln():
             elif (self.state == self.State.LOOKUP):
                 self.logger.debug(
                     "SubscriberAppln::invoke_operation - start looking up")
-                self.mw_obj.lookup()
+                self.mw_obj.perform_lookup()
                 return None
 
             elif (self.state == self.State.COMPLETED):
@@ -265,7 +304,7 @@ class SubscriberAppln():
         except Exception as e:
             raise e
 
-    def register_response(self, reg_resp):
+    def register_response(self, reg_resp, timestamp):
         ''' handle register response '''
         try:
             self.logger.info("SubcriberAppln::register_response")
@@ -276,13 +315,17 @@ class SubscriberAppln():
                 # set our next state to isready so that we can then send the isready message right away
                 self.state = self.State.ISREADY
 
+                self.registered_time = str(time.time())
+                self.message_stats.append(
+                    ("register", self.name, self.lookup, self.publishers_count, self.subscribers_count, time.time() - float(timestamp)))
+
                 # return a timeout of zero so that the event loop in its next iteration will immediately make
                 # an upcall to us
                 return 0
 
             else:
                 self.logger.debug(
-                    "PublisherAppln::register_response - registration is a failure with reason {}".format(response.reason))
+                    "PublisherAppln::register_response - registration is a failure with reason {}".format(reg_resp.reason))
                 raise ValueError("Publisher needs to have unique id")
 
         except Exception as e:
@@ -306,7 +349,6 @@ class SubscriberAppln():
             # middleware will keep track of it and any time something must
             # be handled by the application level, invoke an upcall.
             self.logger.debug("SubscriberAppln::driver - upcall handle")
-            self.mw_obj.set_upcall_handle(self)
 
             self.state = self.State.REGISTER
 
@@ -357,6 +399,15 @@ def parseCmdLineArgs():
 
     parser.add_argument("-l", "--loglevel", type=int, default=logging.DEBUG, choices=[
                         logging.DEBUG, logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL], help="logging level, choices 10,20,30,40,50: default 20=logging.INFO")
+
+    parser.add_argument("-P", "--publishers", type=int, default=1,
+                        help="number of publishers (default: 1)")
+
+    parser.add_argument("-S", "--subscribers", type=int, default=1,
+                        help="number of subscribers (default: 1)")
+
+    parser.add_argument("-j", "--json_path_dht", default="dht.json",
+                        help="json_path_dht (default: dht.json)")
 
     return parser.parse_args()
 

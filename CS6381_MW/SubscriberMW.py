@@ -41,13 +41,16 @@ import zmq  # ZMQ sockets
 
 from CS6381_MW import discovery_pb2
 
+import json
+import random
+
 
 class SubscriberMW ():
 
     ########################################
     # constructor
     ########################################
-    def __init__(self, logger, topiclist):
+    def __init__(self, logger, topiclist, lookup):
         self.logger = logger  # internal logger for print statements
         self.req = None  # will be a ZMQ REQ socket to talk to Discovery service
         self.sub = None  # SUB socket for subscribing
@@ -57,6 +60,10 @@ class SubscriberMW ():
         self.upcall_obj = None  # handle to appln obj to handle appln-specific data
         self.handle_events = True  # in general we keep going thru the event loop
         self.topiclist = topiclist  # list of topics we are interested in
+
+        self.json_path = None
+        self.dht_num = None
+        self.lookup = lookup
 
     ########################################
     # configure/initialize
@@ -71,6 +78,7 @@ class SubscriberMW ():
             # First retrieve our advertised IP addr and the publication port num
             self.port = args.port
             self.addr = args.addr
+            self.json_path = args.json_path_dht
 
             # Next get the ZMQ context
             self.logger.debug("SubscriberMW::configure - obtain ZMQ context")
@@ -101,9 +109,21 @@ class SubscriberMW ():
             # one who maintains the REQ socket should do the "connect"
             self.logger.debug(
                 "SubscriberMW::configure - connect to Discovery service")
-            # For our assignments we will use TCP. The connect string is made up of
-            # tcp:// followed by IP addr:port number.
-            connect_str = "tcp://" + args.discovery
+
+            connect_str = None
+            if self.lookup == "DHT":
+                with open(self.json_path) as json_file:
+                    dht_file = json.load(json_file)
+                    self.dht_num = len(dht_file["dht"])
+                    random_node = dht_file["dht"][random.randint(
+                        0, self.dht_num - 1)]
+                    connect_str = "tcp://" + \
+                        random_node["IP"] + ":" + str(random_node["port"])
+            else:
+                connect_str = "tcp://" + args.discovery
+
+            self.logger.debug(
+                f"SubscriberMW::configure - connect to the discovery service, connect_str = {connect_str}")
             self.req.connect(connect_str)
 
             # Since we are the subscriber, the best practice as suggested in ZMQ is for us to
@@ -181,7 +201,7 @@ class SubscriberMW ():
         except Exception as e:
             raise e
 
-    def lookup(self):
+    def perform_lookup(self):
         try:
             self.logger.info("SubscriberMW::lookup")
 
@@ -205,6 +225,7 @@ class SubscriberMW ():
             # It was observed that we cannot directly assign the nested field here.
             # A way around is to use the CopyFrom method as shown
             disc_req.lookup_req.CopyFrom(lookup_req)
+            disc_req.timestamp = str(time.time())  # set the timestamp
             buf2send = disc_req.SerializeToString()
             self.logger.debug(
                 "Stringified serialized buf = {}".format(buf2send))
@@ -244,14 +265,14 @@ class SubscriberMW ():
             if (disc_resp.msg_type == discovery_pb2.TYPE_REGISTER):
                 # let the appln level object decide what to do
                 timeout = self.upcall_obj.register_response(
-                    disc_resp.register_resp)
+                    disc_resp.register_resp, disc_resp.timestamp)
             elif (disc_resp.msg_type == discovery_pb2.TYPE_ISREADY):
                 # this is a response to is ready request
                 # log
                 self.logger.info(
                     "SubscriberMW::handle_reply - isready - response = {}".format(disc_resp.isready_resp))
                 timeout = self.upcall_obj.isready_response(
-                    disc_resp.isready_resp)
+                    disc_resp.isready_resp, disc_resp.timestamp)
 
             elif (disc_resp.msg_type == discovery_pb2.TYPE_LOOKUP_PUB_BY_TOPIC):
                 # this is a response to lookup request
@@ -274,7 +295,7 @@ class SubscriberMW ():
                     self.logger.info(
                         "SubscriberMW::handle_reply - registrant_info ")
 
-                timeout = self.upcall_obj.lookup_response()
+                timeout = self.upcall_obj.lookup_response(disc_resp.timestamp)
 
             else:  # anything else is unrecognizable by this object
                 # raise an exception here
@@ -339,6 +360,7 @@ class SubscriberMW ():
             # It was observed that we cannot directly assign the nested field here.
             # A way around is to use the CopyFrom method as shown
             disc_req.register_req.CopyFrom(register_req)
+            disc_req.timestamp = str(time.time())  # set the timestamp
             self.logger.debug(
                 "SubscriberMW::register - done building the outer message")
 
@@ -369,7 +391,7 @@ class SubscriberMW ():
     # No return value from this as it is handled in the invoke_operation
     # method of the application object.
     ########################################
-    def is_ready(self):
+    def is_ready(self, timestamp):
         ''' register the appln with the discovery service '''
 
         try:
@@ -397,6 +419,7 @@ class SubscriberMW ():
             # It was observed that we cannot directly assign the nested field here.
             # A way around is to use the CopyFrom method as shown
             disc_req.isready_req.CopyFrom(isready_req)
+            disc_req.timestamp = timestamp  # set the timestamp
             self.logger.debug(
                 "SubscriberMW::is_ready - done building the outer message")
 

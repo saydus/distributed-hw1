@@ -95,6 +95,12 @@ class PublisherAppln ():
         self.mw_obj = None  # handle to the underlying Middleware object
         self.logger = logger  # internal logger for print statements
 
+        self.messages_stats = []
+        self.registered_time = ""
+
+        self.publishers_count = None
+        self.subscribers_count = None
+
     ########################################
     # configure/initialize
     ########################################
@@ -114,6 +120,9 @@ class PublisherAppln ():
             self.frequency = args.frequency  # frequency with which topics are disseminated
             self.num_topics = args.num_topics  # total num of topics we publish
 
+            self.publishers_count = args.publishers
+            self.subscribers_count = args.subscribers
+
             # Now, get the configuration object
             self.logger.debug("PublisherAppln::configure - parsing config.ini")
             config = configparser.ConfigParser()
@@ -132,7 +141,7 @@ class PublisherAppln ():
             # everything
             self.logger.debug(
                 "PublisherAppln::configure - initialize the middleware object")
-            self.mw_obj = PublisherMW(self.logger)
+            self.mw_obj = PublisherMW(self.logger, self.lookup)
             # pass remainder of the args to the m/w object
             self.mw_obj.configure(args)
 
@@ -225,7 +234,8 @@ class PublisherAppln ():
 
                 self.logger.debug(
                     "PublisherAppln::invoke_operation - check if are ready to go")
-                self.mw_obj.is_ready()  # send the is_ready? request
+                # send the is_ready? request
+                self.mw_obj.is_ready(self.registered_time)
 
                 # Remember that we were invoked by the event loop as part of the upcall.
                 # So we are going to return back to it for its next iteration. Because
@@ -291,7 +301,7 @@ class PublisherAppln ():
     # of the message and what should be done. So it becomes the job
     # of the application. Hence this upcall is made to us.
     ########################################
-    def register_response(self, reg_resp):
+    def register_response(self, reg_resp, timestamp):
         ''' handle register response '''
 
         try:
@@ -303,24 +313,40 @@ class PublisherAppln ():
                 # set our next state to isready so that we can then send the isready message right away
                 self.state = self.State.ISREADY
 
+                self.registered_time = time.time()
+
+                self.messages_stats.append(
+                    ("register", self.name, self.lookup, self.publishers_count, self.subscribers_count, time.time() - float(timestamp)))
+
                 # return a timeout of zero so that the event loop in its next iteration will immediately make
                 # an upcall to us
                 return 0
 
             else:
                 self.logger.debug(
-                    "PublisherAppln::register_response - registration is a failure with reason {}".format(response.reason))
+                    "PublisherAppln::register_response - registration is a failure with reason {}".format(reg_resp.reason))
                 raise ValueError("Publisher needs to have unique id")
 
         except Exception as e:
             raise e
+
+    def dump_stats(self):
+        self.logger.info("**********************************")
+        self.logger.info("PublisherAppln::dump_stats")
+        self.logger.info("------------------------------")
+        self.logger.info("     Name: {}".format(self.name))
+        self.logger.info("     Lookup: {}".format(self.lookup))
+        for message in self.messages_stats:
+            self.logger.info("     {}".format(message))
+        self.logger.info("**********************************")
 
     ########################################
     # handle isready response method called as part of upcall
     #
     # Also a part of upcall handled by application logic
     ########################################
-    def isready_response(self, isready_resp):
+
+    def isready_response(self, isready_resp, timestamp):
         ''' handle isready response '''
 
         try:
@@ -334,12 +360,18 @@ class PublisherAppln ():
                 self.logger.debug(
                     "PublisherAppln::driver - Not ready yet; check again")
                 # sleep between calls so that we don't make excessive calls
-                time.sleep(10)
+                # time.sleep(10)
 
             else:
                 # we got the go ahead
                 # set the state to disseminate
                 self.state = self.State.DISSEMINATE
+
+                # save stats of the isready response
+                self.messages_stats.append(
+                    ("isready", self.name, self.lookup, self.publishers_count, self.subscribers_count, time.time() - float(timestamp)))
+
+                self.dump_stats()
 
             # return timeout of 0 so event loop calls us back in the invoke_operation
             # method, where we take action based on what state we are in.
@@ -406,14 +438,25 @@ def parseCmdLineArgs():
     parser.add_argument("-c", "--config", default="config.ini",
                         help="configuration file (default: config.ini)")
 
-    parser.add_argument("-f", "--frequency", type=int, default=1,
+    parser.add_argument("-f", "--frequency", type=float, default=1,
                         help="Rate at which topics disseminated: default once a second - use integers")
 
     parser.add_argument("-i", "--iters", type=int, default=1000,
                         help="number of publication iterations (default: 1000)")
 
-    parser.add_argument("-l", "--loglevel", type=int, default=logging.INFO, choices=[
+    parser.add_argument("-l", "--loglevel", type=int, default=logging.DEBUG, choices=[
                         logging.DEBUG, logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL], help="logging level, choices 10,20,30,40,50: default 20=logging.INFO")
+
+    # add publisher and subscriber count
+    parser.add_argument("-P", "--publishers", type=int, default=1,
+                        help="number of publishers (default: 1)")
+
+    parser.add_argument("-S", "--subscribers", type=int, default=1,
+                        help="number of subscribers (default: 1)")
+
+    # json_path_dht
+    parser.add_argument("-j", "--json_path_dht", default="dht.json",
+                        help="json_path_dht (default: dht.json)")
 
     return parser.parse_args()
 

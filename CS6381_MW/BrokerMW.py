@@ -23,20 +23,26 @@ import zmq
 
 from CS6381_MW import discovery_pb2
 
+import json
+import random
+
 
 class BrokerMW():
-    def __init__(self, logger):
+    def __init__(self, logger, lookup, upcall_obj):
         self.logger = logger
         self.req = None
         self.pub = None
         self.sub = None
         self.poller = None
-        self.upcall_obj = None
+        self.upcall_obj = upcall_obj
         self.handle_events = True
 
         self.addr = None
         self.port = None
         self.timeout = None
+
+        self.lookup = lookup
+        self.json_path = None
 
     def configure(self, args):
         try:
@@ -50,7 +56,24 @@ class BrokerMW():
 
             self.req = context.socket(zmq.REQ)
             self.poller.register(self.req, zmq.POLLIN)
-            self.req.connect("tcp://" + args.discovery)
+
+            self.json_path = args.json_path_dht
+
+            connect_str = None
+            if self.lookup == "DHT":
+                with open(self.json_path) as json_file:
+                    dht_file = json.load(json_file)
+                    self.dht_num = len(dht_file["dht"])
+                    random_node = dht_file["dht"][random.randint(
+                        0, self.dht_num - 1)]
+                    connect_str = "tcp://" + \
+                        random_node["IP"] + ":" + str(random_node["port"])
+            else:
+                connect_str = "tcp://" + args.discovery
+
+            self.logger.debug(
+                f"BrokerMW::configure - connect to the discovery service, connect_str = {connect_str}")
+            self.req.connect(connect_str)
 
             self.sub = context.socket(zmq.SUB)
             self.poller.register(self.sub, zmq.POLLIN)
@@ -61,9 +84,6 @@ class BrokerMW():
             self.logger.info("BrokerMW: configure: completed")
         except Exception as e:
             raise e
-
-    def set_upcall_handle(self, upcall_obj):
-        self.upcall_obj = upcall_obj
 
     def event_loop(self, timeout=None):
         try:
@@ -104,12 +124,15 @@ class BrokerMW():
             elif request.msg_type == discovery_pb2.TYPE_ISREADY:
                 return self.upcall_obj.handle_isready(request.isready_resp)
 
+            elif request.msg_type == discovery_pb2.TYPE_LOOKUP_PUB_BY_TOPIC:
+                return self.upcall_obj.handle_allpub_lookup(request.lookup_resp)
+
             elif request.msg_type == discovery_pb2.TYPE_LOOKUP_ALL_PUBS:
                 return self.upcall_obj.handle_allpub_lookup(request.lookup_resp)
 
             else:
                 raise Exception(
-                    "BrokerMW: handle_request: unknown request type")
+                    "BrokerMW: handle_request: unknown request type, msg_type = {}, msg = {}".format(request.msg_type, request))
 
         except Exception as e:
             raise e

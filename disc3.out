@@ -1,0 +1,378 @@
+2023-04-30 21:46:45,271 - root - INFO - Main - acquire a child logger and then log messages in the child
+2023-04-30 21:46:45,274 - DiscoveryAppln.py - DEBUG - Main: parse command line arguments
+2023-04-30 21:46:45,287 - DiscoveryAppln.py - DEBUG - Main: resetting log level to 10
+2023-04-30 21:46:45,334 - DiscoveryAppln.py - DEBUG - Main: effective log level is 10
+2023-04-30 21:46:45,339 - DiscoveryAppln.py - DEBUG - Main: obtain the discovery appln object
+2023-04-30 21:46:45,340 - DiscoveryAppln.py - DEBUG - Main: configure the publisher appln object
+2023-04-30 21:46:45,349 - DiscoveryAppln.py - INFO - DiscoveryAppln: configure
+2023-04-30 21:46:45,357 - DiscoveryAppln.py - INFO - DiscoveryMW: configure
+2023-04-30 21:46:45,362 - DiscoveryAppln.py - INFO - DiscoveryMW: configure: create REP socket
+2023-04-30 21:46:45,380 - DiscoveryAppln.py - INFO - DiscoveryMW: configure: completed
+2023-04-30 21:46:45,391 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,410 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,422 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,441 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,450 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,454 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,459 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,464 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,491 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,512 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,528 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,543 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,565 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,576 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,583 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,591 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,713 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,716 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,732 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,738 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,742 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,755 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,767 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,775 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,779 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,787 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,799 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,808 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,816 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,823 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,832 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,837 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,844 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,848 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,853 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,857 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,859 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,863 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,866 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,868 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,873 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,873 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,879 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,884 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,888 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,890 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,896 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,903 - DiscoveryAppln.py - INFO - DiscoveryMW: configure table: 89121241124350 {'id': 'disc2', 'hash': 89121241124350, 'IP': '10.0.0.11', 'port': 5555, 'host': 'h11'}
+2023-04-30 21:46:45,910 - DiscoveryAppln.py - INFO - DiscoveryAppln: configure: completed
+2023-04-30 21:46:45,914 - DiscoveryAppln.py - DEBUG - Main: invoke the publisher appln driver
+2023-04-30 21:46:45,916 - DiscoveryAppln.py - INFO - DiscoverAppln::driver
+2023-04-30 21:46:45,917 - DiscoveryAppln.py - INFO - **********************************
+2023-04-30 21:46:45,918 - DiscoveryAppln.py - INFO - DiscoverAppln::dump
+2023-04-30 21:46:45,921 - DiscoveryAppln.py - INFO - ------------------------------
+2023-04-30 21:46:45,921 - DiscoveryAppln.py - INFO -      Lookup: DHT
+2023-04-30 21:46:45,922 - DiscoveryAppln.py - INFO -      Dissemination: Broker
+2023-04-30 21:46:45,922 - DiscoveryAppln.py - INFO -      Num Publishers: 2
+2023-04-30 21:46:45,926 - DiscoveryAppln.py - INFO -      Num Subscribers: 2
+2023-04-30 21:46:45,928 - DiscoveryAppln.py - INFO - **********************************
+2023-04-30 21:46:45,931 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop
+2023-04-30 21:46:45,932 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:46,258 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:46,259 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:46,260 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:46,260 - DiscoveryAppln.py - INFO - compute_entity_hash: string pub1:10.0.0.18:7777 hash 87915035442401
+2023-04-30 21:46:46,260 - DiscoveryAppln.py - DEBUG - This node's hash: 221923006406920, <class 'int'>
+2023-04-30 21:46:46,261 - DiscoveryAppln.py - DEBUG - Searching Hash: 87915035442401, <class 'int'>
+2023-04-30 21:46:46,261 - DiscoveryAppln.py - DEBUG - find_next_node: found it
+2023-04-30 21:46:46,262 - DiscoveryAppln.py - INFO - DiscoveryMW::handle_request – Forward request (node disc3) to node: disc2, read_write=True
+2023-04-30 21:46:46,263 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:46,264 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:46,676 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:46,677 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:46,677 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:46,686 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:46,687 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:46,687 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:46,688 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:46,689 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:46,689 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:46,760 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:46,761 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:46,761 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:46,762 - DiscoveryAppln.py - INFO - compute_entity_hash: string broker1:localhost:5599 hash 98155481329871
+2023-04-30 21:46:46,762 - DiscoveryAppln.py - DEBUG - This node's hash: 221923006406920, <class 'int'>
+2023-04-30 21:46:46,762 - DiscoveryAppln.py - DEBUG - Searching Hash: 98155481329871, <class 'int'>
+2023-04-30 21:46:46,763 - DiscoveryAppln.py - DEBUG - find_next_node: get another one
+2023-04-30 21:46:46,763 - DiscoveryAppln.py - INFO - DiscoveryMW::handle_request – Forward request (node disc3) to node: disc2, read_write=False
+2023-04-30 21:46:46,767 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:46,768 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,099 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,099 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,100 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,108 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,108 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,108 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,109 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,116 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,120 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,536 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,537 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,537 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,538 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,538 - DiscoveryAppln.py - DEBUG - brokersReady = False
+2023-04-30 21:46:47,539 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-04-30 21:46:47,540 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-04-30 21:46:47,541 - DiscoveryAppln.py - DEBUG - IS_READY, visited nodes: {'disc3', 'disc1', 'disc2'} 
+2023-04-30 21:46:47,548 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,550 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,552 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,553 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,555 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,556 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,557 - DiscoveryAppln.py - DEBUG - brokersReady = True
+2023-04-30 21:46:47,557 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-04-30 21:46:47,558 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-04-30 21:46:47,561 - DiscoveryAppln.py - DEBUG - IS_READY, visited nodes: {'disc3', 'disc1', 'disc2'} 
+2023-04-30 21:46:47,563 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,564 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,564 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,564 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,565 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,565 - DiscoveryAppln.py - INFO - DiscoveryMW::handle_request – handle register because this node is responsible for the hash
+2023-04-30 21:46:47,569 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
+2023-04-30 21:46:47,571 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: subscriber
+2023-04-30 21:46:47,571 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
+2023-04-30 21:46:47,571 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00*\x121682909205.8205113'
+2023-04-30 21:46:47,578 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,579 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,580 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,582 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,583 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,584 - DiscoveryAppln.py - INFO - DiscoveryMW::handle_request – handle register because this node is responsible for the hash
+2023-04-30 21:46:47,584 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
+2023-04-30 21:46:47,586 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: subscriber
+2023-04-30 21:46:47,586 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
+2023-04-30 21:46:47,587 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00*\x121682909206.6474347'
+2023-04-30 21:46:47,588 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,592 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,594 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,596 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,597 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,610 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,616 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,621 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,622 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,630 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,632 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,634 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,635 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,639 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,640 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,643 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,650 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,661 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,662 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,663 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,665 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,668 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,669 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,671 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,673 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,677 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,684 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,688 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,689 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,690 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,691 - DiscoveryAppln.py - DEBUG - brokersReady = True
+2023-04-30 21:46:47,691 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-04-30 21:46:47,691 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-04-30 21:46:47,693 - DiscoveryAppln.py - DEBUG - IS_READY, visited nodes: {'disc3', 'disc1', 'disc2'} 
+2023-04-30 21:46:47,697 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,698 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,699 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,704 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,706 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,706 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,709 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,710 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,710 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,716 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,723 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,723 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,724 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,726 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,726 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,730 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,735 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,742 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,742 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,743 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,743 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,743 - DiscoveryAppln.py - DEBUG - brokersReady = True
+2023-04-30 21:46:47,743 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-04-30 21:46:47,745 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-04-30 21:46:47,746 - DiscoveryAppln.py - DEBUG - IS_READY, visited nodes: {'disc3', 'disc1', 'disc2'} 
+2023-04-30 21:46:47,746 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,747 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,750 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,751 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,752 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,752 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,758 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,759 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,763 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,764 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,766 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,767 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,773 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,778 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,780 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,782 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,784 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,789 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,794 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,797 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,802 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,810 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,816 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,828 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,828 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,829 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,829 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,839 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,843 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,845 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,847 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,850 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,853 - DiscoveryAppln.py - INFO - compute_entity_hash: string pub2:10.0.0.7:7777 hash 245137751638876
+2023-04-30 21:46:47,856 - DiscoveryAppln.py - DEBUG - This node's hash: 221923006406920, <class 'int'>
+2023-04-30 21:46:47,856 - DiscoveryAppln.py - DEBUG - Searching Hash: 245137751638876, <class 'int'>
+2023-04-30 21:46:47,857 - DiscoveryAppln.py - DEBUG - find_next_node: found it
+2023-04-30 21:46:47,858 - DiscoveryAppln.py - INFO - DiscoveryMW::handle_request – Forward request (node disc3) to node: disc2, read_write=True
+2023-04-30 21:46:47,864 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,866 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,869 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,875 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,881 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,882 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,883 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,884 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,888 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,889 - DiscoveryAppln.py - DEBUG - brokersReady = True
+2023-04-30 21:46:47,890 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-04-30 21:46:47,890 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-04-30 21:46:47,892 - DiscoveryAppln.py - DEBUG - IS_READY, visited nodes: {'disc3', 'disc1', 'disc2'} 
+2023-04-30 21:46:47,896 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,901 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,904 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,906 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,907 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,909 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,920 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,925 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,931 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,942 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,943 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,944 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,946 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,946 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,955 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,964 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,965 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,966 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,967 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,970 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,971 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,975 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,977 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,977 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,977 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,977 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,978 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:47,979 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,982 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,984 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,985 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,985 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,986 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:47,986 - DiscoveryAppln.py - DEBUG - brokersReady = True
+2023-04-30 21:46:47,990 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-04-30 21:46:47,993 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-04-30 21:46:47,993 - DiscoveryAppln.py - DEBUG - IS_READY, visited nodes: {'disc3', 'disc1', 'disc2'} 
+2023-04-30 21:46:47,994 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:47,994 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:47,994 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:47,996 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:47,999 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:47,999 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:46:48,002 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:48,006 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:48,016 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:48,016 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:48,017 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:48,022 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:48,022 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:48,022 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:48,023 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup
+2023-04-30 21:46:48,023 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic
+2023-04-30 21:46:48,023 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: now send the request to other node
+2023-04-30 21:46:48,023 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: updated sockets
+2023-04-30 21:46:48,023 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: send to next node
+2023-04-30 21:46:48,024 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: send to next node, topiclist: ['light', 'sound', 'pressure', 'altitude', 'temperature', 'airquality', 'humidity', 'location', 'weather']
+2023-04-30 21:46:48,024 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup_request_to_next_node
+2023-04-30 21:46:48,026 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:48,027 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:48,030 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:48,032 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:48,032 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:48,041 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:46:48,041 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:46:48,041 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:46:48,042 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup
+2023-04-30 21:46:48,042 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic
+2023-04-30 21:46:48,042 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: now send the request to other node
+2023-04-30 21:46:48,043 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: updated sockets
+2023-04-30 21:46:48,043 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: send to next node
+2023-04-30 21:46:48,043 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: send to next node, topiclist: ['altitude', 'sound', 'weather', 'humidity', 'airquality', 'temperature', 'pressure', 'light', 'location']
+2023-04-30 21:46:48,043 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup_request_to_next_node
+2023-04-30 21:46:48,045 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:48,047 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:48,054 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:48,059 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:48,062 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:46:48,064 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:46:48,075 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:46:48,077 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:47:17,694 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:47:17,695 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:47:17,695 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:47:17,696 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:47:17,698 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:47:17,705 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:47:17,706 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:47:17,706 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:47:17,707 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:47:17,708 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-04-30 21:47:17,708 - DiscoveryAppln.py - DEBUG - brokersReady = True
+2023-04-30 21:47:17,709 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-04-30 21:47:17,709 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-04-30 21:47:17,714 - DiscoveryAppln.py - DEBUG - IS_READY, visited nodes: {'disc3', 'disc1', 'disc2'} 
+2023-04-30 21:47:17,714 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:47:17,715 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:47:17,716 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:47:17,719 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:47:17,720 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:47:17,720 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:47:17,721 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:47:17,721 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:47:17,721 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup all pubs
+2023-04-30 21:47:17,721 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup_request_to_next_node
+2023-04-30 21:47:17,727 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:47:17,729 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:47:17,729 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in router
+2023-04-30 21:47:17,732 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-04-30 21:47:17,738 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-04-30 21:47:17,738 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup all pubs
+2023-04-30 21:47:17,738 - DiscoveryAppln.py - INFO - DiscoveryMW::send_lookup
+2023-04-30 21:47:17,742 - DiscoveryAppln.py - INFO - DiscoveryMW::before publist
+2023-04-30 21:47:17,744 - DiscoveryAppln.py - INFO - DiscoveryMW::sockets: {'10.0.0.7:7777', '10.0.0.18:7777'}
+2023-04-30 21:47:17,746 - DiscoveryAppln.py - INFO - DiscoveryMW::after publist
+2023-04-30 21:47:17,747 - DiscoveryAppln.py - INFO - DiscoveryMW::after assignment of DiscoveryResp
+2023-04-30 21:47:17,748 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup: sending response
+2023-04-30 21:47:17,749 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:47:17,750 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-04-30 21:47:17,755 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event in dealer
+2023-04-30 21:47:17,759 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: request_handled: True
+2023-04-30 21:47:17,765 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events

@@ -61,7 +61,7 @@ class BrokerAppln():
         self.lookup = config["Discovery"]["Strategy"]
         self.dissemination = config["Dissemination"]["Strategy"]
 
-        self.mw_obj = BrokerMW(self.logger)
+        self.mw_obj = BrokerMW(self.logger, self.lookup, self)
         self.mw_obj.configure(args)
 
         self.logger.info("BrokerAppln: configure: completed")
@@ -85,7 +85,6 @@ class BrokerAppln():
         try:
             self.logger.info("BrokerAppln: driver")
             self.dump()
-            self.mw_obj.set_upcall_handle(self)
             self.state = self.State.REGISTER
 
             self.mw_obj.event_loop(timeout=0)
@@ -162,6 +161,10 @@ def parseCmdLineArgs():
 
     parser.add_argument("-t", "--timeout", type=int, default=30,
                         help="Timeout for broking data.")
+
+    # json_path_dht
+    parser.add_argument("-j", "--json_path_dht", default="dht.json",
+                        help="json_path_dht (default: dht.json)")
 
     return parser.parse_args()
 
