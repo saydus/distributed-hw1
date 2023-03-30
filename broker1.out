@@ -1,1024 +1,340 @@
-2023-02-19 00:32:40,920 - root - INFO - BrokerAppln: main
-2023-02-19 00:32:40,925 - BrokerAppln - INFO - BrokerAppln: configure
-2023-02-19 00:32:40,925 - BrokerAppln - INFO - BrokerMW: configure
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - BrokerMW: configure: completed
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - BrokerAppln: configure: completed
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - BrokerAppln: driver
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - **********************************
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - BrokerAppln::dump
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - ------------------------------
-2023-02-19 00:32:40,927 - BrokerAppln - INFO -      Name: broker1
-2023-02-19 00:32:40,927 - BrokerAppln - INFO -      Lookup: Centralized
-2023-02-19 00:32:40,927 - BrokerAppln - INFO -      Dissemination: Broker
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - **********************************
-2023-02-19 00:32:40,927 - BrokerAppln - INFO - BrokerMW: event_loop
-2023-02-19 00:32:40,928 - BrokerAppln - INFO - BrokerAppln: invoke_operation
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW::register - populate the Registrant Info
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW::register - done populating the Registrant Info
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW::register - populate the nested register req
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW::register - done populating nested RegisterReq
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW::register - build the outer DiscoveryReq message
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW::register - done building the outer message
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW serialized buf = b'\x08\x01\x12\x1b\x08\x03\x12\x17\n\x07broker1\x12\tlocalhost\x18\xdf+'
-2023-02-19 00:32:40,928 - BrokerAppln - DEBUG - BrokerMW::register - send stringified buffer to Discovery service
-2023-02-19 00:32:40,928 - BrokerAppln - INFO - BrokerMW::register - sent register message and now now wait for reply
-2023-02-19 00:32:41,104 - BrokerAppln - INFO - BrokerMW: handle_request
-2023-02-19 00:32:41,104 - BrokerAppln - INFO - BrokerMW: handle_request: received request
-2023-02-19 00:32:41,104 - BrokerAppln - INFO - BrokerMW: handle_request: parsing request
-2023-02-19 00:32:41,104 - BrokerAppln - INFO - BrokerAppln: handle_register: SUCCESS
-2023-02-19 00:32:41,105 - BrokerAppln - INFO - BrokerAppln: invoke_operation
-2023-02-19 00:32:41,105 - BrokerAppln - INFO - BrokerMW::is_ready
-2023-02-19 00:32:41,105 - BrokerAppln - DEBUG - BrokerMW::is_ready - populate the nested IsReady msg
-2023-02-19 00:32:41,105 - BrokerAppln - DEBUG - BrokerMW::is_ready - done populating nested IsReady msg
-2023-02-19 00:32:41,105 - BrokerAppln - DEBUG - BrokerMW::is_ready - build the outer DiscoveryReq message
-2023-02-19 00:32:41,105 - BrokerAppln - DEBUG - BrokerMW::is_ready - done building the outer message
-2023-02-19 00:32:41,105 - BrokerAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x00'
-2023-02-19 00:32:41,105 - BrokerAppln - DEBUG - BrokerMW::is_ready - send stringified buffer to Discovery service
-2023-02-19 00:32:41,105 - BrokerAppln - INFO - BrokerMW::is_ready - request sent and now wait for reply
-2023-02-19 00:32:41,106 - BrokerAppln - INFO - BrokerMW: handle_request
-2023-02-19 00:32:41,106 - BrokerAppln - INFO - BrokerMW: handle_request: received request
-2023-02-19 00:32:41,106 - BrokerAppln - INFO - BrokerMW: handle_request: parsing request
-2023-02-19 00:32:41,106 - BrokerAppln - INFO - BrokerAppln: invoke_operation
-2023-02-19 00:32:41,106 - BrokerAppln - INFO - BrokerMW::allpub_lookup
-2023-02-19 00:32:41,106 - BrokerAppln - DEBUG - Stringified serialized buf = b'\x08\x04"\x00'
-2023-02-19 00:32:41,107 - BrokerAppln - INFO - BrokerMW: handle_request
-2023-02-19 00:32:41,107 - BrokerAppln - INFO - BrokerMW: handle_request: received request
-2023-02-19 00:32:41,107 - BrokerAppln - INFO - BrokerMW: handle_request: parsing request
-2023-02-19 00:32:41,107 - BrokerAppln - INFO - BrokerMW: connect_to_pubs
-2023-02-19 00:32:41,107 - BrokerAppln - INFO - BrokerMW: connect_to_pubs: connecting to localhost:5570
-2023-02-19 00:32:41,108 - BrokerAppln - INFO - BrokerMW: connect_to_pubs: completed
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,942 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:50,943 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,947 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,948 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,948 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,948 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,948 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,948 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,949 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,949 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,949 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,949 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,949 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,949 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,949 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,950 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,950 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,950 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:51,950 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:51,950 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,948 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,949 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,949 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,949 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,949 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,949 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,950 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,950 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,950 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,950 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,950 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,950 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,951 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,951 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,951 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,951 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:52,951 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:52,952 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,952 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,952 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,952 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,952 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,953 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,954 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:53,954 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:53,954 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,954 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,954 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,955 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,955 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,955 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,955 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,955 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,956 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,956 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,956 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,956 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,956 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,956 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:54,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:54,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,956 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,956 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,956 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,956 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,958 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,958 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,958 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,958 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,958 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,958 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:55,959 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:55,959 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,956 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,956 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,956 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,957 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,958 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,958 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,958 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:56,958 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:56,958 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,962 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,962 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,962 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,963 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,963 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,963 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,963 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,963 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,963 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,965 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:57,965 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:57,965 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,963 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,963 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,963 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,963 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,963 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,963 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,964 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:58,965 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:58,965 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,968 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,969 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,969 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,969 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,969 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,970 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,970 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,970 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,970 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,970 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,970 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,971 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,971 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,971 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,971 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,971 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:32:59,971 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:32:59,971 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,974 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,974 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,975 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,975 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,975 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,975 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,975 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,975 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,976 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,976 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,976 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,976 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,976 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,976 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,976 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,977 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:00,977 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:00,977 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,979 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,979 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,979 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,979 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,979 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,980 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,981 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:01,981 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:01,981 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,980 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,980 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,981 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,981 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,981 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,981 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,981 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,981 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,982 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,982 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,982 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,982 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,982 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,982 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,983 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,983 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:02,983 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:02,983 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,984 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,984 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,984 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,985 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,985 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,985 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,985 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,985 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,985 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,985 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:03,986 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,987 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,987 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,987 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,987 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,987 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,988 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,988 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,988 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,988 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,988 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,988 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,989 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,989 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,989 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,989 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,989 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:04,989 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:04,990 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,992 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,992 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:05,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:05,995 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,993 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:06,994 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:07,998 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:07,999 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:07,999 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:07,999 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:07,999 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:07,999 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:07,999 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:08,000 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:08,000 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:08,000 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:08,000 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:08,000 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:08,000 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:08,001 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:08,001 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:08,001 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:08,001 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:08,001 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,000 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,000 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,001 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,001 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,001 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,001 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,001 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,001 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,002 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,002 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,002 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,002 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,002 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,002 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,003 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,003 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:09,003 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:09,003 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,003 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,003 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,003 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,003 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,003 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,004 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,005 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,005 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:10,005 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:10,005 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,003 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,004 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,004 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,004 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,004 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,005 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,006 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,006 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,006 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:11,006 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:11,006 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,007 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,007 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,007 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,007 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,007 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,007 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,007 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:12,008 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:12,009 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,008 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,008 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,009 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,009 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,009 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,009 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,009 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,009 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,010 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,010 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,010 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,010 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,010 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,010 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,011 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,011 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:13,011 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:13,011 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,010 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,010 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,011 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,011 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,011 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,011 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,011 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,011 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,011 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,012 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,012 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,013 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,013 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,014 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,014 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,014 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:14,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:14,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,015 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:15,017 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:15,017 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,015 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,015 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,015 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,016 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,017 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,017 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,017 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,017 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,017 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:16,017 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:16,017 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,017 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,017 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,017 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,017 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,018 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,018 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,018 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,018 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,019 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,019 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,019 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,019 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,020 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,020 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,020 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,021 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:17,021 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:17,021 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,020 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,020 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,021 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,021 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,021 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,021 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,022 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,022 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,022 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,022 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,023 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,023 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,023 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,023 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,024 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,024 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:18,024 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:18,024 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,071 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,074 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,081 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,082 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,082 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,082 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,083 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,083 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:19,085 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:19,085 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,082 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,082 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,082 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,082 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,082 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,083 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,083 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,083 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:20,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:20,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,083 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,083 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,083 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,084 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,085 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,085 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,085 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,085 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:21,085 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:21,085 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,086 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,086 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,086 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,086 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,086 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,086 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,087 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,088 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,088 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:22,088 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:22,088 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,091 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,091 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,091 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,092 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,092 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,092 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,092 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,092 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,092 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,092 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,093 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,093 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,093 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,093 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,093 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,093 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:23,093 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:23,094 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,094 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,094 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,094 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,094 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,094 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,094 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,094 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:24,095 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,095 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:25,098 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:25,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,095 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:26,098 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:26,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,096 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,096 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:27,098 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:27,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,097 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,097 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,099 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,099 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,099 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,099 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:28,099 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:28,099 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,100 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,101 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,101 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,101 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,101 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,101 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,102 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,102 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,102 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,102 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,102 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,102 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,103 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,103 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,103 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,103 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:29,103 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:29,103 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,103 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,103 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,103 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,103 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,104 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,105 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,105 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,105 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:30,105 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:30,105 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,107 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,108 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,108 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,108 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,108 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,108 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,109 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,109 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,109 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,109 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,109 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,109 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,110 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,110 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,110 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,110 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:31,110 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:31,110 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,112 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:32,113 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,116 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,117 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,117 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,117 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,117 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,117 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,117 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,118 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,118 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,118 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,118 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,118 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,118 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,118 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,119 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:33,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:33,119 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,118 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,118 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,118 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,118 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,119 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,119 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,119 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:34,121 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:34,121 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,119 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,121 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,121 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,121 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,121 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,121 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,122 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:35,122 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:35,122 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,119 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,120 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,120 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,121 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,121 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,121 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,121 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,121 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,121 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,122 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,122 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,122 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,122 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:36,122 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:36,122 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,125 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:37,126 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:37,127 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,128 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,128 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,129 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,129 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,129 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,130 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,130 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,130 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:38,131 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:38,131 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,128 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,128 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,129 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,130 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,130 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:39,130 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:39,130 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,134 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,134 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,134 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,134 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,136 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,136 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,136 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,136 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,136 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,137 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:40,137 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:40,137 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,134 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,135 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,136 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,136 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,136 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,136 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,136 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:41,136 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:41,136 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,139 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,139 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,139 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,140 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,140 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,140 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:42,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,144 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,144 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,144 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,144 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,145 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,145 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,145 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,145 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,146 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,146 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,146 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,146 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,146 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:43,146 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:43,147 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,147 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,147 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,147 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,147 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,147 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,148 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,148 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,148 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,148 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,148 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,148 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,149 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,149 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,149 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,149 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,149 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
-2023-02-19 00:33:44,149 - BrokerAppln - INFO - BrokerMW: handle_sub
-2023-02-19 00:33:44,150 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:10,079 - root - INFO - BrokerAppln: main
+2023-02-25 22:48:10,086 - BrokerAppln - INFO - BrokerAppln: configure
+2023-02-25 22:48:10,087 - BrokerAppln - INFO - BrokerMW: configure
+2023-02-25 22:48:10,090 - BrokerAppln - INFO - BrokerMW: configure: completed
+2023-02-25 22:48:10,090 - BrokerAppln - INFO - BrokerAppln: configure: completed
+2023-02-25 22:48:10,090 - BrokerAppln - INFO - BrokerAppln: driver
+2023-02-25 22:48:10,090 - BrokerAppln - INFO - **********************************
+2023-02-25 22:48:10,091 - BrokerAppln - INFO - BrokerAppln::dump
+2023-02-25 22:48:10,091 - BrokerAppln - INFO - ------------------------------
+2023-02-25 22:48:10,091 - BrokerAppln - INFO -      Name: broker1
+2023-02-25 22:48:10,091 - BrokerAppln - INFO -      Lookup: Centralized
+2023-02-25 22:48:10,091 - BrokerAppln - INFO -      Dissemination: Direct
+2023-02-25 22:48:10,091 - BrokerAppln - INFO - **********************************
+2023-02-25 22:48:10,091 - BrokerAppln - INFO - BrokerMW: event_loop
+2023-02-25 22:48:10,091 - BrokerAppln - INFO - BrokerAppln: invoke_operation
+2023-02-25 22:48:10,091 - BrokerAppln - DEBUG - BrokerMW::register - populate the Registrant Info
+2023-02-25 22:48:10,091 - BrokerAppln - DEBUG - BrokerMW::register - done populating the Registrant Info
+2023-02-25 22:48:10,091 - BrokerAppln - DEBUG - BrokerMW::register - populate the nested register req
+2023-02-25 22:48:10,092 - BrokerAppln - DEBUG - BrokerMW::register - done populating nested RegisterReq
+2023-02-25 22:48:10,092 - BrokerAppln - DEBUG - BrokerMW::register - build the outer DiscoveryReq message
+2023-02-25 22:48:10,092 - BrokerAppln - DEBUG - BrokerMW::register - done building the outer message
+2023-02-25 22:48:10,092 - BrokerAppln - DEBUG - BrokerMW serialized buf = b'\x08\x01\x12\x1b\x08\x03\x12\x17\n\x07broker1\x12\tlocalhost\x18\xdf+'
+2023-02-25 22:48:10,092 - BrokerAppln - DEBUG - BrokerMW::register - send stringified buffer to Discovery service
+2023-02-25 22:48:10,092 - BrokerAppln - INFO - BrokerMW::register - sent register message and now now wait for reply
+2023-02-25 22:48:10,095 - BrokerAppln - INFO - BrokerMW: handle_request
+2023-02-25 22:48:10,095 - BrokerAppln - INFO - BrokerMW: handle_request: received request
+2023-02-25 22:48:10,095 - BrokerAppln - INFO - BrokerMW: handle_request: parsing request
+2023-02-25 22:48:10,095 - BrokerAppln - INFO - BrokerAppln: handle_register: SUCCESS
+2023-02-25 22:48:10,095 - BrokerAppln - INFO - BrokerAppln: invoke_operation
+2023-02-25 22:48:10,095 - BrokerAppln - INFO - BrokerMW::is_ready
+2023-02-25 22:48:10,095 - BrokerAppln - DEBUG - BrokerMW::is_ready - populate the nested IsReady msg
+2023-02-25 22:48:10,096 - BrokerAppln - DEBUG - BrokerMW::is_ready - done populating nested IsReady msg
+2023-02-25 22:48:10,096 - BrokerAppln - DEBUG - BrokerMW::is_ready - build the outer DiscoveryReq message
+2023-02-25 22:48:10,096 - BrokerAppln - DEBUG - BrokerMW::is_ready - done building the outer message
+2023-02-25 22:48:10,096 - BrokerAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x00'
+2023-02-25 22:48:10,096 - BrokerAppln - DEBUG - BrokerMW::is_ready - send stringified buffer to Discovery service
+2023-02-25 22:48:10,096 - BrokerAppln - INFO - BrokerMW::is_ready - request sent and now wait for reply
+2023-02-25 22:48:10,097 - BrokerAppln - INFO - BrokerMW: handle_request
+2023-02-25 22:48:10,097 - BrokerAppln - INFO - BrokerMW: handle_request: received request
+2023-02-25 22:48:10,097 - BrokerAppln - INFO - BrokerMW: handle_request: parsing request
+2023-02-25 22:48:10,097 - BrokerAppln - INFO - BrokerAppln: invoke_operation
+2023-02-25 22:48:10,097 - BrokerAppln - INFO - BrokerMW::allpub_lookup
+2023-02-25 22:48:10,097 - BrokerAppln - DEBUG - Stringified serialized buf = b'\x08\x04"\x00'
+2023-02-25 22:48:10,098 - BrokerAppln - INFO - BrokerMW: handle_request
+2023-02-25 22:48:10,098 - BrokerAppln - INFO - BrokerMW: handle_request: received request
+2023-02-25 22:48:10,098 - BrokerAppln - INFO - BrokerMW: handle_request: parsing request
+2023-02-25 22:48:10,099 - BrokerAppln - INFO - BrokerMW: connect_to_pubs
+2023-02-25 22:48:10,099 - BrokerAppln - INFO - BrokerMW: connect_to_pubs: connecting to localhost:5570
+2023-02-25 22:48:10,099 - BrokerAppln - INFO - BrokerMW: connect_to_pubs: completed
+2023-02-25 22:48:11,097 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,098 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,098 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,098 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,098 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,099 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:11,100 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:11,100 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,100 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,100 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,100 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,100 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,101 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,102 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,102 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,102 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:12,102 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:12,102 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,105 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,105 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,106 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:13,107 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,110 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,110 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,110 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:14,111 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:14,112 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,115 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,115 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,115 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,115 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,115 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,116 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,117 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,117 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:15,117 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:15,117 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,138 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,138 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,140 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,142 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,143 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,143 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,143 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,144 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,147 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,147 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:16,147 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:16,147 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,138 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,139 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,139 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,139 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,139 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,139 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,139 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,139 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:17,140 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:17,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,140 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,141 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,141 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,141 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,142 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,142 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,142 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,142 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,142 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,142 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,143 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,143 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,143 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,143 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:18,143 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:18,143 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,145 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,146 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,146 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,146 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,146 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,146 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:19,146 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:19,146 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,168 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,170 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,170 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,170 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,170 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,170 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,171 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:20,195 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:20,204 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,167 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,167 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,168 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,168 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:21,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,168 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,168 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,168 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,169 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,170 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,170 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:22,170 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:22,170 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,173 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,174 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,174 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,174 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,174 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,174 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,175 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,176 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:23,176 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:23,176 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,177 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,178 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,178 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,178 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,178 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,178 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,178 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,178 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,179 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,179 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,179 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,179 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,179 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,179 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,179 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,180 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:24,180 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:24,180 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,183 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,183 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,183 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,184 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,185 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,185 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,185 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,185 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:25,185 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:25,185 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,187 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,187 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,187 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,187 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,188 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,188 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,188 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,188 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,188 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,188 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub
+2023-02-25 22:48:26,189 - BrokerAppln - INFO - BrokerMW: handle_sub: forwarded msg
 Traceback (most recent call last):
   File "/Users/saydagz/Desktop/StarterCode_ProgAssign/BrokerAppln.py", line 186, in <module>
     main()

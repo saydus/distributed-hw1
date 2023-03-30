@@ -179,6 +179,8 @@ class DiscoveryAppln():
             else:
                 # return ips of publishers
                 for topic in lookup_req.topiclist:
+                    if not topic in self.topic_to_publishers:
+                        continue
                     for publisher in self.topic_to_publishers[topic]:
                         if (self.publisher_to_ip_port[publisher] not in sockets):
                             sockets.append(

@@ -1,887 +1,483 @@
-2023-02-19 00:32:40,910 - root - INFO - Main - acquire a child logger and then log messages in the child
-2023-02-19 00:32:40,911 - SubscriberAppln - DEBUG - Main: parse command line arguments
-2023-02-19 00:32:40,916 - SubscriberAppln - DEBUG - Main: resetting log level to 10
-2023-02-19 00:32:40,916 - SubscriberAppln - DEBUG - Main: effective log level is 10
-2023-02-19 00:32:40,916 - SubscriberAppln - DEBUG - Main: obtain the subscriber appln object
-2023-02-19 00:32:40,916 - SubscriberAppln - DEBUG - Main: configure the subscriber appln object
-2023-02-19 00:32:40,916 - SubscriberAppln - INFO - SubscriberAppln::configure
-2023-02-19 00:32:40,916 - SubscriberAppln - DEBUG - SubscriberAppln::configure - parsing config.ini
-2023-02-19 00:32:40,917 - SubscriberAppln - DEBUG - SubscriberAppln::configure - selecting our topic list
-2023-02-19 00:32:40,917 - SubscriberAppln - DEBUG - SubscriberAppln::configure - initialize the middleware object
-2023-02-19 00:32:40,917 - SubscriberAppln - INFO - SubscriberMW::configure
-2023-02-19 00:32:40,917 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain ZMQ context
-2023-02-19 00:32:40,917 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain the poller
-2023-02-19 00:32:40,917 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain REQ and PUB sockets
-2023-02-19 00:32:40,918 - SubscriberAppln - DEBUG - SubscriberMW::configure - register the REQ socket for incoming replies
-2023-02-19 00:32:40,918 - SubscriberAppln - DEBUG - SubscriberMW::configure - connect to Discovery service
-2023-02-19 00:32:40,918 - SubscriberAppln - DEBUG - SubscriberMW::configure - bind to the pub socket
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO - SubscriberMW::configure completed
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO - SubscriberAppln::configure - configuration complete
-2023-02-19 00:32:40,918 - SubscriberAppln - DEBUG - Main: invoke the subscriber appln driver
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO - SubscriberAppln::driver
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO - **********************************
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO - SubscriberAppln::dump
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO - ------------------------------
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO -      Name: sub1
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO -      Lookup: Centralized
-2023-02-19 00:32:40,918 - SubscriberAppln - INFO -      Dissemination: Broker
-2023-02-19 00:32:40,919 - SubscriberAppln - INFO -      Num Topics: 5
-2023-02-19 00:32:40,919 - SubscriberAppln - INFO -      TopicList: ['light', 'weather', 'pressure', 'sound', 'temperature']
-2023-02-19 00:32:40,919 - SubscriberAppln - INFO - **********************************
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - SubscriberAppln::driver - upcall handle
-2023-02-19 00:32:40,919 - SubscriberAppln - INFO - SublisherMW::event_loop - run the event loop
-2023-02-19 00:32:40,919 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - register with the discovery service
-2023-02-19 00:32:40,919 - SubscriberAppln - INFO - SubscriberMW::register
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the Registrant Info
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - PublisherMW::register - done populating the Registrant Info
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the nested register req
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - SubscriberMW::register - done populating nested RegisterReq
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - SubscriberMW::register - build the outer DiscoveryReq message
-2023-02-19 00:32:40,919 - SubscriberAppln - DEBUG - SubscriberMW::register - done building the outer message
-2023-02-19 00:32:40,920 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x01\x12F\x08\x02\x12\x14\n\x04sub1\x12\tlocalhost\x18\xd4+\x1a\x05light\x1a\x07weather\x1a\x08pressure\x1a\x05sound\x1a\x0btemperature'
-2023-02-19 00:32:40,920 - SubscriberAppln - DEBUG - SubscriberMW::register - send stringified buffer to Discovery service
-2023-02-19 00:32:40,922 - SubscriberAppln - INFO - SubscriberMW::register - sent register message and now now wait for reply
-2023-02-19 00:32:41,095 - SubscriberAppln - INFO - SubscriberMW::handle_reply
-2023-02-19 00:32:41,095 - SubscriberAppln - INFO - SubcriberAppln::register_response
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - PublisherAppln::register_response - registration is a success
-2023-02-19 00:32:41,095 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if are ready to go
-2023-02-19 00:32:41,095 - SubscriberAppln - INFO - SubscriberMW::is_ready
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x00'
-2023-02-19 00:32:41,095 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
-2023-02-19 00:32:41,095 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
-2023-02-19 00:32:41,096 - SubscriberAppln - INFO - SubscriberMW::handle_reply
-2023-02-19 00:32:41,096 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = 
-2023-02-19 00:32:41,096 - SubscriberAppln - INFO - SubscriberAppln::isready_response
-2023-02-19 00:32:41,096 - SubscriberAppln - DEBUG - SubscriberAppln::driver - Not ready yet; check again
-2023-02-19 00:32:51,097 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
-2023-02-19 00:32:51,097 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if are ready to go
-2023-02-19 00:32:51,098 - SubscriberAppln - INFO - SubscriberMW::is_ready
-2023-02-19 00:32:51,098 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
-2023-02-19 00:32:51,098 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
-2023-02-19 00:32:51,098 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
-2023-02-19 00:32:51,098 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
-2023-02-19 00:32:51,098 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x00'
-2023-02-19 00:32:51,098 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
-2023-02-19 00:32:51,098 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
-2023-02-19 00:32:51,099 - SubscriberAppln - INFO - SubscriberMW::handle_reply
-2023-02-19 00:32:51,100 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = status: true
+2023-02-25 22:48:10,078 - root - INFO - Main - acquire a child logger and then log messages in the child
+2023-02-25 22:48:10,078 - SubscriberAppln - DEBUG - Main: parse command line arguments
+2023-02-25 22:48:10,086 - SubscriberAppln - DEBUG - Main: resetting log level to 10
+2023-02-25 22:48:10,087 - SubscriberAppln - DEBUG - Main: effective log level is 10
+2023-02-25 22:48:10,087 - SubscriberAppln - DEBUG - Main: obtain the subscriber appln object
+2023-02-25 22:48:10,087 - SubscriberAppln - DEBUG - Main: configure the subscriber appln object
+2023-02-25 22:48:10,087 - SubscriberAppln - INFO - SubscriberAppln::configure
+2023-02-25 22:48:10,087 - SubscriberAppln - DEBUG - SubscriberAppln::configure - parsing config.ini
+2023-02-25 22:48:10,087 - SubscriberAppln - DEBUG - SubscriberAppln::configure - selecting our topic list
+2023-02-25 22:48:10,087 - SubscriberAppln - DEBUG - SubscriberAppln::configure - initialize the middleware object
+2023-02-25 22:48:10,087 - SubscriberAppln - INFO - SubscriberMW::configure
+2023-02-25 22:48:10,087 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain ZMQ context
+2023-02-25 22:48:10,088 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain the poller
+2023-02-25 22:48:10,088 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain REQ and PUB sockets
+2023-02-25 22:48:10,089 - SubscriberAppln - DEBUG - SubscriberMW::configure - register the REQ socket for incoming replies
+2023-02-25 22:48:10,089 - SubscriberAppln - DEBUG - SubscriberMW::configure - connect to Discovery service
+2023-02-25 22:48:10,090 - SubscriberAppln - DEBUG - SubscriberMW::configure - bind to the pub socket
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - SubscriberMW::configure completed
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - SubscriberAppln::configure - configuration complete
+2023-02-25 22:48:10,090 - SubscriberAppln - DEBUG - Main: invoke the subscriber appln driver
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - SubscriberAppln::driver
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - **********************************
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - SubscriberAppln::dump
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - ------------------------------
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO -      Name: sub1
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO -      Lookup: Centralized
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO -      Dissemination: Direct
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO -      Num Topics: 5
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO -      TopicList: ['light', 'weather', 'sound', 'altitude', 'temperature']
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - **********************************
+2023-02-25 22:48:10,090 - SubscriberAppln - DEBUG - SubscriberAppln::driver - upcall handle
+2023-02-25 22:48:10,090 - SubscriberAppln - INFO - SublisherMW::event_loop - run the event loop
+2023-02-25 22:48:10,091 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - register with the discovery service
+2023-02-25 22:48:10,091 - SubscriberAppln - INFO - SubscriberMW::register
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the Registrant Info
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - PublisherMW::register - done populating the Registrant Info
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the nested register req
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - SubscriberMW::register - done populating nested RegisterReq
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - SubscriberMW::register - build the outer DiscoveryReq message
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - SubscriberMW::register - done building the outer message
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x01\x12F\x08\x02\x12\x14\n\x04sub1\x12\tlocalhost\x18\xd4+\x1a\x05light\x1a\x07weather\x1a\x05sound\x1a\x08altitude\x1a\x0btemperature'
+2023-02-25 22:48:10,091 - SubscriberAppln - DEBUG - SubscriberMW::register - send stringified buffer to Discovery service
+2023-02-25 22:48:10,092 - SubscriberAppln - INFO - SubscriberMW::register - sent register message and now now wait for reply
+2023-02-25 22:48:10,094 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-02-25 22:48:10,094 - SubscriberAppln - INFO - SubcriberAppln::register_response
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - PublisherAppln::register_response - registration is a success
+2023-02-25 22:48:10,094 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if are ready to go
+2023-02-25 22:48:10,094 - SubscriberAppln - INFO - SubscriberMW::is_ready
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x00'
+2023-02-25 22:48:10,094 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
+2023-02-25 22:48:10,095 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
+2023-02-25 22:48:10,096 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-02-25 22:48:10,096 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = status: true
 
-2023-02-19 00:32:51,100 - SubscriberAppln - INFO - SubscriberAppln::isready_response
-2023-02-19 00:32:51,100 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
-2023-02-19 00:32:51,100 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - start looking up
-2023-02-19 00:32:51,100 - SubscriberAppln - INFO - SubscriberMW::lookup
-2023-02-19 00:32:51,100 - SubscriberAppln - DEBUG - SubscriberMW::lookup - built the message
-2023-02-19 00:32:51,100 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x03".\x12\x05light\x12\x07weather\x12\x08pressure\x12\x05sound\x12\x0btemperature'
-2023-02-19 00:32:51,100 - SubscriberAppln - INFO - SubscriberMW::lookup - sent lookup message and now now wait for reply
-2023-02-19 00:32:51,101 - SubscriberAppln - INFO - SubscriberMW::handle_reply
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - response = publist: "localhost:5599"
-, topiclist: ['light', 'weather', 'pressure', 'sound', 'temperature']
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = light
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = weather
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = pressure
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = sound
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = temperature
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup after topiclist subscription - publist = ['localhost:5599'], type=<class 'google._upb._message.RepeatedScalarContainer'>
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberMW::handle_reply - registrant_info 
-2023-02-19 00:32:51,102 - SubscriberAppln - INFO - SubscriberAppln::islookup_response
-2023-02-19 00:32:51,948 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788371.947231:48
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788371.947259:rainy
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:51,949 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788371.947294:800
-2023-02-19 00:32:51,950 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:51,950 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:51,950 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788371.9473112:47
-2023-02-19 00:32:51,950 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:51,950 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:51,950 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788371.94733:958
-2023-02-19 00:32:52,949 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:52,950 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:52,950 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788372.948611:-32
-2023-02-19 00:32:52,950 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:52,950 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:52,950 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788372.9486341:rainy
-2023-02-19 00:32:52,950 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:52,950 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:52,951 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788372.94866:450
-2023-02-19 00:32:52,951 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:52,951 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:52,951 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788372.948673:32
-2023-02-19 00:32:52,951 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:52,951 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:52,951 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788372.9486861:1081
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788373.952369:9
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788373.952379:foggy
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788373.952391:1100
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788373.952398:48
-2023-02-19 00:32:53,953 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:53,954 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:53,954 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788373.952404:870
-2023-02-19 00:32:54,955 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:54,955 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:54,955 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788374.954067:-55
-2023-02-19 00:32:54,955 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:54,955 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:54,956 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788374.9541068:cloudy
-2023-02-19 00:32:54,956 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:54,956 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:54,956 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788374.954144:1100
-2023-02-19 00:32:54,956 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:54,957 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:54,957 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788374.9541628:93
-2023-02-19 00:32:54,957 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:54,957 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:54,957 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788374.954182:1057
-2023-02-19 00:32:55,957 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:55,957 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:55,957 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788375.9559839:38
-2023-02-19 00:32:55,957 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:55,957 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:55,957 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788375.9560058:icy
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788375.956031:1100
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788375.956044:67
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:55,958 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788375.956058:875
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788376.9563782:75
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788376.9563909:sunny
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:56,957 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788376.956416:450
-2023-02-19 00:32:56,958 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:56,958 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:56,958 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788376.956424:78
-2023-02-19 00:32:56,958 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:56,958 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:56,958 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788376.9564312:964
-2023-02-19 00:32:57,963 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:57,963 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:57,963 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788377.9618251:-67
-2023-02-19 00:32:57,963 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:57,963 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:57,963 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788377.961853:sunny
-2023-02-19 00:32:57,964 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:57,964 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:57,964 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788377.961882:800
-2023-02-19 00:32:57,964 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:57,964 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:57,964 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788377.961897:70
-2023-02-19 00:32:57,964 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:57,965 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:57,965 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788377.961911:957
-2023-02-19 00:32:58,963 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788378.9630451:10
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788378.963069:sunny
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788378.963082:450
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788378.9630878:73
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:58,964 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:58,965 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788378.963095:1016
-2023-02-19 00:32:59,969 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:59,970 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:59,970 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788379.968587:-26
-2023-02-19 00:32:59,970 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:59,970 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:59,970 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788379.9686131:cloudy
-2023-02-19 00:32:59,970 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788379.9686458:800
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788379.9686651:75
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:32:59,971 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788379.968695:1032
-2023-02-19 00:33:00,975 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:00,975 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:00,975 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788380.973991:-37
-2023-02-19 00:33:00,975 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:00,975 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:00,976 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788380.974016:cloudy
-2023-02-19 00:33:00,976 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:00,976 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:00,976 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788380.9740422:1100
-2023-02-19 00:33:00,976 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:00,976 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:00,976 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788380.974058:81
-2023-02-19 00:33:00,977 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:00,977 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:00,977 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788380.974072:948
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788381.979285:28
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788381.979296:sunny
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788381.979309:1100
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788381.979315:60
-2023-02-19 00:33:01,980 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:01,981 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:01,981 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788381.979321:953
-2023-02-19 00:33:02,981 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:02,981 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:02,981 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788382.980051:-90
-2023-02-19 00:33:02,981 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:02,981 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:02,982 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788382.9800909:cloudy
-2023-02-19 00:33:02,982 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:02,982 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:02,982 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788382.980128:1600
-2023-02-19 00:33:02,982 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:02,982 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:02,982 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788382.980146:74
-2023-02-19 00:33:02,983 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:02,983 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:02,983 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788382.980163:1070
-2023-02-19 00:33:03,985 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:03,985 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:03,985 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788383.984101:-13
-2023-02-19 00:33:03,985 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:03,985 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:03,985 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788383.984125:rainy
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788383.984169:800
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788383.984187:75
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:03,986 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:03,987 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788383.984201:995
-2023-02-19 00:33:04,988 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:04,988 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:04,988 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788384.9866261:-32
-2023-02-19 00:33:04,988 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:04,988 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:04,988 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788384.986654:sunny
-2023-02-19 00:33:04,988 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788384.986686:1100
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788384.986702:31
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:04,989 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788384.98672:972
-2023-02-19 00:33:05,993 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:05,993 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:05,993 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788385.992121:75
-2023-02-19 00:33:05,993 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:05,993 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788385.9921439:rainy
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788385.992172:800
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788385.992186:80
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:05,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788385.9922:974
-2023-02-19 00:33:06,993 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:06,993 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:06,993 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788386.9927402:-26
-2023-02-19 00:33:06,993 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:06,993 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788386.992752:foggy
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788386.9927838:1600
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788386.99279:65
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:06,994 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788386.992797:1084
-2023-02-19 00:33:07,999 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:07,999 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:07,999 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788387.9982688:85
-2023-02-19 00:33:08,000 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:08,000 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:08,000 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788387.9982998:cloudy
-2023-02-19 00:33:08,000 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:08,000 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:08,000 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788387.9983318:800
-2023-02-19 00:33:08,001 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:08,001 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:08,001 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788387.998353:58
-2023-02-19 00:33:08,001 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:08,001 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:08,001 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788387.9984808:985
-2023-02-19 00:33:09,001 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:09,001 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:09,001 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788389.000373:-41
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788389.0003939:rainy
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788389.000423:450
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:09,002 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:09,003 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788389.000436:57
-2023-02-19 00:33:09,003 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:09,003 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:09,003 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788389.0004501:1033
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788390.0032709:-73
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788390.003285:sunny
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788390.0033002:450
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:10,004 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788390.003308:38
-2023-02-19 00:33:10,005 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:10,005 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:10,005 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788390.003315:1012
-2023-02-19 00:33:11,004 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788391.003586:58
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788391.0036201:sunny
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:11,005 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788391.0036511:1100
-2023-02-19 00:33:11,006 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:11,006 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:11,006 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788391.0037389:91
-2023-02-19 00:33:11,006 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:11,006 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:11,006 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788391.0037901:1045
-2023-02-19 00:33:12,007 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:12,007 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:12,007 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788392.006919:-25
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788392.006929:cloudy
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788392.006955:450
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788392.0069609:59
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:12,008 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788392.006968:949
-2023-02-19 00:33:13,009 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:13,009 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:13,009 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788393.008318:21
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788393.008341:icy
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788393.008373:1600
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:13,010 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788393.008387:32
-2023-02-19 00:33:13,011 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:13,011 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:13,011 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788393.008404:901
-2023-02-19 00:33:14,011 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:14,011 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:14,011 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788394.009661:-79
-2023-02-19 00:33:14,011 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:14,011 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:14,011 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788394.009686:cloudy
-2023-02-19 00:33:14,012 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:14,013 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:14,013 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788394.009711:1100
-2023-02-19 00:33:14,013 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:14,014 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:14,014 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788394.009723:63
-2023-02-19 00:33:14,014 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:14,014 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:14,016 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788394.009734:1047
-2023-02-19 00:33:15,015 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:15,015 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:15,015 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788395.014804:47
-2023-02-19 00:33:15,015 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788395.0148191:rainy
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788395.014835:800
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788395.014844:43
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:15,016 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788395.014852:1051
-2023-02-19 00:33:16,016 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:16,016 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:16,016 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788396.015201:48
-2023-02-19 00:33:16,016 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:16,016 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:16,016 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788396.015214:foggy
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788396.015231:1600
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788396.015239:31
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:16,017 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788396.0152462:1061
-2023-02-19 00:33:17,018 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:17,018 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:17,018 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788397.016047:-85
-2023-02-19 00:33:17,018 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:17,019 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:17,019 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788397.0160692:icy
-2023-02-19 00:33:17,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:17,020 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:17,020 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788397.016085:1100
-2023-02-19 00:33:17,020 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:17,020 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:17,020 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788397.016093:61
-2023-02-19 00:33:17,021 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:17,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:17,021 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788397.0161011:938
-2023-02-19 00:33:18,021 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:18,021 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:18,022 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788398.0203562:28
-2023-02-19 00:33:18,022 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:18,022 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:18,022 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788398.020386:foggy
-2023-02-19 00:33:18,023 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:18,023 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:18,023 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788398.020402:1100
-2023-02-19 00:33:18,023 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:18,023 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:18,023 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788398.020412:75
-2023-02-19 00:33:18,024 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:18,024 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:18,024 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788398.02042:986
-2023-02-19 00:33:19,082 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:19,083 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:19,083 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788399.035567:0
-2023-02-19 00:33:19,083 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:19,083 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:19,083 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788399.040223:rainy
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788399.052618:1100
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788399.0588732:38
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:19,084 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788399.0720482:994
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788400.0820842:27
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788400.082099:cloudy
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:20,083 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788400.0821161:1600
-2023-02-19 00:33:20,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:20,084 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:20,084 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788400.082124:64
-2023-02-19 00:33:20,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:20,084 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:20,084 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788400.082133:1020
-2023-02-19 00:33:21,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:21,084 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:21,084 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788401.083285:-96
-2023-02-19 00:33:21,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:21,084 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:21,084 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788401.083297:icy
-2023-02-19 00:33:21,084 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788401.083311:1600
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788401.083319:82
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:21,085 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788401.083327:1029
-2023-02-19 00:33:22,086 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:22,086 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788402.085993:73
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788402.086009:sunny
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788402.086027:1600
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:22,087 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788402.086035:70
-2023-02-19 00:33:22,088 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:22,088 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:22,088 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788402.0860422:1039
-2023-02-19 00:33:23,092 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:23,092 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:23,092 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788403.090961:-34
-2023-02-19 00:33:23,092 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:23,092 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:23,092 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788403.09099:cloudy
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788403.0910249:800
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788403.09105:43
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:23,093 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788403.091082:933
-2023-02-19 00:33:24,094 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:24,094 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:24,094 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788404.093987:-73
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788404.094:cloudy
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788404.094014:450
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788404.094021:68
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:24,095 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788404.094028:965
-2023-02-19 00:33:25,096 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:25,096 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:25,096 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788405.0950131:48
-2023-02-19 00:33:25,096 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:25,096 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:25,096 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788405.095042:foggy
-2023-02-19 00:33:25,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:25,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:25,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788405.095073:1100
-2023-02-19 00:33:25,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:25,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:25,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788405.09509:53
-2023-02-19 00:33:25,098 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:25,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:25,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788405.095108:1071
-2023-02-19 00:33:26,096 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788406.09535:-52
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788406.0953689:cloudy
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788406.095388:450
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:26,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:26,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788406.095396:82
-2023-02-19 00:33:26,098 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:26,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:26,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788406.0954041:980
-2023-02-19 00:33:27,096 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:27,096 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:27,096 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788407.095832:90
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788407.095846:sunny
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788407.095863:800
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788407.095871:54
-2023-02-19 00:33:27,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:27,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:27,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788407.0958788:982
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788408.097428:-25
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788408.097447:foggy
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:28,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788408.097465:1600
-2023-02-19 00:33:28,099 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:28,099 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:28,099 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788408.097474:82
-2023-02-19 00:33:28,099 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:28,099 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:28,099 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788408.0974872:976
-2023-02-19 00:33:29,101 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788409.100523:-7
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788409.1005492:foggy
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788409.10058:1600
-2023-02-19 00:33:29,102 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:29,103 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:29,103 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788409.100598:80
-2023-02-19 00:33:29,103 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:29,103 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:29,103 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788409.100613:1040
-2023-02-19 00:33:30,103 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788410.1030111:-90
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788410.103032:cloudy
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788410.10305:800
-2023-02-19 00:33:30,104 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:30,105 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:30,105 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788410.1030579:53
-2023-02-19 00:33:30,105 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:30,105 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:30,105 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788410.103065:986
-2023-02-19 00:33:31,108 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:31,108 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:31,109 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788411.107543:-18
-2023-02-19 00:33:31,109 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:31,109 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:31,109 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788411.1075819:sunny
-2023-02-19 00:33:31,109 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:31,109 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:31,109 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788411.107625:1600
-2023-02-19 00:33:31,110 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:31,110 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:31,110 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788411.1076531:73
-2023-02-19 00:33:31,110 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:31,110 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:31,110 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788411.107666:947
-2023-02-19 00:33:32,112 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:32,112 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:32,112 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788412.1118872:95
-2023-02-19 00:33:32,112 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788412.1118999:rainy
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788412.1119108:1100
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788412.111918:68
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:32,113 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788412.111924:983
-2023-02-19 00:33:33,117 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:33,117 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788413.116342:-6
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788413.11637:rainy
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788413.116399:1600
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:33,118 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:33,119 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788413.116416:51
-2023-02-19 00:33:33,119 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:33,119 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:33,119 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788413.116432:982
-2023-02-19 00:33:34,119 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:34,119 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:34,119 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788414.1178381:-67
-2023-02-19 00:33:34,119 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:34,119 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:34,119 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788414.117863:sunny
-2023-02-19 00:33:34,120 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:34,120 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:34,120 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788414.117894:1600
-2023-02-19 00:33:34,120 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:34,120 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:34,120 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788414.117909:31
-2023-02-19 00:33:34,120 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:34,121 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:34,121 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788414.117926:1078
-2023-02-19 00:33:35,120 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:35,120 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:35,120 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788415.119036:-59
-2023-02-19 00:33:35,120 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:35,120 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:35,120 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788415.11906:cloudy
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788415.119095:450
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788415.119113:78
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:35,121 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:35,122 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788415.1191308:1035
-2023-02-19 00:33:36,120 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:36,120 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:36,121 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788416.119662:-84
-2023-02-19 00:33:36,121 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:36,121 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:36,121 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788416.1196811:rainy
-2023-02-19 00:33:36,121 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:36,121 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:36,121 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788416.119703:1100
-2023-02-19 00:33:36,122 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:36,122 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:36,122 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788416.119715:63
-2023-02-19 00:33:36,122 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:36,122 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:36,122 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788416.1197262:921
-2023-02-19 00:33:37,125 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:37,125 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:37,125 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788417.1249359:43
-2023-02-19 00:33:37,125 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788417.124948:icy
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788417.124963:1600
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788417.12497:80
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:37,126 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788417.1249769:931
-2023-02-19 00:33:38,129 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:38,129 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:38,129 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788418.128065:-94
-2023-02-19 00:33:38,129 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:38,129 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:38,129 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788418.128108:cloudy
-2023-02-19 00:33:38,130 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:38,130 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:38,130 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788418.128139:1100
-2023-02-19 00:33:38,130 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:38,130 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:38,130 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788418.128156:52
-2023-02-19 00:33:38,131 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:38,131 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:38,131 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788418.128172:965
-2023-02-19 00:33:39,129 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:39,129 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:39,129 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788419.12847:-51
-2023-02-19 00:33:39,129 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:39,129 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:39,129 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788419.128481:sunny
-2023-02-19 00:33:39,129 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788419.128497:800
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788419.128504:43
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:39,130 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788419.128511:1055
-2023-02-19 00:33:40,135 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:40,135 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:40,135 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788420.133899:-23
-2023-02-19 00:33:40,135 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:40,135 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:40,135 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788420.133929:cloudy
-2023-02-19 00:33:40,136 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:40,136 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:40,136 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788420.1339588:1100
-2023-02-19 00:33:40,136 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:40,136 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:40,136 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788420.133976:34
-2023-02-19 00:33:40,136 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:40,137 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:40,137 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788420.133996:885
-2023-02-19 00:33:41,135 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:41,135 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:41,135 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788421.134652:-28
-2023-02-19 00:33:41,135 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:41,135 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:41,135 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788421.134662:icy
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788421.1346738:450
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788421.13468:36
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:41,136 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788421.134686:903
-2023-02-19 00:33:42,140 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:42,140 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:42,140 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788422.139138:89
-2023-02-19 00:33:42,140 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:42,140 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:42,140 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788422.139172:sunny
-2023-02-19 00:33:42,140 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788422.139204:1600
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788422.1392279:76
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:42,141 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788422.139244:1060
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788423.1440718:-97
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788423.144087:foggy
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:43,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788423.1441019:800
-2023-02-19 00:33:43,146 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:43,146 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:43,146 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788423.14411:87
-2023-02-19 00:33:43,146 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:43,146 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:43,146 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788423.1441169:883
-2023-02-19 00:33:44,148 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:44,148 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:44,148 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1676788424.1468759:59
-2023-02-19 00:33:44,148 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:44,148 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:44,148 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1676788424.1469061:foggy
-2023-02-19 00:33:44,148 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1676788424.1469362:450
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1676788424.1469529:57
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberMW::handle_data
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberAppln::handle_data
-2023-02-19 00:33:44,149 - SubscriberAppln - INFO - SubscriberAppln: Received a message pressure:1676788424.1469681:1003
+2023-02-25 22:48:10,096 - SubscriberAppln - INFO - SubscriberAppln::isready_response
+2023-02-25 22:48:10,096 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-02-25 22:48:10,097 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - start looking up
+2023-02-25 22:48:10,097 - SubscriberAppln - INFO - SubscriberMW::lookup
+2023-02-25 22:48:10,097 - SubscriberAppln - DEBUG - SubscriberMW::lookup - built the message
+2023-02-25 22:48:10,097 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x03".\x12\x05light\x12\x07weather\x12\x05sound\x12\x08altitude\x12\x0btemperature'
+2023-02-25 22:48:10,097 - SubscriberAppln - INFO - SubscriberMW::lookup - sent lookup message and now now wait for reply
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - response = publist: "localhost:5570"
+, topiclist: ['light', 'weather', 'sound', 'altitude', 'temperature']
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = light
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = weather
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = sound
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = altitude
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - topic = temperature
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup after topiclist subscription - publist = ['localhost:5570'], type=<class 'google._upb._message.RepeatedScalarContainer'>
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberMW::handle_reply - registrant_info 
+2023-02-25 22:48:10,098 - SubscriberAppln - INFO - SubscriberAppln::islookup_response
+2023-02-25 22:48:11,097 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:11,097 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:11,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386891.097389:foggy
+2023-02-25 22:48:11,098 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:11,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:11,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386891.097423:22
+2023-02-25 22:48:11,098 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:11,098 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:11,098 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386891.097455:14505
+2023-02-25 22:48:11,099 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:11,099 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:11,099 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386891.097468:1600
+2023-02-25 22:48:11,099 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:11,099 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:11,099 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386891.097499:41
+2023-02-25 22:48:12,100 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:12,100 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:12,100 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386892.100204:cloudy
+2023-02-25 22:48:12,100 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:12,100 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386892.1002219:-56
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386892.1002922:6250
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386892.100328:450
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:12,101 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386892.1003652:39
+2023-02-25 22:48:13,105 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:13,105 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:13,105 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386893.10499:foggy
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386893.105023:52
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386893.105067:6238
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:13,106 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386893.105088:800
+2023-02-25 22:48:13,107 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:13,107 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:13,107 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386893.105126:78
+2023-02-25 22:48:14,110 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:14,110 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:14,110 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386894.1104488:foggy
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386894.110477:-25
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386894.1104908:29609
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386894.1104991:450
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:14,111 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386894.110514:76
+2023-02-25 22:48:15,115 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:15,115 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:15,115 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386895.115104:rainy
+2023-02-25 22:48:15,115 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386895.115121:-30
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386895.115144:35852
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386895.115154:1100
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:15,116 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386895.1151721:50
+2023-02-25 22:48:16,138 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:16,138 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:16,138 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386896.1308658:cloudy
+2023-02-25 22:48:16,140 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:16,140 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:16,141 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386896.132556:-94
+2023-02-25 22:48:16,142 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:16,142 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:16,142 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386896.136878:3737
+2023-02-25 22:48:16,143 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:16,143 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:16,143 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386896.1374269:1600
+2023-02-25 22:48:16,144 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:16,144 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:16,144 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386896.137475:84
+2023-02-25 22:48:17,138 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386897.138345:sunny
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386897.138392:-81
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386897.138442:21684
+2023-02-25 22:48:17,139 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:17,140 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:17,140 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386897.138463:450
+2023-02-25 22:48:17,140 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:17,140 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:17,140 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386897.138499:40
+2023-02-25 22:48:18,140 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386898.140233:icy
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386898.140267:-17
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:18,141 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386898.1403131:2409
+2023-02-25 22:48:18,142 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:18,142 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:18,142 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386898.140333:1600
+2023-02-25 22:48:18,142 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:18,142 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:18,142 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386898.140369:51
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386899.144926:cloudy
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386899.1449459:24
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386899.144964:7336
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386899.144971:450
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:19,145 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386899.144994:30
+2023-02-25 22:48:20,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:20,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:20,168 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386900.1663969:foggy
+2023-02-25 22:48:20,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:20,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386900.166931:-35
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386900.166969:18060
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386900.166979:1100
+2023-02-25 22:48:20,169 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:20,170 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:20,170 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386900.1669939:44
+2023-02-25 22:48:21,167 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:21,167 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:21,167 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386901.1673:rainy
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386901.1673129:-24
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386901.167331:4795
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386901.167338:800
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:21,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:21,169 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386901.16735:77
+2023-02-25 22:48:22,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:22,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:22,168 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386902.1678011:foggy
+2023-02-25 22:48:22,168 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:22,168 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:22,168 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386902.167827:-42
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386902.167861:25168
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386902.167875:1600
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:22,169 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386902.167905:63
+2023-02-25 22:48:23,173 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:23,174 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:23,174 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386903.1733491:icy
+2023-02-25 22:48:23,174 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:23,174 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:23,174 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386903.173378:-47
+2023-02-25 22:48:23,174 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:23,174 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:23,175 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386903.173414:28607
+2023-02-25 22:48:23,175 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:23,175 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:23,175 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386903.17343:1100
+2023-02-25 22:48:23,175 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:23,175 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:23,175 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386903.173461:55
+2023-02-25 22:48:24,177 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386904.177501:foggy
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386904.177539:-85
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:24,178 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386904.177592:24484
+2023-02-25 22:48:24,179 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:24,179 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:24,179 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386904.1776152:1100
+2023-02-25 22:48:24,179 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:24,179 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:24,179 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386904.17766:30
+2023-02-25 22:48:25,183 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:25,183 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:25,183 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386905.182954:sunny
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386905.183:76
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386905.18304:14581
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386905.183079:1100
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:25,184 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386905.183133:54
+2023-02-25 22:48:26,187 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:26,187 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:26,187 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386906.186736:foggy
+2023-02-25 22:48:26,187 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:26,187 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:26,187 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386906.1867661:53
+2023-02-25 22:48:26,188 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:26,188 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:26,188 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386906.186791:738
+2023-02-25 22:48:26,188 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:26,188 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:26,188 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386906.1868002:1100
+2023-02-25 22:48:26,188 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:26,189 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:26,189 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386906.186815:67
+2023-02-25 22:48:27,190 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386907.190505:rainy
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386907.190569:-33
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:27,191 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386907.1906161:36648
+2023-02-25 22:48:27,192 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:27,192 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:27,192 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386907.190633:1600
+2023-02-25 22:48:27,192 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:27,192 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:27,192 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386907.1906629:54
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386908.195075:foggy
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386908.1950998:-58
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:28,195 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386908.1951191:382
+2023-02-25 22:48:28,196 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:28,196 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:28,196 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386908.195126:800
+2023-02-25 22:48:28,196 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:28,196 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:28,196 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386908.195138:53
+2023-02-25 22:48:29,198 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386909.198736:icy
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386909.198763:57
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386909.1987789:23434
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386909.198786:1600
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:29,199 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386909.1987982:91
+2023-02-25 22:48:30,199 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:30,199 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:30,199 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386910.199292:cloudy
+2023-02-25 22:48:30,199 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:30,199 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:30,199 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386910.19932:-15
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386910.199337:36097
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386910.1993442:450
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:30,200 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386910.199357:87
+2023-02-25 22:48:31,201 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:31,201 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:31,201 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386911.200633:sunny
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386911.200681:6
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386911.200706:7464
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386911.200715:1100
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:31,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386911.200732:80
+2023-02-25 22:48:32,201 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386912.201664:rainy
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386912.2016928:-19
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386912.201714:8949
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386912.2017212:1100
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:32,202 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386912.201735:30
+2023-02-25 22:48:33,203 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:33,203 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:33,203 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386913.2027452:cloudy
+2023-02-25 22:48:33,203 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:33,203 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:33,203 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386913.202793:2
+2023-02-25 22:48:33,204 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:33,204 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:33,204 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386913.202826:6998
+2023-02-25 22:48:33,204 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:33,204 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:33,204 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386913.202838:450
+2023-02-25 22:48:33,205 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:33,205 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:33,205 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386913.202859:80
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386914.20579:rainy
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386914.205819:-85
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386914.2058399:37751
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:34,206 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386914.205848:1100
+2023-02-25 22:48:34,207 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:34,207 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:34,207 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386914.2058618:30
+2023-02-25 22:48:35,211 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386915.211262:icy
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386915.2113159:91
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386915.2113621:38098
+2023-02-25 22:48:35,212 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:35,213 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:35,213 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386915.2113779:800
+2023-02-25 22:48:35,213 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:35,213 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:35,213 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386915.211406:72
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386916.215907:cloudy
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386916.215945:81
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386916.215965:22534
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:36,216 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:36,217 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386916.2159722:800
+2023-02-25 22:48:36,217 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:36,217 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:36,217 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386916.215987:42
+2023-02-25 22:48:37,219 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:37,219 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:37,219 - SubscriberAppln - INFO - SubscriberAppln: Received a message weather:1677386917.219411:cloudy
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln: Received a message temperature:1677386917.219448:-92
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln: Received a message altitude:1677386917.21947:928
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln: Received a message light:1677386917.2194781:800
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberMW::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln::handle_data
+2023-02-25 22:48:37,220 - SubscriberAppln - INFO - SubscriberAppln: Received a message sound:1677386917.2194922:52

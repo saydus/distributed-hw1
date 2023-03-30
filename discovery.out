@@ -1,114 +1,99 @@
-2023-02-19 00:32:40,920 - root - INFO - Main - acquire a child logger and then log messages in the child
-2023-02-19 00:32:40,920 - DiscoveryAppln.py - DEBUG - Main: parse command line arguments
-2023-02-19 00:32:40,925 - DiscoveryAppln.py - DEBUG - Main: resetting log level to 10
-2023-02-19 00:32:40,925 - DiscoveryAppln.py - DEBUG - Main: effective log level is 10
-2023-02-19 00:32:40,925 - DiscoveryAppln.py - DEBUG - Main: obtain the discovery appln object
-2023-02-19 00:32:40,926 - DiscoveryAppln.py - DEBUG - Main: configure the publisher appln object
-2023-02-19 00:32:40,926 - DiscoveryAppln.py - INFO - DiscoveryAppln: configure
-2023-02-19 00:32:40,926 - DiscoveryAppln.py - INFO - DiscoveryMW: configure
-2023-02-19 00:32:40,926 - DiscoveryAppln.py - INFO - DiscoveryMW: configure: create REP socket
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - DiscoveryMW: configure: completed
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - DiscoveryAppln: configure: completed
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - DEBUG - Main: invoke the publisher appln driver
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - DiscoverAppln::driver
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - **********************************
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - DiscoverAppln::dump
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - ------------------------------
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO -      Lookup: Centralized
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO -      Dissemination: Broker
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO -      Num Publishers: 1
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO -      Num Subscribers: 1
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - **********************************
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop
-2023-02-19 00:32:40,928 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:40,934 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:40,934 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:40,934 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:40,934 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: register
-2023-02-19 00:32:40,934 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
-2023-02-19 00:32:40,934 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: publisher
-2023-02-19 00:32:40,934 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: publisher: topic_to_publishers: {'location': {'pub1'}, 'temperature': {'pub1'}, 'weather': {'pub1'}, 'airquality': {'pub1'}, 'light': {'pub1'}, 'sound': {'pub1'}, 'pressure': {'pub1'}, 'humidity': {'pub1'}, 'altitude': {'pub1'}}
-2023-02-19 00:32:40,935 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
-2023-02-19 00:32:40,935 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00'
-2023-02-19 00:32:40,935 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:40,935 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:40,935 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:40,936 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:40,936 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
-2023-02-19 00:32:40,936 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: False, isPublishersReady: True, isBrokersReady: False
-2023-02-19 00:32:40,936 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
-2023-02-19 00:32:40,936 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
-2023-02-19 00:32:40,936 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: register
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: subscriber
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00'
-2023-02-19 00:32:41,094 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:41,095 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:41,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:41,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:41,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
-2023-02-19 00:32:41,096 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: True, isPublishersReady: True, isBrokersReady: False
-2023-02-19 00:32:41,096 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
-2023-02-19 00:32:41,096 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
-2023-02-19 00:32:41,096 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:41,103 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: register
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: broker
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00'
-2023-02-19 00:32:41,104 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:41,105 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:41,105 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:41,105 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:41,105 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
-2023-02-19 00:32:41,105 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: True, isPublishersReady: True, isBrokersReady: True
-2023-02-19 00:32:41,105 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
-2023-02-19 00:32:41,105 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
-2023-02-19 00:32:41,106 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:41,106 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup all pubs
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW::send_lookup
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW::before publist
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW::sockets: ['localhost:5570']
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW::after publist
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW::after assignment of DiscoveryResp
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup: sending response
-2023-02-19 00:32:41,107 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:50,940 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:50,940 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:50,940 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:50,941 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
-2023-02-19 00:32:50,941 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: True, isPublishersReady: True, isBrokersReady: True
-2023-02-19 00:32:50,941 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
-2023-02-19 00:32:50,941 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
-2023-02-19 00:32:50,941 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:51,098 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:51,099 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:51,099 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:51,099 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
-2023-02-19 00:32:51,099 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: True, isPublishersReady: True, isBrokersReady: True
-2023-02-19 00:32:51,099 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
-2023-02-19 00:32:51,099 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
-2023-02-19 00:32:51,099 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
-2023-02-19 00:32:51,100 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW::send_lookup
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW::before publist
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW::sockets: ['localhost:5599']
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW::after publist
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW::after assignment of DiscoveryResp
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup: sending response
-2023-02-19 00:32:51,101 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,078 - root - INFO - Main - acquire a child logger and then log messages in the child
+2023-02-25 22:48:10,078 - DiscoveryAppln.py - DEBUG - Main: parse command line arguments
+2023-02-25 22:48:10,086 - DiscoveryAppln.py - DEBUG - Main: resetting log level to 10
+2023-02-25 22:48:10,086 - DiscoveryAppln.py - DEBUG - Main: effective log level is 10
+2023-02-25 22:48:10,086 - DiscoveryAppln.py - DEBUG - Main: obtain the discovery appln object
+2023-02-25 22:48:10,087 - DiscoveryAppln.py - DEBUG - Main: configure the publisher appln object
+2023-02-25 22:48:10,087 - DiscoveryAppln.py - INFO - DiscoveryAppln: configure
+2023-02-25 22:48:10,087 - DiscoveryAppln.py - INFO - DiscoveryMW: configure
+2023-02-25 22:48:10,088 - DiscoveryAppln.py - INFO - DiscoveryMW: configure: create REP socket
+2023-02-25 22:48:10,090 - DiscoveryAppln.py - INFO - DiscoveryMW: configure: completed
+2023-02-25 22:48:10,090 - DiscoveryAppln.py - INFO - DiscoveryAppln: configure: completed
+2023-02-25 22:48:10,090 - DiscoveryAppln.py - DEBUG - Main: invoke the publisher appln driver
+2023-02-25 22:48:10,090 - DiscoveryAppln.py - INFO - DiscoverAppln::driver
+2023-02-25 22:48:10,090 - DiscoveryAppln.py - INFO - **********************************
+2023-02-25 22:48:10,090 - DiscoveryAppln.py - INFO - DiscoverAppln::dump
+2023-02-25 22:48:10,090 - DiscoveryAppln.py - INFO - ------------------------------
+2023-02-25 22:48:10,091 - DiscoveryAppln.py - INFO -      Lookup: Centralized
+2023-02-25 22:48:10,091 - DiscoveryAppln.py - INFO -      Dissemination: Direct
+2023-02-25 22:48:10,091 - DiscoveryAppln.py - INFO -      Num Publishers: 1
+2023-02-25 22:48:10,091 - DiscoveryAppln.py - INFO -      Num Subscribers: 1
+2023-02-25 22:48:10,091 - DiscoveryAppln.py - INFO - **********************************
+2023-02-25 22:48:10,091 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop
+2023-02-25 22:48:10,091 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: register
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: subscriber
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
+2023-02-25 22:48:10,093 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00'
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: register
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: publisher
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: publisher: topic_to_publishers: {'pressure': {'pub1'}, 'weather': {'pub1'}, 'temperature': {'pub1'}, 'location': {'pub1'}, 'altitude': {'pub1'}, 'light': {'pub1'}, 'airquality': {'pub1'}, 'sound': {'pub1'}, 'humidity': {'pub1'}}
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00'
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,094 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: register
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_register: broker
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: send_register_resp: sending response = b'\x08\x01\x12\x04\x08\x01\x12\x00'
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: True, isPublishersReady: True, isBrokersReady: True
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-02-25 22:48:10,095 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: True, isPublishersReady: True, isBrokersReady: True
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: isready
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_isready: isSubscribersReady: True, isPublishersReady: True, isBrokersReady: True
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: send_isready: sending response
+2023-02-25 22:48:10,096 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryAppln: handle_lookup_topic: sockets: ['localhost:5570']
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW::send_lookup
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW::before publist
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW::sockets: ['localhost:5570']
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW::after publist
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW::after assignment of DiscoveryResp
+2023-02-25 22:48:10,097 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup: sending response
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: received event
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: received request
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW: handle_request: lookup all pubs
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW::send_lookup
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW::before publist
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW::sockets: ['localhost:5570']
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW::after publist
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW::after assignment of DiscoveryResp
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW: send_lookup: sending response
+2023-02-25 22:48:10,098 - DiscoveryAppln.py - INFO - DiscoveryMW: event_loop: waiting for events

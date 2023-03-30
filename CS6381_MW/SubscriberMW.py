@@ -259,7 +259,7 @@ class SubscriberMW ():
                     "SubscriberMW::handle_reply - lookup - response = {}, topiclist: {}".format(disc_resp.lookup_resp, self.topiclist))
                 for topic in self.topiclist:
                     self.logger.info(
-                        "SubscriberMW::handle_reply - lookup - topic = {}".format(topic))
+                        "SubscriberMW::handle_reply - lookup - subscribing to topic = {}".format(topic))
                     self.sub.setsockopt(zmq.SUBSCRIBE, bytes(topic, 'utf-8'))
 
                 self.logger.info(

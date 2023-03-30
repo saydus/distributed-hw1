@@ -218,7 +218,7 @@ class SubscriberAppln():
             if (self.state == self.State.REGISTER):
                 # send a register msg to discovery service
                 self.logger.debug(
-                    "SubscriberAppln::invoke_operation - register with the discovery service")
+                    "SubscriberAppln::invoke_operation - register with the discovery service {}".format(self.topiclist))
                 self.mw_obj.register(self.name, self.topiclist)
 
                 # Remember that we were invoked by the event loop as part of the upcall.

@@ -131,7 +131,8 @@ class BrokerMW():
             self.logger.info("BrokerMW: handle_sub")
             msg = self.sub.recv().decode("utf-8")
             self.pub.send_string(msg)
-            self.logger.info("BrokerMW: handle_sub: forwarded msg")
+            self.logger.info(
+                "BrokerMW: handle_sub: forwarded msg {}".format(msg))
             return self.timeout
 
         except Exception as e:
