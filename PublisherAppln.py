@@ -61,6 +61,8 @@ from CS6381_MW import discovery_pb2
 
 # import any other packages you need.
 from enum import Enum  # for an enumeration we are using to describe what state we are in
+from kazoo.client import KazooClient
+import json
 
 ##################################
 #       PublisherAppln class
@@ -95,9 +97,21 @@ class PublisherAppln ():
         self.mw_obj = None  # handle to the underlying Middleware object
         self.logger = logger  # internal logger for print statements
 
+        self.zk_client = None
+        self.addr = None
+        self.port = None
+        self.discovery_addr = None
+        self.discovery_port = None
+
+    def get_discovery_leader(self):
+        disc_data, _ = self.zk_client.get('/discovery/leader')
+        leader = json.loads(disc_data.decode('utf-8'))
+        return leader
+
     ########################################
     # configure/initialize
     ########################################
+
     def configure(self, args):
         ''' Initialize the object '''
 
@@ -133,11 +147,53 @@ class PublisherAppln ():
             self.logger.debug(
                 "PublisherAppln::configure - initialize the middleware object")
             self.mw_obj = PublisherMW(self.logger)
+
+            self.addr = args.addr
+            self.port = args.port
+
             # pass remainder of the args to the m/w object
             self.mw_obj.configure(args)
 
             self.logger.info(
                 "PublisherAppln::configure - configuration complete")
+
+            # zookeeper data
+            self.zookeeper_addr = args.zookeeper
+            self.zk_client = KazooClient(hosts=self.zookeeper_addr)
+            self.zk_client.start()
+
+            self.zk_client.create('/pubs/' + self.name, ephemeral=True,
+                                  makepath=True, value=json.dumps({
+                                      'addr': self.addr,
+                                      'port': self.port,
+                                      'name': self.name
+                                  }).encode('utf-8'))
+
+            @self.zk_client.ChildrenWatch('/discovery')
+            def watch_discovery(children):
+                # No children means the discovery died, so we can disconnect from the old one
+                if len(children) == 0 and self.discovery_leader_addr != None:
+                    self.mw_obj.disconnect_discovery(
+                        self.discovery_addr, self.discovery_port)
+                    self.discovery_addr = None
+                    self.discovery_port = None
+
+                else:
+                    # Retrieve info about the leader
+                    leader_info = self.get_discovery_leader()
+
+                    if (leader_info['addr'] != self.discovery_addr):
+                        if (self.discovery_addr != None):
+                            self.mw_obj.disconnect_discovery(
+                                self.discovery_addr, self.discovery_port)
+
+                        # Connect to the new discovery and subscribe for updates from it
+                        self.mw_obj.connect_discovery(
+                            leader_info['addr'], leader_info['port'])
+
+                        # Update info about discovery leader
+                        self.discovery_addr = leader_info['addr']
+                        self.discovery_port = leader_info['port']
 
         except Exception as e:
             raise e
@@ -414,6 +470,9 @@ def parseCmdLineArgs():
 
     parser.add_argument("-l", "--loglevel", type=int, default=logging.INFO, choices=[
                         logging.DEBUG, logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL], help="logging level, choices 10,20,30,40,50: default 20=logging.INFO")
+
+    parser.add_argument("-z", "--zookeeper", default='localhost:2181',
+                        help="Zookeeper instance addy:port (default: localhost:2181)")
 
     return parser.parse_args()
 

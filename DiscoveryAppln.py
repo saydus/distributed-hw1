@@ -47,6 +47,10 @@ from CS6381_MW import discovery_pb2
 from ZooKeeperAdapter import ZooKeeperAdapter
 from kazoo.recipe.election import Election
 
+from kazoo.client import KazooClient
+from kazoo.exceptions import NodeExistsError
+import json
+
 
 ###################################
 #
@@ -91,6 +95,13 @@ class DiscoveryAppln():
         # election object
         self.election = None
 
+        self.zk_client = None
+        self.zk_am_leader = False
+        self.addr = None
+        self.sub_port = None
+        self.broker_leader = None
+        self.port = None
+
     def become_leader(self):
         print(
             f"Instance {self.node_id} is now the leader of the Discovery service.")
@@ -103,8 +114,6 @@ class DiscoveryAppln():
             self.logger.info("DiscoveryAppln: configure")
 
             self.node_id = args.name
-            self.election = Election(
-                self.zk, "/discovery/election", self.node_id)
 
             config = configparser.ConfigParser()
             config.read(args.config)
@@ -114,9 +123,181 @@ class DiscoveryAppln():
             self.mw_obj = DiscoveryMW(self.logger)
             self.mw_obj.configure()
 
+            self.addr = args.addr
+            self.sub_port = args.sub_port
+            self.port = args.port
+            self.zookeeper_addr = args.zookeeper
+
+            self.zk_client = KazooClient(hosts=args.zookeeper)
+            self.zk_client.start()
+
+            # Conduct the election of a leader
+            self.zk_am_leader = self.zookeeper_discovery()
+
+            @self.zk_client.ChildrenWatch('/discovery')
+            def watch_children(children):
+                if (len(children) == 0):
+                    self.zk_am_leader = self.zookeeper_discovery()
+                return
+
+            self.zk_client.ensure_path('/pubs')
+
+            @self.zk_client.ChildrenWatch('/pubs')
+            def watch_publishers(children):
+                self.zookeeper_pubs_children(children)
+
+            # If using Broker dissemination, set up a watch for broker leader too
+            if (self.dissemination == 'Broker'):
+                brokers_path = '/brokers'
+                self.zk_client.ensure_path(brokers_path)
+
+                @self.zk_client.ChildrenWatch(brokers_path)
+                def watch_brokers_children(children):
+                    self.zookeeper_broker_children(children)
+
             self.logger.info("DiscoveryAppln: configure: completed")
         except Exception as e:
             raise e
+
+    def zookeeper_discovery(self):
+        # Create an ephemeral node for Discovery
+        try:
+            node_dict = {
+                'port': self.port,
+                'sub_port': self.sub_port,
+                'addr': self.addr,
+                'name': self.name
+            }
+            data_bytes = json.dumps(node_dict).encode('utf-8')
+
+            self.zk_client.create(
+                '/discovery/leader', ephemeral=True, makepath=True, value=data_bytes)
+            self.logger.info(
+                "Ephemeral node in /discovery/leader created, we are a leader")
+            return True
+
+        except NodeExistsError:
+            self.logger.info(
+                "Ephemeral node /discovery/leader already exists, we are NOT a leader")
+
+            data_bytes, _ = self.zk_client.get('/discovery/leader')
+            node_dict = json.loads(data_bytes.decode('utf-8'))
+            self.logger.info(
+                f"Connecting to leader {self.name} at {node_dict['addr']}:{node_dict['sub_port']}")
+            self.mw_obj.subscribe_to_leader(
+                node_dict['addr'], node_dict['sub_port'])
+
+            return False
+
+    def zookeeper_pubs_children(self, children):
+        self.logger.info('Pubs watch triggered')
+        remaining_publishers = [
+            publisher for publisher in self.publishers if publisher not in children]
+
+        # registered_publishers now contains the publishers that died
+        # notify subscribers and brokers of the nodes they need to unsubscribe from
+        self.logger.info(f'Died publishers: {remaining_publishers}')
+
+        for died_publisher_name in remaining_publishers:
+            ipport = self.publisher_to_ip_port[died_publisher_name]
+            ip = ipport[:(ipport.find(':')-1)]
+            port = ipport[ipport.find(':') + 1:]
+
+            self.mw_obj.send_unsubscribe_update({
+                'addr': ip,
+                'port': port
+            })
+
+            # remove the publisher from the state
+            self.publishers.remove(died_publisher_name)
+            del self.publisher_to_ip_port[died_publisher_name]
+
+            for topic in self.topic_to_publishers:
+                if died_publisher_name in self.topic_to_publishers[topic]:
+                    self.topic_to_publishers[topic].remove(
+                        died_publisher_name)
+
+        self.logger.info(
+            f'New registered publishers: reg_pubs:{self.publishers}, pub_ipport:{self.publisher_to_ip_port}, topic_pubid:{self.topic_to_publishers}')
+
+        self.mw_obj.publish_discovery_update({
+            "publishers": self.publishers,
+            "publisher_to_ip_port": self.publisher_to_ip_port,
+            "topic_to_publishers": self.topic_to_publishers,
+            "subscribers": self.subscribers,
+            "brokers": self.brokers,
+            "broker_to_ip_port": self.broker_to_ip_port})
+
+    def zookeeper_broker_children(self, children):
+        if (len(children) == 0):
+            self.logger.info(f'No primary broker found')
+            if (self.broker_leader != None):
+
+                self.mw_obj.send_unsubscribe_update({
+                    'addr': self.broker_leader['addr'],
+                    'port': self.broker_leader['port']
+                })
+
+                # Remove the broker from the state
+                remove_broker = self.broker_leader['name']
+                self.brokers.remove(remove_broker)
+                del self.broker_to_ip_port[remove_broker]
+
+                self.broker_leader = None
+                self.mw_obj.publish_discovery_update({
+                    "publishers": self.publishers,
+                    "publisher_to_ip_port": self.publisher_to_ip_port,
+                    "topic_to_publishers": self.topic_to_publishers,
+                    "subscribers": self.subscribers,
+                    "brokers": self.brokers,
+                    "broker_to_ip_port": self.broker_to_ip_port})
+            return
+
+        # Get data from the node
+        node_bytes, _ = self.zk_client.get('/brokers/leader')
+        node_dict = json.loads(node_bytes.decode('utf-8'))
+
+        self.logger.info(f'Current broker leader: {node_dict}')
+
+        if (self.broker_leader['addr'] != node_dict['addr'] or self.broker_leader == None):
+            if (self.broker_leader != None):
+                self.mw_obj.publish_unsub_update({
+                    'addr': self.broker_leader['addr'],
+                    'port': self.broker_leader['port']
+                })
+
+                self.logger.info(
+                    f'Unsubscribed from old broker: {self.broker_leader}')
+
+                # Remove the broker from the state
+                old_broker_name = self.broker_leader['name']
+                self.brokers.remove(old_broker_name)
+                del self.broker_to_ip_port[old_broker_name]
+
+                self.mw_obj.publish_discovery_update(
+                    {
+                        "publishers": self.publishers,
+                        "publisher_to_ip_port": self.publisher_to_ip_port,
+                        "topic_to_publishers": self.topic_to_publishers,
+                        "subscribers": self.subscribers,
+                        "brokers": self.brokers,
+                        "broker_to_ip_port": self.broker_to_ip_port})
+
+            # Publish a sub update, notify of the new broker
+            # If you need any of these topics, subscribe to this
+            self.logger.info(
+                f'Sending a SUB update to subscribe to new broker: {node_dict}')
+
+            self.mw_obj.send_subscribe_update({
+                'update_type': 'broker',
+                'addr': node_dict['addr'],
+                'port': node_dict['port'],
+                'topics': []
+            })
+
+        self.broker_leader = node_dict
+        self.logger.info(f"New leader broker: {node_dict}")
+        return
 
     def handle_register(self, register_req):
         try:
@@ -148,7 +329,12 @@ class DiscoveryAppln():
                     self.mw_obj.send_register_resp(True)
 
                     # Zookeeper register
-                    self.zookeeper_adapter.register_publisher(id, addr)
+                    self.mw_obj.send_subscribe_update({
+                        'update_type': 'pub',
+                        'addr': ip_addr,
+                        'port': port,
+                        'topics': list(topiclist)
+                    })
 
             elif register_req.role == discovery_pb2.ROLE_SUBSCRIBER:
                 self.logger.info("DiscoveryAppln: handle_register: subscriber")
@@ -176,6 +362,15 @@ class DiscoveryAppln():
                     self.broker_to_ip_port[id] = addr
                     self.mw_obj.send_register_resp(True)
 
+            self.msw_obj.publish_discovery_update(
+                {
+                    "publishers": self.publishers,
+                    "publisher_to_ip_port": self.publisher_to_ip_port,
+                    "topic_to_publishers": self.topic_to_publishers,
+                    "subscribers": self.subscribers,
+                    "brokers": self.brokers,
+                    "broker_to_ip_port": self.broker_to_ip_port}
+            )
             return None
 
         except Exception as e:
@@ -207,6 +402,14 @@ class DiscoveryAppln():
             return None
         except Exception as e:
             raise e
+
+    def update_zookeeper_state(self, state):
+        self.publishers = set(state['publishers'])
+        self.publisher_to_ip_port = state['publisher_to_ip_port']
+        self.topic_to_publishers = state['topic_to_publishers']
+        self.subscribers = set(state['subscribers'])
+        self.brokers = set(state['brokers'])
+        self.broker_to_ip_port = state['broker_to_ip_port']
 
     def handle_lookup_all_publishers(self, lookup_req):
         sockets = []
@@ -274,6 +477,15 @@ def parseCmdLineArgs():
     parser.add_argument("-l", "--loglevel", type=int, default=logging.DEBUG, choices=[
                         logging.DEBUG, logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL], help="logging level, choices 10,20,30,40,50: default 20=logging.INFO")
 
+    parser.add_argument("-z", "--zookeeper",
+                        default='localhost:2181', help="Zookeeper instance")
+
+    parser.add_argument("-a", "--addr", default="localhost")
+
+    parser.add_argument("-p", "--port", type=int, default=8888)
+
+    parser.add_argument("-s", "--sub_port", type=int, default=8888,
+                        help="Port used by the discovery node to other subs")
     return parser.parse_args()
 
 

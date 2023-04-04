@@ -41,6 +41,10 @@ from CS6381_MW.SubscriberMW import SubscriberMW
 from enum import Enum  # for an enumeration we are using to describe what state we are in
 
 from CS6381_MW import discovery_pb2
+from kazoo.client import KazooClient
+from kazoo.exceptions import NodeExistsError
+import json
+
 
 MAX_MESSAGES_RECEIVED = 1000
 
@@ -73,6 +77,13 @@ class SubscriberAppln():
         self.mw_obj = None  # middleware object
         self.logger = logger
         self.meesages_received = 0
+        self.count_msgs = 0
+
+        self.zk_client = None
+        self.discovery_addr = None
+        self.discovery_port = None
+        self.discovery_sync_port = None
+        self.zookeeper_addr = None
 
     ########################################
     # configure/initialize
@@ -118,6 +129,28 @@ class SubscriberAppln():
 
             self.logger.info(
                 "SubscriberAppln::configure - configuration complete")
+
+            self.zookeeper_addr = args.zookeeper
+            self.zk_client = KazooClient(hosts=self.zookeeper_addr)
+            self.zk_client.start()
+
+            looper = True
+            while looper:
+                if (self.zk_client.exists('/discovery/leader')):
+
+                    leader_data, _ = self.zk_client.get('/discovery/leader')
+                    info = json.loads(leader_data.decode('utf-8'))
+
+                    self.discovery_sync_port = info['sub_port']
+                    self.discovery_addr = info['addr']
+                    self.discovery_port = info['port']
+
+                    self.mw_obj.connect_to_discovery_leader(
+                        info['addr'], info['port'], info['sub_port'])
+
+                    looper = False
+                else:
+                    time.sleep(1)
 
         except Exception as e:
             raise e
@@ -282,7 +315,7 @@ class SubscriberAppln():
 
             else:
                 self.logger.debug(
-                    "PublisherAppln::register_response - registration is a failure with reason {}".format(response.reason))
+                    "PublisherAppln::register_response - registration is a failure with reason {}".format(reg_resp.reason))
                 raise ValueError("Publisher needs to have unique id")
 
         except Exception as e:
@@ -358,6 +391,8 @@ def parseCmdLineArgs():
     parser.add_argument("-l", "--loglevel", type=int, default=logging.DEBUG, choices=[
                         logging.DEBUG, logging.INFO, logging.WARNING, logging.ERROR, logging.CRITICAL], help="logging level, choices 10,20,30,40,50: default 20=logging.INFO")
 
+    parser.add_argument("-z", "--zookeeper", default='localhost:2181',
+                        help="Zookeeper instance addy:port (default: localhost:2181)")
     return parser.parse_args()
 
 

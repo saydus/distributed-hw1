@@ -28,17 +28,19 @@ class TopicSelector ():
     # I am providing some initial starter capabilitiy.
     #
     # Say these are a list of all topics that are published.
-    topiclist = ["weather", "humidity", "airquality", "light",
-                            "pressure", "temperature", "sound", "altitude",
-                            "location"]
+    # topiclist = ["weather", "humidity", "airquality", "light",
+    #                         "pressure", "temperature", "sound", "altitude",
+    #                         "location"]
 
+    topiclist = ["location"]
     # return a random subset of topics from this list, which becomes our interest
     # A publisher or subscriber application logic will invoke this method to get their
     # interest.
+
     def interest(self, num=1):
         # here we just randomly create a subset from this list and return it
         # return random.sample (self.topiclist, random.randint (1, len (self.topiclist)))
-        return random.sample(self.topiclist, num)
+        return self.topiclist
 
     # generate a publication on a given topic
     def gen_publication(self, topic):

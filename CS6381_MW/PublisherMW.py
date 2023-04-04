@@ -100,8 +100,8 @@ class PublisherMW ():
                 "PublisherMW::configure - connect to Discovery service")
             # For our assignments we will use TCP. The connect string is made up of
             # tcp:// followed by IP addr:port number.
-            connect_str = "tcp://" + args.discovery
-            self.req.connect(connect_str)
+            # connect_str = "tcp://" + args.discovery
+            # self.req.connect(connect_str)
 
             # Since we are the publisher, the best practice as suggested in ZMQ is for us to
             # "bind" the PUB socket
@@ -382,3 +382,9 @@ class PublisherMW ():
     def disable_event_loop(self):
         ''' disable event loop '''
         self.handle_events = False
+
+    def disconnect_discovery(self, addr, port):
+        self.req.disconnect("tcp://{}:{}".format(addr, port))
+
+    def connect_discovery(self, addr, port):
+        self.req.connect("tcp://{}:{}".format(addr, port))
