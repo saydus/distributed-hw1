@@ -87,8 +87,6 @@ class DiscoveryAppln():
         # Zookeeper related stuff
         zk_hosts = "localhost:2181"
         self.zookeeper_adapter = ZooKeeperAdapter(zk_hosts)
-        self.zk = self.zookeeper_adapter.zk  # Kazoo client from the adapter
-
         # Unique identifier for this Discovery service instance. Will be assigned in configure()
         self.node_id = None
 
@@ -347,7 +345,7 @@ class DiscoveryAppln():
                 else:
                     self.subscribers.add(id)
                     self.mw_obj.send_register_resp(True)
-                    self.zookeeper_adapter.register_subscriber(id, addr)
+                    # self.zookeeper_adapter.register_subscriber(id, addr)
 
             elif register_req.role == discovery_pb2.ROLE_BOTH:
                 self.logger.info("DiscoveryAppln: handle_register: broker")
