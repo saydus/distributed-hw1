@@ -55,7 +55,6 @@ class BrokerMW():
 
             self.req = context.socket(zmq.REQ)
             self.poller.register(self.req, zmq.POLLIN)
-            self.req.connect("tcp://" + args.discovery)
 
             self.sub = context.socket(zmq.SUB)
             self.poller.register(self.sub, zmq.POLLIN)

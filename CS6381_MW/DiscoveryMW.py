@@ -53,12 +53,10 @@ class DiscoveryMW():
 
             self.pub_port = args.sub_port
             self.sync_pub_socket = context.socket(zmq.PUB)
-            bind_string = "tcp://*:" + str(self.pub_port)
-            self.sync_pub_socket.bind(bind_string)
+            self.sync_pub_socket.bind("tcp://*:" + str(self.pub_port))
 
             self.sync_sub_socket = context.socket(zmq.SUB)
 
-            self.rep.bind("tcp://*:5555")
             self.logger.info("DiscoveryMW: configure: completed")
         except Exception as e:
             raise e

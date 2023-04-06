@@ -111,7 +111,7 @@ class DiscoveryAppln():
         try:
             self.logger.info("DiscoveryAppln: configure")
 
-            self.node_id = args.name
+            self.name = args.name
 
             config = configparser.ConfigParser()
             config.read(args.config)
@@ -119,7 +119,7 @@ class DiscoveryAppln():
             self.dissemination = config['Dissemination']['Strategy']
 
             self.mw_obj = DiscoveryMW(self.logger)
-            self.mw_obj.configure()
+            self.mw_obj.configure(args)
 
             self.addr = args.addr
             self.sub_port = args.sub_port
@@ -216,14 +216,14 @@ class DiscoveryAppln():
                         died_publisher_name)
 
         self.logger.info(
-            f'New registered publishers: reg_pubs:{self.publishers}, pub_ipport:{self.publisher_to_ip_port}, topic_pubid:{self.topic_to_publishers}')
+            f'New registered publishers: reg_pubs:{list(self.publishers)}, pub_ipport:{self.publisher_to_ip_port}, topic_pubid:{self.topic_to_publishers}')
 
         self.mw_obj.publish_discovery_update({
-            "publishers": self.publishers,
+            "publishers": list(self.publishers),
             "publisher_to_ip_port": self.publisher_to_ip_port,
             "topic_to_publishers": self.topic_to_publishers,
-            "subscribers": self.subscribers,
-            "brokers": self.brokers,
+            "subscribers": list(self.subscribers),
+            "brokers": list(self.brokers),
             "broker_to_ip_port": self.broker_to_ip_port})
 
     def zookeeper_broker_children(self, children):
@@ -259,7 +259,7 @@ class DiscoveryAppln():
 
         if (self.broker_leader['addr'] != node_dict['addr'] or self.broker_leader == None):
             if (self.broker_leader != None):
-                self.mw_obj.publish_unsub_update({
+                self.mw_obj.send_unsubscribe_update({
                     'addr': self.broker_leader['addr'],
                     'port': self.broker_leader['port']
                 })
@@ -446,10 +446,6 @@ class DiscoveryAppln():
             self.logger.info("     Lookup: {}".format(self.lookup))
             self.logger.info(
                 "     Dissemination: {}".format(self.dissemination))
-            self.logger.info(
-                "     Num Publishers: {}".format(self.num_publishers))
-            self.logger.info(
-                "     Num Subscribers: {}".format(self.num_subscribers))
             self.logger.info("**********************************")
 
         except Exception as e:
