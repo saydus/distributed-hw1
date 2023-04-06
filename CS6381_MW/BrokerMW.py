@@ -23,6 +23,8 @@ import zmq
 
 from CS6381_MW import discovery_pb2
 
+import json
+
 
 class BrokerMW():
     def __init__(self, logger):
@@ -37,6 +39,9 @@ class BrokerMW():
         self.addr = None
         self.port = None
         self.timeout = None
+
+        self.ipports = set()
+        self.disc_socket = None
 
     def configure(self, args):
         try:
@@ -54,6 +59,12 @@ class BrokerMW():
 
             self.sub = context.socket(zmq.SUB)
             self.poller.register(self.sub, zmq.POLLIN)
+
+            # sub and ubsub from sockets
+            self.disc_socket = context.socket(zmq.SUB)
+            self.poller.register(self.disc_socket, zmq.POLLIN)
+            self.disc_socket.setsockopt(zmq.SUBSCRIBE, bytes('sub', 'utf-8'))
+            self.disc_socket.setsockopt(zmq.SUBSCRIBE, bytes('unsub', 'utf-8'))
 
             self.pub = context.socket(zmq.PUB)
             self.pub.bind("tcp://*:" + str(self.port))
@@ -80,12 +91,37 @@ class BrokerMW():
                 elif self.sub in events:
                     timeout = self.handle_sub()
 
+                elif self.disc_socket in events:
+                    timeout = self.handle_discovery()
+
                 else:
                     raise Exception("BrokerMW: event_loop: unknown event")
 
             self.logger.info("BrokerMW: out of event loop")
         except Exception as e:
             raise e
+
+    def handle_discovery(self):
+        bytesRcvd = self.disc_socket.recv()
+        bytesRcvd = bytesRcvd.decode('utf-8')
+
+        update_type = bytesRcvd[:(bytesRcvd.find(':'))]
+        data_dict = json.loads(bytesRcvd[bytesRcvd.find(':') + 1:])
+
+        ipport = data_dict['addr'] + ':' + str(data_dict['port'])
+
+        # New broker or pub has joined
+        if (update_type == 'sub'):
+            self.logger.debug("Subscribe update")
+            if (data_dict['update_type'] == 'pub'):
+                # Subscribe to it only if using direct dissemination approach
+                self.connect_to_pubs([ipport])
+        elif (update_type == 'unsub'):
+            self.logger.info("Unsubscribe update")
+            if (ipport in self.ipports):
+                self.sub.disconnect('tcp://' + ipport)
+                self.ipports.remove(ipport)
+                self.logger.info(f"Disconnected from {ipport}")
 
     def handle_request(self):
         try:
@@ -121,6 +157,7 @@ class BrokerMW():
                 self.logger.info(
                     "BrokerMW: connect_to_pubs: connecting to " + pub)
                 self.sub.connect("tcp://" + pub)
+                self.ipports.add(pub)
             self.sub.setsockopt(zmq.SUBSCRIBE, b"")
             self.logger.info("BrokerMW: connect_to_pubs: completed")
         except Exception as e:
@@ -264,3 +301,11 @@ class BrokerMW():
     def disable_event_loop(self):
         self.logger.info("BrokerMW::disable_event_loop")
         self.handle_events = False
+
+    def connect_to_discovery(self, addr, port, sync_port):
+        self.req.connect("tcp://" + addr + ":" + str(port))
+        self.disc_socket.connect("tcp://" + addr + ":" + str(sync_port))
+
+    def disconnect_from_discovery(self, addr, port, sync_port):
+        self.req.disconnect("tcp://" + addr + ":" + str(port))
+        self.disc_socket.disconnect("tcp://" + addr + ":" + str(sync_port))

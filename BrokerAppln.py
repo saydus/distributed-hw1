@@ -29,6 +29,10 @@ import logging
 from CS6381_MW import discovery_pb2
 from CS6381_MW.BrokerMW import BrokerMW
 
+from kazoo.client import KazooClient
+from kazoo.exceptions import NodeExistsError
+import json
+
 
 class BrokerAppln():
     class State(Enum):
@@ -50,11 +54,22 @@ class BrokerAppln():
         self.name = None
         self.mw_obj = None
 
+        self.zk_client = None
+        self.discovery_addr = None
+        self.discovery_port = None
+        self.discovery_sync_port = None
+        self.addr = None
+        self.port = None
+        self.is_leader = False
+
     def configure(self, args):
         self.logger.info("BrokerAppln: configure")
         self.state = self.State.CONFIGURE
         self.timeout = args.timeout * 1000
         self.name = args.name
+
+        self.addr = args.addr
+        self.port = args.port
 
         config = configparser.ConfigParser()
         config.read(args.config)
@@ -64,7 +79,93 @@ class BrokerAppln():
         self.mw_obj = BrokerMW(self.logger)
         self.mw_obj.configure(args)
 
+        self.zookeeper_addr = args.zookeeper
+        self.zk_client = KazooClient(hosts=self.zookeeper_addr)
+        self.zk_client.start()
+
+        self.zk_am_broker_leader = self.register_broker()
+        # Start a children watch on /discovery
+
+        @self.zk_client.ChildrenWatch('/brokers')
+        def watch_discovery_children(children):
+            if (len(children) == 0):
+                self.zk_am_broker_leader = self.register_broker()
+
+        while not self.zk_am_broker_leader:
+            time.sleep(1)
+
+        # Get discovery Service
+        self.connect_to_leader()
+
+        # Set up a watch for the primary discovery
+        self.watch_discovery()
+
         self.logger.info("BrokerAppln: configure: completed")
+
+    def watch_discovery(self):
+        @self.zk_client.ChildrenWatch('/discovery')
+        def watch_discovery_children(children):
+            if (len(children) == 0):
+                if (self.discovery_addr != None):
+                    self.mw_obj.disconnect_from_old_discovery_leader(
+                        self.discovery_addr, self.discovery_port, self.discovery_sync_port)
+
+                self.discovery_addr = None
+                self.discovery_port = None
+                self.discovery_sync_port = None
+
+                return
+
+            else:
+                leader_data, _ = self.zk_client.get('/discovery/leader')
+                info = json.loads(leader_data.decode('utf-8'))
+
+                if (info['addr'] != self.discovery_addr):
+                    if (self.discovery_addr != None):
+                        self.mw_obj.disconnect_from_old_discovery_leader(
+                            self.discovery_addr, self.discovery_port, self.discovery_sync_port)
+
+                    self.mw_obj.connect_to_discovery(
+                        info['addr'], info['port'], info['sub_port'])
+
+                    self.discovery_addr = info['addr']
+                    self.discovery_port = info['port']
+                    self.discovery_sync_port = info['sub_port']
+            return
+
+    def connect_to_leader(self):
+        while True:
+            if not self.zk_client.exists("/discovery/leader"):
+                time.sleep(1)
+            else:
+                leader, _ = self.zk_client.get('/discovery/leader')
+                info = json.loads(leader.decode('utf-8'))
+
+                self.discovery_addr = info['addr']
+                self.discovery_port = info['port']
+                self.discovery_sync_port = info['sub_port']
+                # Connect to the new discovery and subscribe for updates from it
+                self.mw_obj.connect_to_discovery(
+                    info['addr'], info['port'], info['sub_port'])
+                break
+
+    def register_broker(self):
+        try:
+            data_bytes = json.dumps({
+                "addr": self.addr,
+                "port": self.port,
+                "name": self.name
+            }).encode("utf-8")
+
+            self.zk_client.create(
+                "/brokers/leader", ephemeral=True, makepath=True, value=data_bytes)
+            self.logger.info(
+                "Emphemeral /discovery/leader node already exists, we are not a leader")
+            return True
+        except NodeExistsError:
+            self.logger.info(
+                "Cannot create ephemeral /discovery/leader node, we are NOT a leader")
+            return False
 
     def dump(self):
         ''' Pretty print '''
@@ -113,7 +214,7 @@ class BrokerAppln():
     def handle_allpub_lookup(self, resp):
         self.mw_obj.connect_to_pubs(resp.publist)
         self.state = self.State.BROKE
-        return self.timeout
+        return None
 
     def invoke_operation(self):
         try:
@@ -162,6 +263,9 @@ def parseCmdLineArgs():
 
     parser.add_argument("-t", "--timeout", type=int, default=30,
                         help="Timeout for broking data.")
+
+    parser.add_argument("-z", "--zookeeper", default='localhost:2181',
+                        help="Zookeeper server address. default=localhost:2181")
 
     return parser.parse_args()
 

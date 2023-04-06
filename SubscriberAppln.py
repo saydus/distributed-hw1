@@ -145,7 +145,7 @@ class SubscriberAppln():
                     self.discovery_addr = info['addr']
                     self.discovery_port = info['port']
 
-                    self.mw_obj.connect_to_discovery_leader(
+                    self.mw_obj.connect_to_discovery(
                         info['addr'], info['port'], info['sub_port'])
 
                     looper = False

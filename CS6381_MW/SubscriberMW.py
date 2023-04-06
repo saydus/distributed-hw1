@@ -40,6 +40,7 @@ import logging  # for logging. Use it in place of print statements.
 import zmq  # ZMQ sockets
 
 from CS6381_MW import discovery_pb2
+import json
 
 
 class SubscriberMW ():
@@ -57,6 +58,9 @@ class SubscriberMW ():
         self.upcall_obj = None  # handle to appln obj to handle appln-specific data
         self.handle_events = True  # in general we keep going thru the event loop
         self.topiclist = topiclist  # list of topics we are interested in
+
+        self.disc_socket = None
+        self.ipports = set()
 
     ########################################
     # configure/initialize
@@ -103,8 +107,14 @@ class SubscriberMW ():
                 "SubscriberMW::configure - connect to Discovery service")
             # For our assignments we will use TCP. The connect string is made up of
             # tcp:// followed by IP addr:port number.
-            connect_str = "tcp://" + args.discovery
-            self.req.connect(connect_str)
+
+            self.disc_socket = context.socket(zmq.SUB)
+            # Add the sub socket to the poller
+            self.poller.register(self.disc_socket, zmq.POLLIN)
+            self.disc_socket.setsockopt(
+                zmq.SUBSCRIBE, bytes('sub', 'utf-8'))
+            self.disc_socket.setsockopt(
+                zmq.SUBSCRIBE, bytes('unsub', 'utf-8'))
 
             # Since we are the subscriber, the best practice as suggested in ZMQ is for us to
             # "bind" the PUB socket
@@ -173,6 +183,8 @@ class SubscriberMW ():
                     # handle the incoming data from remote entity and return the result
                     timeout = self.handle_data()
 
+                elif self.disc_socket in events:
+                    timeout = self.sync_update()
                 else:
                     raise Exception("Unknown event after poll")
 
@@ -180,6 +192,14 @@ class SubscriberMW ():
                 "SubscriberMW::event_loop - out of the event loop")
         except Exception as e:
             raise e
+
+    def sync_update(self):
+        return
+
+    def connect_to_discovery(self, addr, port, sync_port):
+        self.req.connect('tcp://' + addr + ':' + str(port))
+        self.disc_socket.connect(
+            'tcp://' + addr + ':' + str(sync_port))
 
     def lookup(self):
         try:
@@ -270,7 +290,7 @@ class SubscriberMW ():
                     # connect to the publishers
                     self.sub.connect("tcp://{}".format(
                         registrant_info))
-
+                    self.ipports.add(registrant_info)
                     self.logger.info(
                         "SubscriberMW::handle_reply - registrant_info ")
 
@@ -360,6 +380,38 @@ class SubscriberMW ():
 
         except Exception as e:
             raise e
+
+    def process_sync_update(self):
+        received_str = self.disc_socket.recv().decode('utf-8')
+        update_type = received_str[:received_str.find(':')]
+        received_data = received_str[received_str.find(':') + 1:]
+        data_dict = json.loads(received_data)
+
+        ipport = data_dict['addr'] + ':' + str(data_dict['port'])
+
+        # Process a new broker or publisher joining
+        if update_type == 'unsub':
+            if ipport in self.ipports:
+                self.sub.disconnect('tcp://' + ipport)
+                self.ipports.remove(ipport)
+                self.logger.info(f"Disconnected from {ipport}")
+        elif update_type == 'sub':
+            update_subtype = data_dict['update_type']
+
+            if update_subtype == 'broker' and self.upcall_obj.dissemination == 'Broker':
+                self.logger.info(f"Subscribing to a new broker {ipport}")
+                self.sub.connect("tcp://{}".format(
+                    ipport))
+                self.ipports.add(ipport)
+
+            elif update_subtype == 'pub' and self.upcall_obj.dissemination == 'Direct':
+                if bool(set(data_dict['topics']) & set(self.upcall_obj.topiclist)):
+                    self.logger.info("Subscribing to a new publisher")
+                    self.sub.connect("tcp://{}".format(
+                        ipport))
+                    self.ipports.add(ipport)
+
+        return None
 
     ########################################
     # check if the discovery service gives us a green signal to proceed
