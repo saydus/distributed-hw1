@@ -44,7 +44,7 @@ class BrokerAppln():
         BROKE = 5,
         COMPLETED = 6
 
-    def __init__(self, logger):
+    def __init__(self, logger, args):
         self.state = self.State.INITIALIZE
         self.logger = logger
         self.timeout = None
@@ -61,6 +61,12 @@ class BrokerAppln():
         self.addr = None
         self.port = None
         self.is_leader = False
+
+        config = configparser.ConfigParser()
+        config.read(args.config)
+
+        self.group = None
+        self.topics_assigned = config["GroupToTopicMapping"][self.group]
 
     def configure(self, args):
         self.logger.info("BrokerAppln: configure")
@@ -107,7 +113,7 @@ class BrokerAppln():
         def watch_discovery_children(children):
             if (len(children) == 0):
                 if (self.discovery_addr != None):
-                    self.mw_obj.disconnect_from_old_discovery_leader(
+                    self.mw_obj.disconnect_from_discovery(
                         self.discovery_addr, self.discovery_port, self.discovery_sync_port)
 
                 self.discovery_addr = None
@@ -122,7 +128,7 @@ class BrokerAppln():
 
                 if (info['addr'] != self.discovery_addr):
                     if (self.discovery_addr != None):
-                        self.mw_obj.disconnect_from_old_discovery_leader(
+                        self.mw_obj.disconnect_from_discovery(
                             self.discovery_addr, self.discovery_port, self.discovery_sync_port)
 
                     self.mw_obj.connect_to_discovery(
