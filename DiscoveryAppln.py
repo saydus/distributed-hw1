@@ -42,6 +42,12 @@ import logging
 # for logging. Use it in place of print statements.
 from CS6381_MW.DiscoveryMW import DiscoveryMW
 from CS6381_MW import discovery_pb2
+
+
+from ZooKeeperAdapter import ZooKeeperAdapter
+from kazoo.recipe.election import Election
+
+
 ###################################
 #
 # Parse command line arguments
@@ -65,8 +71,6 @@ class DiscoveryAppln():
         self.dissemination = None
 
         self.mw_obj = None
-        self.num_publishers = 0
-        self.num_subscribers = 0
 
         self.publishers = set()
         self.subscribers = set()
@@ -76,11 +80,31 @@ class DiscoveryAppln():
         self.topic_to_publishers = {}
         self.broker_to_ip_port = {}
 
+        # Zookeeper related stuff
+        zk_hosts = "localhost:2181"
+        self.zookeeper_adapter = ZooKeeperAdapter(zk_hosts)
+        self.zk = self.zookeeper_adapter.zk  # Kazoo client from the adapter
+
+        # Unique identifier for this Discovery service instance. Will be assigned in configure()
+        self.node_id = None
+
+        # election object
+        self.election = None
+
+    def become_leader(self):
+        print(
+            f"Instance {self.node_id} is now the leader of the Discovery service.")
+
+    def run(self):
+        self.election.run(self.become_leader)
+
     def configure(self, args):
         try:
             self.logger.info("DiscoveryAppln: configure")
-            self.num_publishers = args.publishers
-            self.num_subscribers = args.subscribers
+
+            self.node_id = args.name
+            self.election = Election(
+                self.zk, "/discovery/election", self.node_id)
 
             config = configparser.ConfigParser()
             config.read(args.config)
@@ -93,19 +117,6 @@ class DiscoveryAppln():
             self.logger.info("DiscoveryAppln: configure: completed")
         except Exception as e:
             raise e
-
-    def handle_isready(self):
-        isSubscribersReady = len(self.subscribers) == self.num_subscribers
-        isPublishersReady = len(self.publishers) == self.num_publishers
-        isBrokersReady = (len(self.brokers) != 0 if self.dissemination ==
-                          'Broker' else True)
-
-        self.logger.info("DiscoveryAppln: handle_isready: isSubscribersReady: {}, isPublishersReady: {}, isBrokersReady: {}".format(
-            isSubscribersReady, isPublishersReady, isBrokersReady))
-
-        self.mw_obj.send_isready(
-            isSubscribersReady and isPublishersReady and isBrokersReady)
-        return None
 
     def handle_register(self, register_req):
         try:
@@ -136,6 +147,9 @@ class DiscoveryAppln():
                         self.topic_to_publishers))
                     self.mw_obj.send_register_resp(True)
 
+                    # Zookeeper register
+                    self.zookeeper_adapter.register_publisher(id, addr)
+
             elif register_req.role == discovery_pb2.ROLE_SUBSCRIBER:
                 self.logger.info("DiscoveryAppln: handle_register: subscriber")
                 if (id in self.subscribers):
@@ -147,6 +161,7 @@ class DiscoveryAppln():
                 else:
                     self.subscribers.add(id)
                     self.mw_obj.send_register_resp(True)
+                    self.zookeeper_adapter.register_subscriber(id, addr)
 
             elif register_req.role == discovery_pb2.ROLE_BOTH:
                 self.logger.info("DiscoveryAppln: handle_register: broker")
@@ -250,11 +265,8 @@ def parseCmdLineArgs():
     # using, what is our endpoint (i.e., port where we are going to bind at the
     # ZMQ level)
 
-    parser.add_argument("-P", "--publishers", type=int,
-                        default=1, help="Number of publishers")
-
-    parser.add_argument("-S", "--subscribers", type=int,
-                        default=1, help="Number of subscribers")
+    parser.add_argument("-n", "--name", default="discovery",
+                        help="Some name assigned to us. Keep it unique per discovery process")
 
     parser.add_argument("-c", "--config", default="config.ini",
                         help="configuration file (default: config.ini)")

@@ -63,10 +63,6 @@ class DiscoveryMW():
                 self.logger.info("DiscoveryMW: handle_request: register")
                 return self.upcall_obj.handle_register(request.register_req)
 
-            elif request.msg_type == discovery_pb2.TYPE_ISREADY:
-                self.logger.info("DiscoveryMW: handle_request: isready")
-                return self.upcall_obj.handle_isready()
-
             elif request.msg_type == discovery_pb2.TYPE_LOOKUP_PUB_BY_TOPIC:
                 self.logger.info("DiscoveryMW: handle_request: lookup")
                 return self.upcall_obj.handle_lookup_topic(request.lookup_req)
@@ -124,24 +120,6 @@ class DiscoveryMW():
                 if self.rep in events:
                     self.logger.info("DiscoveryMW: event_loop: received event")
                     timeout = self.handle_request()
-
-        except Exception as e:
-            raise e
-
-    def send_isready(self, is_ready):
-        try:
-            self.logger.info("DiscoveryMW: send_isready")
-            isready_resp = discovery_pb2.IsReadyResp()
-            isready_resp.status = is_ready
-
-            response = discovery_pb2.DiscoveryResp()
-            response.isready_resp.CopyFrom(isready_resp)
-            response.msg_type = discovery_pb2.TYPE_ISREADY
-
-            buf2send = response.SerializeToString()
-            self.logger.info("DiscoveryMW: send_isready: sending response")
-
-            self.rep.send(buf2send)
 
         except Exception as e:
             raise e

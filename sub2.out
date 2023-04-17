@@ -1,0 +1,94 @@
+2023-04-13 01:21:58,286 - root - INFO - Main - acquire a child logger and then log messages in the child
+2023-04-13 01:21:58,286 - SubscriberAppln - DEBUG - Main: parse command line arguments
+2023-04-13 01:21:58,298 - SubscriberAppln - DEBUG - Main: resetting log level to 10
+2023-04-13 01:21:58,298 - SubscriberAppln - DEBUG - Main: effective log level is 10
+2023-04-13 01:21:58,298 - SubscriberAppln - DEBUG - Main: obtain the subscriber appln object
+2023-04-13 01:21:58,298 - SubscriberAppln - DEBUG - Main: configure the subscriber appln object
+2023-04-13 01:21:58,298 - SubscriberAppln - INFO - SubscriberAppln::configure
+2023-04-13 01:21:58,298 - SubscriberAppln - DEBUG - SubscriberAppln::configure - parsing config.ini
+2023-04-13 01:21:58,299 - SubscriberAppln - DEBUG - SubscriberAppln::configure - selecting our topic list
+2023-04-13 01:21:58,299 - SubscriberAppln - DEBUG - SubscriberAppln::configure - initialize the middleware object
+2023-04-13 01:21:58,299 - SubscriberAppln - INFO - SubscriberMW::configure
+2023-04-13 01:21:58,299 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain ZMQ context
+2023-04-13 01:21:58,299 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain the poller
+2023-04-13 01:21:58,300 - SubscriberAppln - DEBUG - SubscriberMW::configure - obtain REQ and PUB sockets
+2023-04-13 01:21:58,300 - SubscriberAppln - DEBUG - SubscriberMW::configure - register the REQ socket for incoming replies
+2023-04-13 01:21:58,300 - SubscriberAppln - DEBUG - SubscriberMW::configure - connect to Discovery service
+2023-04-13 01:21:58,300 - SubscriberAppln - DEBUG - SubscriberMW::configure - bind to the pub socket
+2023-04-13 01:21:58,300 - SubscriberAppln - INFO - SubscriberMW::configure completed
+2023-04-13 01:21:58,300 - SubscriberAppln - INFO - SubscriberAppln::configure - configuration complete
+2023-04-13 01:21:58,300 - SubscriberAppln - DEBUG - Main: invoke the subscriber appln driver
+2023-04-13 01:21:58,300 - SubscriberAppln - INFO - SubscriberAppln::driver
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO - **********************************
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO - SubscriberAppln::dump
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO - ------------------------------
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO -      Name: sub2
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO -      Lookup: Centralized
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO -      Dissemination: Direct
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO -      Num Topics: 5
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO -      TopicList: ['light', 'pressure', 'airquality', 'sound', 'humidity']
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO - **********************************
+2023-04-13 01:21:58,301 - SubscriberAppln - DEBUG - SubscriberAppln::driver - upcall handle
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO - SublisherMW::event_loop - run the event loop
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-13 01:21:58,301 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - register with the discovery service ['light', 'pressure', 'airquality', 'sound', 'humidity']
+2023-04-13 01:21:58,301 - SubscriberAppln - INFO - SubscriberMW::register
+2023-04-13 01:21:58,301 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the Registrant Info
+2023-04-13 01:21:58,301 - SubscriberAppln - DEBUG - PublisherMW::register - done populating the Registrant Info
+2023-04-13 01:21:58,302 - SubscriberAppln - DEBUG - SubscriberMW::register - populate the nested register req
+2023-04-13 01:21:58,302 - SubscriberAppln - DEBUG - SubscriberMW::register - done populating nested RegisterReq
+2023-04-13 01:21:58,302 - SubscriberAppln - DEBUG - SubscriberMW::register - build the outer DiscoveryReq message
+2023-04-13 01:21:58,302 - SubscriberAppln - DEBUG - SubscriberMW::register - done building the outer message
+2023-04-13 01:21:58,302 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x01\x12F\x08\x02\x12\x14\n\x04sub2\x12\tlocalhost\x18\xd4+\x1a\x05light\x1a\x08pressure\x1a\nairquality\x1a\x05sound\x1a\x08humidity'
+2023-04-13 01:21:58,302 - SubscriberAppln - DEBUG - SubscriberMW::register - send stringified buffer to Discovery service
+2023-04-13 01:21:58,302 - SubscriberAppln - INFO - SubscriberMW::register - sent register message and now now wait for reply
+2023-04-13 01:21:58,303 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-13 01:21:58,303 - SubscriberAppln - INFO - SubcriberAppln::register_response
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - PublisherAppln::register_response - registration is a success
+2023-04-13 01:21:58,303 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - check if are ready to go
+2023-04-13 01:21:58,303 - SubscriberAppln - INFO - SubscriberMW::is_ready
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - populate the nested IsReady msg
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done populating nested IsReady msg
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - build the outer DiscoveryReq message
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - done building the outer message
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x02\x1a\x00'
+2023-04-13 01:21:58,303 - SubscriberAppln - DEBUG - SubscriberMW::is_ready - send stringified buffer to Discovery service
+2023-04-13 01:21:58,303 - SubscriberAppln - INFO - SubscriberMW::is_ready - request sent and now wait for reply
+2023-04-13 01:21:58,304 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-13 01:21:58,304 - SubscriberAppln - INFO - SubscriberMW::handle_reply - isready - response = status: true
+
+2023-04-13 01:21:58,304 - SubscriberAppln - INFO - SubscriberAppln::isready_response
+2023-04-13 01:21:58,304 - SubscriberAppln - INFO - SubscriberAppln::invoke_operation
+2023-04-13 01:21:58,304 - SubscriberAppln - DEBUG - SubscriberAppln::invoke_operation - start looking up
+2023-04-13 01:21:58,304 - SubscriberAppln - INFO - SubscriberMW::lookup
+2023-04-13 01:21:58,304 - SubscriberAppln - DEBUG - SubscriberMW::lookup - built the message
+2023-04-13 01:21:58,304 - SubscriberAppln - DEBUG - Stringified serialized buf = b'\x08\x03".\x12\x05light\x12\x08pressure\x12\nairquality\x12\x05sound\x12\x08humidity'
+2023-04-13 01:21:58,304 - SubscriberAppln - INFO - SubscriberMW::lookup - sent lookup message and now now wait for reply
+2023-04-13 01:21:58,305 - SubscriberAppln - INFO - SubscriberMW::handle_reply
+2023-04-13 01:21:58,305 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - response = publist: "localhost:5571"
+publist: "localhost:5570"
+, topiclist: ['light', 'pressure', 'airquality', 'sound', 'humidity']
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = light
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = pressure
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = airquality
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = sound
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup - subscribing to topic = humidity
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - lookup after topiclist subscription - publist = ['localhost:5571', 'localhost:5570'], type=<class 'google._upb._message.RepeatedScalarContainer'>
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - registrant_info 
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberMW::handle_reply - registrant_info 
+2023-04-13 01:21:58,306 - SubscriberAppln - INFO - SubscriberAppln::islookup_response
+Traceback (most recent call last):
+  File "/Users/saydagz/Desktop/StarterCode_ProgAssign/SubscriberAppln.py", line 409, in <module>
+    main()
+  File "/Users/saydagz/Desktop/StarterCode_ProgAssign/SubscriberAppln.py", line 396, in main
+    sub_app.driver()
+  File "/Users/saydagz/Desktop/StarterCode_ProgAssign/SubscriberAppln.py", line 322, in driver
+    self.mw_obj.event_loop(timeout=0)  # start the event loop
+  File "/Users/saydagz/Desktop/StarterCode_ProgAssign/CS6381_MW/SubscriberMW.py", line 152, in event_loop
+    events = dict(self.poller.poll(timeout=timeout))
+  File "/Users/saydagz/miniconda3/lib/python3.10/site-packages/zmq/sugar/poll.py", line 104, in poll
+    return zmq_poll(self.sockets, timeout=timeout)
+  File "zmq/backend/cython/_poll.pyx", line 121, in zmq.backend.cython._poll.zmq_poll
+  File "zmq/backend/cython/checkrc.pxd", line 13, in zmq.backend.cython.checkrc._check_rc
+KeyboardInterrupt
