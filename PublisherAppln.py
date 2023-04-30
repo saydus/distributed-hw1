@@ -63,6 +63,7 @@ from CS6381_MW import discovery_pb2
 from enum import Enum  # for an enumeration we are using to describe what state we are in
 from kazoo.client import KazooClient
 import json
+import random
 
 ##################################
 #       PublisherAppln class
@@ -103,10 +104,51 @@ class PublisherAppln ():
         self.discovery_addr = None
         self.discovery_port = None
 
+        self.topic_to_size = {}
+        self.topic_to_history = {}
+        self.is_leader = {}
+        self.topic_to_ownership = {}
+
     def get_discovery_leader(self):
         disc_data, _ = self.zk_client.get('/discovery/leader')
         leader = json.loads(disc_data.decode('utf-8'))
         return leader
+
+    def setup_history(self):
+        for topic in self.topiclist:
+            self.topic_to_history[topic] = random.randint(1, 5)
+            self.topic_to_history[topic] = []
+
+        self.logger.info(
+            "Topic to history soze: {}".format(self.topic_to_size))
+
+    def setup_topic_nodes(self):
+        for topic in self.topiclist:
+            self.zk_client.ensure_path(f'/topic/{topic}')
+            path = f'/topic/{topic}/{self.name}'
+            new_node = self.zk_client.create(
+                path, sequence=True, ephemeral=True, value=bytes(topic, 'utf-8'))
+            sequence = int(new_node.replace(path, ''))
+
+            self.topic_to_ownership[topic] = sequence
+            self.is_leader[topic] = False
+
+            self.setup_watch_for_topic(path, topic)
+
+    def setup_watch_for_topic(self, path, topic):
+        @self.zk_client.ChildrenWatch(path)
+        def watch_children(children):
+            if len(children) != 0:
+                min_node = 10000000
+
+                for child in children:
+                    node_sequence = int(child[child.find('-') + 1:])
+                    min_node = min(node_sequence, min_node)
+
+                if (min_node == self.topic_to_ownership[topic]):
+                    self.logger.info(
+                        "I am the leader for topic: {}".format(topic))
+                    self.is_leader[topic] = True
 
     ########################################
     # configure/initialize
@@ -169,7 +211,10 @@ class PublisherAppln ():
                                       'name': self.name
                                   }).encode('utf-8'))
 
-            @self.zk_client.ChildrenWatch('/discovery')
+            self.setup_history()
+            self.setup_topic_nodes()
+
+            @ self.zk_client.ChildrenWatch('/discovery')
             def watch_discovery(children):
                 # No children means the discovery died, so we can disconnect from the old one
                 if len(children) == 0 and self.discovery_leader_addr != None:
@@ -304,13 +349,29 @@ class PublisherAppln ():
                     # each iteration OR some subset of it. Please modify the logic accordingly.
                     # Here, we choose to disseminate on all topics that we publish.  Also, we don't care
                     # about their values. But in future assignments, this can change.
+                    diss_topics = []
                     for topic in self.topiclist:
                         # For now, we have chosen to send info in the form "topic name: topic value"
                         # In later assignments, we should be using more complex encodings using
                         # protobuf.  In fact, I am going to do this once my basic logic is working.
-                        dissemination_data = ts.gen_publication(topic)
+                        message = ts.gen_publication(topic)
+                        dissemination_data = str({
+                            "topic": topic,
+                            "message": message,
+                            "timestamp": time.time(),
+                            "publisher": self.name,
+                        })
+                        max_size = self.topic_to_size[topic]
+                        while len(self.topic_to_history[topic]) >= max_size:
+                            self.topic_to_history[topic].pop(0)
+
+                        self.topic_to_history[topic].append(dissemination_data)
+
                         self.mw_obj.disseminate(
                             self.name, topic, dissemination_data)
+
+                        if self.is_leader[topic]:
+                            diss_topics.append(topic)
 
                     # Now sleep for an interval of time to ensure we disseminate at the
                     # frequency that was configured.

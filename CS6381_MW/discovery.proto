@@ -40,9 +40,10 @@ enum MsgTypes {
 // use to encode the details of the publisher or subscriber
 // IP addr and port number are needed for publisher side only
 message RegistrantInfo {
-  string id = 1;            // name of the entity
-  optional string addr = 2; // IP address (only for publisher)
-  optional uint32 port = 3; // port number (only for publisher)
+  string id = 1;             // name of the entity
+  optional string addr = 2;  // IP address (only for publisher)
+  optional uint32 port = 3;  // port number (only for publisher)
+  optional string group = 4; // group name (only for brokers)
 }
 
 // Likewise, instead of just comma separated list of topics, maybe a better way

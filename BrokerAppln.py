@@ -66,7 +66,7 @@ class BrokerAppln():
         config.read(args.config)
 
         self.group = None
-        self.topics_assigned = config["GroupToTopicMapping"][self.group]
+        self.topics_assigned = config["GroupTopic"][self.group]
 
     def configure(self, args):
         self.logger.info("BrokerAppln: configure")
@@ -94,7 +94,7 @@ class BrokerAppln():
 
         @self.zk_client.ChildrenWatch('/brokers')
         def watch_discovery_children(children):
-            if (len(children) == 0):
+            if (self.zk_client.exists('/brokers/' + self.group) == None):
                 self.zk_am_broker_leader = self.register_broker()
 
         while not self.zk_am_broker_leader:
@@ -164,13 +164,13 @@ class BrokerAppln():
             }).encode("utf-8")
 
             self.zk_client.create(
-                "/brokers/leader", ephemeral=True, makepath=True, value=data_bytes)
+                f"/brokers/{self.group}", ephemeral=True, makepath=True, value=data_bytes)
             self.logger.info(
-                "Emphemeral /discovery/leader node already exists, we are not a leader")
+                f"Emphemeral /discovery/{self.group} node already exists, we are not a leader")
             return True
         except NodeExistsError:
             self.logger.info(
-                "Cannot create ephemeral /discovery/leader node, we are NOT a leader")
+                f"Cannot create ephemeral /discovery/{self.group} node, we are NOT a leader")
             return False
 
     def dump(self):
@@ -226,7 +226,7 @@ class BrokerAppln():
         try:
             self.logger.info("BrokerAppln: invoke_operation")
             if self.state == self.State.REGISTER:
-                self.mw_obj.register(self.name)
+                self.mw_obj.register(self.name, self.group)
                 return None
             elif self.state == self.State.ISREADY:
                 self.mw_obj.is_ready()
@@ -272,6 +272,9 @@ def parseCmdLineArgs():
 
     parser.add_argument("-z", "--zookeeper", default='localhost:2181',
                         help="Zookeeper server address. default=localhost:2181")
+
+    parser.add_argument("-g", "--group", choices=[
+                        'group1', 'group2', 'group3'])
 
     return parser.parse_args()
 

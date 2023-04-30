@@ -34,6 +34,7 @@ import time   # for sleep
 import argparse  # for argument parsing
 import configparser  # for configuration parsing
 import logging  # for logging. Use it in place of print statements.
+import random
 
 from topic_selector import TopicSelector
 
@@ -84,6 +85,7 @@ class SubscriberAppln():
         self.discovery_port = None
         self.discovery_sync_port = None
         self.zookeeper_addr = None
+        self.topic_to_saved_size = {}
 
     ########################################
     # configure/initialize
@@ -133,6 +135,11 @@ class SubscriberAppln():
             self.zookeeper_addr = args.zookeeper
             self.zk_client = KazooClient(hosts=self.zookeeper_addr)
             self.zk_client.start()
+
+            for topic in self.topiclist:
+                self.topic_to_saved_size[topic] = random.randint(1, 5)
+                self.logger.info(
+                    f'History size for topic {topic} is {str(self.topic_to_saved_size[topic])}')
 
             looper = True
             while looper:
@@ -218,16 +225,14 @@ class SubscriberAppln():
         except Exception as e:
             raise e
 
-    def handle_data(self, strRcvd):
+    def handle_data(self, messages):
         ''' handle data '''
 
         try:
             self.logger.info("SubscriberAppln::handle_data")
 
             self.logger.info(
-                "SubscriberAppln: Received a message {}".format(strRcvd))
-
-            self.meesages_received += 1
+                "SubscriberAppln: Received a message {}".format(messages))
 
             # return timeout of 0 so event loop calls us back in the invoke_operation
             # method, where we take action based on what state we are in.

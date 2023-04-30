@@ -140,7 +140,7 @@ class BrokerMW():
             elif request.msg_type == discovery_pb2.TYPE_ISREADY:
                 return self.upcall_obj.handle_isready(request.isready_resp)
 
-            elif request.msg_type == discovery_pb2.TYPE_LOOKUP_ALL_PUBS:
+            elif request.msg_type == discovery_pb2.TYPE_LOOKUP_ALL_PUBS or request.msg_type == discovery_pb2.TYPE_LOOKUP_PUB_BY_TOPIC:
                 return self.upcall_obj.handle_allpub_lookup(request.lookup_resp)
 
             else:
@@ -175,7 +175,7 @@ class BrokerMW():
         except Exception as e:
             raise e
 
-    def register(self, name):
+    def register(self, name, group):
         try:
             self.logger.debug(
                 "BrokerMW::register - populate the Registrant Info")
@@ -183,6 +183,7 @@ class BrokerMW():
             reg_info.id = name  # our id
             reg_info.addr = self.addr  # our advertised IP addr where we are publishing
             reg_info.port = self.port  # port on which we are publishing
+            reg_info.group = group
             self.logger.debug(
                 "BrokerMW::register - done populating the Registrant Info")
 

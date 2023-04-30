@@ -41,6 +41,7 @@ import zmq  # ZMQ sockets
 
 from CS6381_MW import discovery_pb2
 import json
+import ast
 
 
 class SubscriberMW ():
@@ -140,7 +141,20 @@ class SubscriberMW ():
             # convert to a string
             strRcvd = bytesRcvd.decode('utf-8')
 
-            return self.upcall_obj.handle_data(strRcvd)
+            #
+
+            topic = strRcvd[:strRcvd.find(':')]
+            data = strRcvd[strRcvd.find(':')+1:]
+
+            messages = ast.literal_eval(data)
+
+            messages_wanted = self.upcall_obj.topic_to_saved_size[topic]
+            received_messages = len(messages)
+
+            if received_messages >= messages_wanted:
+                return self.upcall_obj.handle_data(messages[- messages_wanted:])
+
+            return None
 
         except Exception as e:
             raise e

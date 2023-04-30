@@ -97,8 +97,13 @@ class DiscoveryAppln():
         self.zk_am_leader = False
         self.addr = None
         self.sub_port = None
-        self.broker_leader = None
         self.port = None
+
+        self.broker_leader = {
+            'group1': None,
+            'group2': None,
+            'group3': None
+        }
 
     def become_leader(self):
         print(
@@ -117,6 +122,12 @@ class DiscoveryAppln():
             config.read(args.config)
             self.lookup = config['Discovery']['Strategy']
             self.dissemination = config['Dissemination']['Strategy']
+
+            self.group_to_topics_mapping = {
+                'group1': config['GroupToTopicMapping']['group1'].split(','),
+                'group2': config['GroupToTopicMapping']['group2'].split(','),
+                'group3': config['GroupToTopicMapping']['group3'].split(',')
+            }
 
             self.mw_obj = DiscoveryMW(self.logger)
             self.mw_obj.configure()
@@ -227,75 +238,57 @@ class DiscoveryAppln():
             "broker_to_ip_port": self.broker_to_ip_port})
 
     def zookeeper_broker_children(self, children):
-        if (len(children) == 0):
-            self.logger.info(f'No primary broker found')
-            if (self.broker_leader != None):
+        new_leaders = {
+            'group1': None,
+            'group2': None,
+            'group3': None,
+        }
 
-                self.mw_obj.send_unsubscribe_update({
-                    'addr': self.broker_leader['addr'],
-                    'port': self.broker_leader['port']
-                })
+        for child in children:
+            data_bytes, _ = self.zk_client.get('/brokers/' + child)
+            node_dict = json.loads(data_bytes.decode('utf-8'))
+            new_leaders[node_dict['group']] = node_dict['name']
 
-                # Remove the broker from the state
-                remove_broker = self.broker_leader['name']
-                self.brokers.remove(remove_broker)
-                del self.broker_to_ip_port[remove_broker]
+            new_leaders[child] = node_dict
 
-                self.broker_leader = None
-                self.mw_obj.publish_discovery_update({
-                    "publishers": self.publishers,
-                    "publisher_to_ip_port": self.publisher_to_ip_port,
-                    "topic_to_publishers": self.topic_to_publishers,
-                    "subscribers": self.subscribers,
-                    "brokers": self.brokers,
-                    "broker_to_ip_port": self.broker_to_ip_port})
-            return
+        self.check_group_leaders(new_leaders)
+        self.broker_leader = new_leaders
 
-        # Get data from the node
-        node_bytes, _ = self.zk_client.get('/brokers/leader')
-        node_dict = json.loads(node_bytes.decode('utf-8'))
+    def check_group_leaders(self, new_leaders):
+        for group_name in ["group1", "group2", "group3"]:
+            if (self.broker_leader[group_name] == None):
+                if (new_leaders[group_name] != None):
+                    self.mw_obj.send_subscribe_update({
+                        'update_type': 'broker',
+                        'addr': new_leaders[group_name]['addr'],
+                        'port': new_leaders[group_name]['port'],
+                        'topics': self.group_to_topics_mapping[group_name]
+                    })
+                else:
+                    if (new_leaders[group_name] == None):
+                        self.mw_obj.send_unsubscribe_update({
+                            'addr': self.broker_leader[group_name]['addr'],
+                            'port': self.broker_leader[group_name]['port']
+                        })
+                        self.brokers.remove(
+                            self.broker_leader[group_name]['name'])
+                        del self.broker_to_ip_port[self.broker_leader[group_name]['name']]
 
-        self.logger.info(f'Current broker leader: {node_dict}')
+                    elif (self.broker_leader[group_name]['name'] != new_leaders[group_name]['name']):
+                        self.mw_obj.send_unsubscribe_update({
+                            'addr': self.broker_leader[group_name]['addr'],
+                            'port': self.broker_leader[group_name]['port']
+                        })
+                        self.brokers.remove(
+                            self.broker_leader[group_name]['name'])
+                        del self.broker_to_ip_port[self.broker_leader[group_name]['name']]
 
-        if (self.broker_leader['addr'] != node_dict['addr'] or self.broker_leader == None):
-            if (self.broker_leader != None):
-                self.mw_obj.publish_unsub_update({
-                    'addr': self.broker_leader['addr'],
-                    'port': self.broker_leader['port']
-                })
-
-                self.logger.info(
-                    f'Unsubscribed from old broker: {self.broker_leader}')
-
-                # Remove the broker from the state
-                old_broker_name = self.broker_leader['name']
-                self.brokers.remove(old_broker_name)
-                del self.broker_to_ip_port[old_broker_name]
-
-                self.mw_obj.publish_discovery_update(
-                    {
-                        "publishers": self.publishers,
-                        "publisher_to_ip_port": self.publisher_to_ip_port,
-                        "topic_to_publishers": self.topic_to_publishers,
-                        "subscribers": self.subscribers,
-                        "brokers": self.brokers,
-                        "broker_to_ip_port": self.broker_to_ip_port})
-
-            # Publish a sub update, notify of the new broker
-            # If you need any of these topics, subscribe to this
-            self.logger.info(
-                f'Sending a SUB update to subscribe to new broker: {node_dict}')
-
-            self.mw_obj.send_subscribe_update({
-                'update_type': 'broker',
-                'addr': node_dict['addr'],
-                'port': node_dict['port'],
-                'topics': []
-            })
-
-        self.broker_leader = node_dict
-        self.logger.info(f"New leader broker: {node_dict}")
-        return
+                        self.mw_obj.send_subscribe_update({
+                            'update_type': 'broker',
+                            'addr': new_leaders[group_name]['addr'],
+                            'port': new_leaders[group_name]['port'],
+                            'topics': self.group_to_topics_mapping[group_name]
+                        })
 
     def handle_register(self, register_req):
         try:
@@ -360,7 +353,7 @@ class DiscoveryAppln():
                     self.broker_to_ip_port[id] = addr
                     self.mw_obj.send_register_resp(True)
 
-            self.msw_obj.publish_discovery_update(
+            self.mw_obj.publish_discovery_update(
                 {
                     "publishers": self.publishers,
                     "publisher_to_ip_port": self.publisher_to_ip_port,
